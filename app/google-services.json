@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "895165558584",
+    "project_id": "expresscafe-4e437",
+    "storage_bucket": "expresscafe-4e437.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895165558584:android:30dc7d9aa23cc9eafe9bcd",
+        "android_client_info": {
+          "package_name": "com.example.cafe2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895165558584-jj7bsta3c9atr5gcq1dpmqrob9s883eg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3q6r8s8hfIApiVeSeK0GoJrhDnFNnQEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895165558584-jj7bsta3c9atr5gcq1dpmqrob9s883eg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895165558584:android:602185a55c962073fe9bcd",
+        "android_client_info": {
+          "package_name": "com.example.expresscafe1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895165558584-jj7bsta3c9atr5gcq1dpmqrob9s883eg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3q6r8s8hfIApiVeSeK0GoJrhDnFNnQEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895165558584-jj7bsta3c9atr5gcq1dpmqrob9s883eg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
