@@ -28,16 +28,7 @@ class AuthActivity : AppCompatActivity() {
         title = "Autentificacion"
 
        signUpButton.setOnClickListener{
-           if ( emailEditText.text.isNotEmpty() && passwordEditText.text.isNotEmpty()){
-               print(emailEditText)
-               FirebaseAuth.getInstance()
-                   .createUserWithEmailAndPassword(emailEditText.text.toString(),passwordEditText.text.toString())
-                   .addOnCompleteListener{ if (it.isSuccessful){
-                    showHome(it.result?.user?.email?: "", ProviderType.BASIC)
-                   }
-                   else { showAlert() }
-                   }
-           }
+           showRegistrar()
        }
 
         loginButton.setOnClickListener{
@@ -73,5 +64,10 @@ class AuthActivity : AppCompatActivity() {
         }
         startActivity(homeIntent)
 
+    }
+
+    private fun showRegistrar(){
+        val RegistrarIntent = Intent (this, RegistrarActivity::class.java)
+        startActivity(RegistrarIntent)
     }
 }
