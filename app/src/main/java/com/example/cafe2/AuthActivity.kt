@@ -80,6 +80,7 @@ class AuthActivity : AppCompatActivity() {
 
     }
 
+
     private fun showHome(email:String){
         val homeIntent = Intent(this, HomeActivity::class.java).apply {
             putExtra("email",email)
