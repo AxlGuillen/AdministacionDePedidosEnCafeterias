@@ -113,7 +113,7 @@
         app:layout_constraintVertical_bias="0.125" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/nombreProducto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -124,7 +124,7 @@
         app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.43" />
+        app:layout_constraintVertical_bias="0.432" />
 
     <Button
         android:id="@+id/button6"
@@ -154,7 +154,6 @@
         android:id="@+id/button8"
         android:layout_width="60dp"
         android:layout_height="40dp"
-        android:text="Button"
         app:icon="@drawable/home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -176,7 +175,7 @@
         app:layout_constraintVertical_bias="0.958" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/btnAñadirProducto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Añadir"
@@ -189,7 +188,7 @@
         app:layout_constraintVertical_bias="0.86" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/descripcionProducto"
         android:layout_width="328dp"
         android:layout_height="139dp"
         android:ems="10"
@@ -204,7 +203,7 @@
         app:layout_constraintVertical_bias="0.716" />
 
     <EditText
-        android:id="@+id/textPrecio"
+        android:id="@+id/precioProducto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
