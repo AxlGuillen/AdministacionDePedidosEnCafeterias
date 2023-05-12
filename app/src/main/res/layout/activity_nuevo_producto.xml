@@ -40,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.557"
-        tools:text="Nuevo Producto" />
+        tools:text="Editar Producto" />
 
     <Button
         android:id="@+id/btnRegresar"
@@ -175,17 +175,18 @@
         app:layout_constraintVertical_bias="0.958" />
 
     <Button
-        android:id="@+id/btnAñadirProducto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Añadir"
-        app:icon="@android:drawable/ic_input_add"
+        android:id="@+id/btnSave"
+        android:layout_width="118dp"
+        android:layout_height="40dp"
+        android:text="Guardar"
+        android:textSize="12sp"
+        app:icon="@android:drawable/ic_menu_save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.86" />
+        app:layout_constraintVertical_bias="0.863" />
 
     <EditText
         android:id="@+id/descripcionProducto"
@@ -215,5 +216,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.523"
         tools:text="**$Precio" />
+
+    <Button
+        android:id="@+id/btnCancelar"
+        android:layout_width="118dp"
+        android:layout_height="40dp"
+        android:text="Cancelar"
+        android:textSize="12sp"
+        app:icon="@android:drawable/ic_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.771"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.863" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
