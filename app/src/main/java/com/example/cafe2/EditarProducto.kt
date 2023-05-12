@@ -9,13 +9,11 @@ import kotlinx.android.synthetic.main.activity_nuevo_producto.descripcionProduct
 import kotlinx.android.synthetic.main.activity_nuevo_producto.nombreProducto
 import kotlinx.android.synthetic.main.activity_nuevo_producto.precioProducto
 
-class NuevoProducto : AppCompatActivity() {
+class EditarProducto : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nuevo_producto)
-
-        print("Estas en Nuevo producto");
 
         btnSave.setOnClickListener {
             AgregarProducto()
@@ -27,7 +25,7 @@ class NuevoProducto : AppCompatActivity() {
     }
 
     private fun AgregarProducto(){
-        title = "Agregar Producto"
+        title = "Editar producto"
 
         //Declaramos la variable de nombre, precio, descripcion y falta imagen
         val nombre = nombreProducto.text
