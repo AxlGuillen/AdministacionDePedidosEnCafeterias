@@ -16,6 +16,21 @@
             android:name=".menu_admin"
             android:exported="false" />
         <activity
+            android:name=".MenuUsuarios"
+            android:exported="false" />
+        <activity
+            android:name=".PreguntaConfirmacion"
+            android:exported="false" />
+        <activity
+            android:name=".OperacionExitosa"
+            android:exported="false" />
+        <activity
+            android:name=".inicio_Admin"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrarActivity"
+            android:exported="false" />
+        <activity
             android:name=".inicio_Admin"
             android:exported="false" />
         <activity
