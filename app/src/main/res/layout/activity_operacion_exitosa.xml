@@ -7,85 +7,18 @@
     tools:context=".OperacionExitosa">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent">
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="32dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="11dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/textTitulo2"
-                android:layout_width="113dp"
-                android:layout_height="38dp"
-                android:layout_weight="1"
-                android:text="Titulo"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/divider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.332"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.557"
-                tools:text="AÑADIDO" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/btnNoti2"
-                android:layout_width="65dp"
-                android:layout_height="46dp"
-                android:layout_weight="1"
-                app:icon="@android:drawable/ic_popup_reminder"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.675"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.037" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/btnPerfil2"
-                android:layout_width="65dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="Perfil"
-                app:layout_constraintBottom_toBottomOf="@+id/divider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.95"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.47" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <Space
             android:layout_width="match_parent"
@@ -96,33 +29,14 @@
             android:layout_height="92dp"
             android:orientation="horizontal">
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Space
-                android:layout_width="43dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/textMensaje"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="¡AÑADIDO CON ÉXITO!"
+                android:textAlignment="center"
                 android:textSize="34sp" />
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -248,7 +162,18 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-        </LinearLayout>
-
     </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="OK"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="#8A2626" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
