@@ -18,17 +18,19 @@ class OperacionExitosa : AppCompatActivity() {
         btnSi.setOnClickListener {
             val homeIntent = Intent(this, NuevoProducto::class.java).apply {
 
-        intent.extras
-        val bundle = intent.extras
-        val mensaje:String? = bundle?.getString("Mensaje")
-        textMensaje.text = mensaje
+                intent.extras
+                val bundle = intent.extras
+                val mensaje: String? = bundle?.getString("Mensaje")
+                textMensaje.text = mensaje}
 
-        btnOk.setOnClickListener {
-            val homeAdmIntent = Intent(this, inicio_Admin::class.java).apply {
+                btnOk.setOnClickListener {
+                    val homeAdmIntent = Intent(this, inicio_Admin::class.java).apply {
 
-            }
-            startActivity(homeAdmIntent)
+                    }
+                    startActivity(homeAdmIntent)
+                }
+
+
         }
-
     }
 }

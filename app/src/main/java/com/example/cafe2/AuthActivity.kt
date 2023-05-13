@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.activity_auth.emailEditText
 import kotlinx.android.synthetic.main.activity_auth.loginButton
 import kotlinx.android.synthetic.main.activity_auth.passwordEditText
 import kotlinx.android.synthetic.main.activity_auth.signUpButton
-import kotlinx.android.synthetic.main.activity_nuevo_producto.editTextText
 
 class AuthActivity : AppCompatActivity() {
 
@@ -23,7 +22,7 @@ class AuthActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_auth)
+        setContentView(activity_auth)
 
 
     //setup
@@ -81,7 +80,7 @@ class AuthActivity : AppCompatActivity() {
     }
 
 
-    private fun showHome(email:String, provider: ProviderType){
+    private fun showHome(email:String){
         val homeIntent = Intent(this, inicio_Admin::class.java).apply {
 
             putExtra("email",email)
