@@ -3,7 +3,10 @@ package com.example.cafe2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_nuevo_producto.btnCancelar
+import kotlinx.android.synthetic.main.activity_nuevo_producto.btnRegresar
 import kotlinx.android.synthetic.main.activity_nuevo_producto.btnSave
 import kotlinx.android.synthetic.main.activity_nuevo_producto.descripcionProducto
 import kotlinx.android.synthetic.main.activity_nuevo_producto.nombreProducto
@@ -15,13 +18,22 @@ class NuevoProducto : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nuevo_producto)
 
-        print("Estas en Nuevo producto");
 
+        //boton para guardar el nuevo producto en la base de datos
         btnSave.setOnClickListener {
             AgregarProducto()
-            val homeIntent = Intent(this, OperacionExitosa::class.java).apply {
-            }
-            startActivity(homeIntent)
+
+        }
+
+        //boton de cancelar regresa al main de adm
+        btnCancelar.setOnClickListener {
+            val inicioAdmIntent = Intent(this, inicio_Admin::class.java)
+            startActivity(inicioAdmIntent)
+        }
+
+        //boton de la flechita
+        btnRegresar.setOnClickListener {
+            onBackPressed()
         }
 
     }
@@ -40,8 +52,25 @@ class NuevoProducto : AppCompatActivity() {
                 "Estado" to true,
                 "Descripcion" to descripcion.toString()
             )
-            )
+            ).addOnCompleteListener{if (it.isSuccessful){
+                val OperacionExitosaIntent = Intent(this, OperacionExitosa::class.java).apply {
+                    putExtra("Mensaje","Añadido exitosamente.")
+                }
+                startActivity(OperacionExitosaIntent)
+            }else{
+                showAlert()
+            }}
 
         }
+
+    private fun showAlert(){
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Error")
+        builder.setMessage("Se ha producido un error al agregar el producto.")
+        builder.setPositiveButton("Aceptar",null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+
+    }
 
 }
