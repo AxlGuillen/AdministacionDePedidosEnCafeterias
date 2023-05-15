@@ -54,6 +54,7 @@ class AuthActivity : AppCompatActivity() {
                                 }
                                 //Mandamos a la pantalla principal de Administrador
                                 if(Rol.equals("Administrador")){
+                                    //editar
                                     showRegistrar()
                                 }
                                 //Mandamos a la pantalla principal de Cajero

@@ -83,6 +83,7 @@
                 android:id="@+id/btnSi"
                 android:layout_width="100dp"
                 android:layout_height="60dp"
+                android:backgroundTint="#FF5722"
                 android:text="Sí"
                 app:icon="@drawable/palomita"
                 app:strokeColor="#8A2626" />
@@ -97,6 +98,7 @@
                 android:layout_width="100dp"
                 android:layout_height="60dp"
                 android:layout_weight="1"
+                android:backgroundTint="#FF5722"
                 android:text="No"
                 app:icon="@android:drawable/ic_delete" />
 
