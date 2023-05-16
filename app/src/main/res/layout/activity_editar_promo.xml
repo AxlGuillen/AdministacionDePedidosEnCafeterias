@@ -4,10 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NuevaPromo">
+    tools:context=".EditarPromo">
+
+    <Button
+        android:id="@+id/btnCancelar4"
+        android:layout_width="118dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#FF5722"
+        android:text="Cancelar"
+        android:textSize="12sp"
+        app:icon="@android:drawable/ic_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.771"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.863" />
+
+    <Button
+        android:id="@+id/btnSave6"
+        android:layout_width="118dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#FF5722"
+        android:text="Guardar"
+        android:textSize="12sp"
+        app:icon="@android:drawable/ic_menu_save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.863" />
 
     <View
-        android:id="@+id/divider3"
+        android:id="@+id/divider5"
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"
@@ -18,7 +48,7 @@
         app:layout_constraintVertical_bias="0.184" />
 
     <View
-        android:id="@+id/divider4"
+        android:id="@+id/divider6"
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"
@@ -29,7 +59,7 @@
         app:layout_constraintVertical_bias="0.104" />
 
     <TextView
-        android:id="@+id/textTitulo3"
+        android:id="@+id/textTitulo4"
         android:layout_width="230dp"
         android:layout_height="35dp"
         android:layout_marginTop="28dp"
@@ -41,10 +71,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.557"
-        tools:text="Nueva Promoción" />
+        tools:text="Editar Promoción" />
 
     <TextView
-        android:id="@+id/textCampos2"
+        android:id="@+id/textCampos3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="612dp"
@@ -56,7 +86,7 @@
         app:layout_constraintTop_toTopOf="@+id/divider" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView7"
         android:layout_width="119dp"
         android:layout_height="119dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,7 +98,7 @@
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="496dp"
@@ -83,12 +113,12 @@
         app:layout_constraintVertical_bias="0.125" />
 
     <EditText
-        android:id="@+id/nombreProducto2"
+        android:id="@+id/nombreProducto3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Nombre-Producto"
         android:background="@drawable/style_borde_edittext"
+        android:ems="10"
+        android:hint="Nombre-Promo"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,29 +127,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.432" />
 
-    <Button
-        android:id="@+id/btnSave2"
-        android:layout_width="118dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#FF5722"
-        android:text="Añadir"
-        android:textSize="12sp"
-        app:icon="@android:drawable/ic_menu_add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863" />
-
     <EditText
-        android:id="@+id/descripcionProducto2"
+        android:id="@+id/descripcionProducto3"
         android:layout_width="328dp"
         android:layout_height="139dp"
+        android:background="@drawable/style_borde_edittext"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Descripcion"
-        android:background="@drawable/style_borde_edittext"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -129,12 +144,12 @@
         app:layout_constraintVertical_bias="0.716" />
 
     <EditText
-        android:id="@+id/precioProducto2"
+        android:id="@+id/precioProducto3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/style_borde_edittext"
         android:ems="10"
         android:hint="Precio"
-        android:background="@drawable/style_borde_edittext"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -142,5 +157,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.523" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
