@@ -93,10 +93,10 @@ class RegistrarActivity : AppCompatActivity() {
 
         } else{
             //se valida que la contraseña tenga mas de 7 digitos
-            if(passRegistrarRegistrarCajero.length()<7)
-            passRegistrarRegistrarCajero.error = "La contraseña debe ser mas larga"
-            else
-            passRegistrarRegistrarCajero.error=null}
+            if(passRegistrarRegistrarCajero.length()<7){
+            passRegistrarRegistrarCajero.error = "La contraseña debe ser mas larga"}
+            else{
+            passRegistrarRegistrarCajero.error=null}}
         //se valida que el nombre no este vacio
         if(nombreRegistrarRegistrarCajero.text.isBlank()){
             isValid = false;
