@@ -16,6 +16,21 @@
             android:name=".RegistrarCajerosAdm"
             android:exported="false" />
         <activity
+            android:name=".EditarPromo"
+            android:exported="false" />
+        <activity
+            android:name=".EditarPerfil"
+            android:exported="false" />
+        <activity
+            android:name=".Perfil"
+            android:exported="false" />
+        <activity
+            android:name=".NuevaPromo"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrarCajero"
+            android:exported="false" />
+        <activity
             android:name=".menu_admin"
             android:exported="false" />
         <activity
@@ -32,9 +47,6 @@
             android:exported="false" />
         <activity
             android:name=".RegistrarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".NuevoProducto"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
