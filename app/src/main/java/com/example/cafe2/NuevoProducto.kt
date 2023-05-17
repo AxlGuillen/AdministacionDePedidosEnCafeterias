@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_nuevo_producto.btnCancelar
+import kotlinx.android.synthetic.main.activity_nuevo_producto.btnPerfil
 import kotlinx.android.synthetic.main.activity_nuevo_producto.btnRegresar
 import kotlinx.android.synthetic.main.activity_nuevo_producto.btnSave
 import kotlinx.android.synthetic.main.activity_nuevo_producto.descripcionProducto
@@ -34,6 +35,12 @@ class NuevoProducto : AppCompatActivity() {
         //boton de la flechita
         btnRegresar.setOnClickListener {
             onBackPressed()
+        }
+
+        //abre el perfil
+        btnPerfil.setOnClickListener {
+            val perfilIntent = Intent(this, Perfil::class.java)
+            startActivity(perfilIntent)
         }
 
     }

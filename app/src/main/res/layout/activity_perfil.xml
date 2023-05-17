@@ -20,14 +20,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023">
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
         <Button
             android:id="@+id/btnRegresar2"
-            android:layout_width="66dp"
+            android:layout_width="20dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:backgroundTint="#FF5722"
@@ -38,14 +33,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Space
-            android:layout_width="12dp"
-            android:layout_height="38dp"
-            android:layout_weight="1" />
-
         <TextView
             android:id="@+id/textTitulo2"
-            android:layout_width="113dp"
+            android:layout_width="250dp"
             android:layout_height="38dp"
             android:layout_weight="1"
             android:text="Titulo"
@@ -61,7 +51,7 @@
 
         <Button
             android:id="@+id/btnNoti2"
-            android:layout_width="47dp"
+            android:layout_width="20dp"
             android:layout_height="46dp"
             android:layout_weight="1"
             android:backgroundTint="#FF5722"
@@ -75,15 +65,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.037" />
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
     </LinearLayout>
 
     <ImageView
@@ -99,7 +80,7 @@
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/nombrePerfil"
         android:layout_width="370dp"
         android:layout_height="50dp"
         android:background="@drawable/style_borde_edittext"
@@ -111,7 +92,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/edadPerfil"
         android:layout_width="370dp"
         android:layout_height="50dp"
         android:background="@drawable/style_borde_edittext"
@@ -125,7 +106,7 @@
         app:layout_constraintVertical_bias="0.596" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/telefonoPerfil"
         android:layout_width="370dp"
         android:layout_height="50dp"
         android:background="@drawable/style_borde_edittext"

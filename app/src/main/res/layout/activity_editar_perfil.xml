@@ -27,7 +27,7 @@
 
         <Button
             android:id="@+id/btnRegresar2"
-            android:layout_width="66dp"
+            android:layout_width="43dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:backgroundTint="#FF5722"
