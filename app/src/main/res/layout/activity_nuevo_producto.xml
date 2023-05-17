@@ -40,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.557"
-        tools:text="Editar Producto" />
+        tools:text="Agreagar Producto" />
 
     <Button
         android:id="@+id/btnRegresar"
@@ -144,7 +144,7 @@
         app:layout_constraintVertical_bias="0.958" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btnUsuariosNuevoProducto"
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:backgroundTint="#FF5722"
@@ -157,7 +157,7 @@
         app:layout_constraintVertical_bias="0.958" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btnInicioAdmNuevoProducto"
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:backgroundTint="#FF5722"
@@ -170,7 +170,7 @@
         app:layout_constraintVertical_bias="0.958" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/btnPromocionesNuevoProducto"
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:backgroundTint="#FF5722"
