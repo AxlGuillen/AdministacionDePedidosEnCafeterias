@@ -5,17 +5,18 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class menu_clientes_admin : AppCompatActivity() {
+
+class menu_cajeros_admin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu_clientes_admin)
+        setContentView(R.layout.activity_menu_cajeros_admin)
 
         val recycler : RecyclerView = findViewById(R.id.clientesRecycler)
-        val adapter : adapterClientes = adapterClientes()
+        val adapter : adapterCajeros = adapterCajeros()
 
         //Configuracion del Adapter
 
-        adapter.clientesAdapter(clientes(), this)
+        adapter.cajerosAdapter(clientes(), this)
 
 
         //Configuracion del RecyclerView
@@ -26,14 +27,13 @@ class menu_clientes_admin : AppCompatActivity() {
     }
     private fun clientes(): MutableList<clienteModel> {
         var clieModels : MutableList<clienteModel> = ArrayList()
-        clieModels.add(clienteModel("Cliente 1", "email1@hotmail.com"))
-        clieModels.add(clienteModel("Cliente 2", "email1@hotmail.com"))
-        clieModels.add(clienteModel("Cliente 3", "email1@hotmail.com"))
-        clieModels.add(clienteModel("Cliente 4", "email1@hotmail.com"))
-        clieModels.add(clienteModel("Cliente 5", "email1@hotmail.com"))
-        clieModels.add(clienteModel("Cliente 6", "email1@hotmail.com"))
+        clieModels.add(clienteModel("Cajero 1", "email1@hotmail.com"))
+        clieModels.add(clienteModel("Cajero 2", "email1@hotmail.com"))
+        clieModels.add(clienteModel("Cajero 3", "email1@hotmail.com"))
+        clieModels.add(clienteModel("Cajero 4", "email1@hotmail.com"))
+        clieModels.add(clienteModel("Cajero 5", "email1@hotmail.com"))
+        clieModels.add(clienteModel("Cajero 6", "email1@hotmail.com"))
         return clieModels
 
     }
-
 }

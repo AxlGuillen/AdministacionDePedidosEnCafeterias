@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class clientesAdapter : RecyclerView.Adapter<clientesAdapter.ViewHolder>() {
+class adapterClientes : RecyclerView.Adapter<adapterClientes.ViewHolder>() {
 
     var clientes : MutableList<clienteModel> = ArrayList()
     lateinit var context : Context
@@ -29,15 +29,15 @@ class clientesAdapter : RecyclerView.Adapter<clientesAdapter.ViewHolder>() {
 
     }
 
-    override fun onBindViewHolder(holder: clientesAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: adapterClientes.ViewHolder, position: Int) {
         holder.nombre.text = clientes[position].nombre
         holder.email.text = clientes[position].email
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): clientesAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): adapterClientes.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.menu_clientes_admin_card, parent,false)
-        return clientesAdapter.ViewHolder(view)
+        return adapterClientes.ViewHolder(view)
     }
 
     override fun getItemCount() = clientes.size
