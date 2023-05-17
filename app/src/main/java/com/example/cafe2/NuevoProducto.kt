@@ -26,12 +26,6 @@ class NuevoProducto : AppCompatActivity() {
 
         }
 
-        //boton de cancelar regresa al main de adm
-        btnCancelar.setOnClickListener {
-            val inicioAdmIntent = Intent(this, inicio_Admin::class.java)
-            startActivity(inicioAdmIntent)
-        }
-
         //boton de la flechita
         btnRegresar.setOnClickListener {
             onBackPressed()
