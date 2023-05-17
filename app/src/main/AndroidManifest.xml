@@ -16,6 +16,12 @@
             android:name=".EditarProducto"
             android:exported="false" />
         <activity
+            android:name=".promos_admin"
+            android:exported="false" />
+        <activity
+            android:name=".menu_cajeros_admin"
+            android:exported="false" />
+        <activity
             android:name=".menu_clientes_admin"
             android:exported="false" />
         <activity

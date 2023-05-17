@@ -35,7 +35,7 @@
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/imgComida"
             android:layout_toRightOf="@+id/imgComida"
-            android:text="Nombre del Platillo"
+            android:text="Nombre Promo"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -59,7 +59,7 @@
             android:layout_below="@+id/view_precio"
             android:layout_toEndOf="@+id/imgComida"
             android:layout_toRightOf="@+id/imgComida"
-            android:text="Descripcion"
+            android:text="Descripcion de la promo"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -88,5 +88,4 @@
             app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
     </RelativeLayout>
-
 </androidx.cardview.widget.CardView>
