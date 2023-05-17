@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 class menu_admin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_menu_admin)
 
-        val recycler : RecyclerView = findViewById(R.id.menuRecycler)
+        val recycler : RecyclerView = findViewById(R.id.clientesRecycler)
         val adapter : RecyclerViewAdapter = RecyclerViewAdapter()
 
         //Configuracion del Adapter

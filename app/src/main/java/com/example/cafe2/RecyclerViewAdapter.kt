@@ -16,7 +16,11 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
         this.platillos = platillos
         this.context = context
     }
-
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.nombre.text = platillos[position].nombre
+        holder.precio.text = platillos[position].precio
+        holder.desc.text = platillos[position].desc
+    }
     class ViewHolder (view : View):RecyclerView.ViewHolder(view){
         val nombre: TextView
         val precio:TextView
@@ -31,15 +35,11 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.lista_admin_menu,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.lista_admin_menu_card, parent,false)
         return ViewHolder(view)
     }
 
     override fun getItemCount() = platillos.size
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.nombre.text = platillos[position].nombre
-        holder.precio.text = platillos[position].precio
-        holder.desc.text = platillos[position].desc
-    }
+
 }
