@@ -7,6 +7,20 @@
     tools:context=".EditarPromo">
 
     <Button
+        android:id="@+id/btnRegresar4"
+        android:layout_width="62dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:backgroundTint="#FF5722"
+        app:icon="?attr/homeAsUpIndicator"
+        app:layout_constraintBottom_toBottomOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/btnCancelar4"
         android:layout_width="118dp"
         android:layout_height="40dp"
@@ -56,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.104" />
+        app:layout_constraintVertical_bias="0.112" />
 
     <TextView
         android:id="@+id/textTitulo4"
@@ -91,10 +105,10 @@
         android:layout_height="119dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintHorizontal_bias="0.126"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.264"
+        app:layout_constraintVertical_bias="0.267"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <Button
