@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class adapterPromos : RecyclerView.Adapter<adapterPromos.ViewHolder>() {
 
     var platillos : MutableList<menuModel> = ArrayList()
     lateinit var context : Context
 
-    fun RecyclerViewAdapter(platillos:MutableList<menuModel>, context:Context){
+    fun adapterPromos(platillos:MutableList<menuModel>, context: Context){
         this.platillos = platillos
         this.context = context
     }
@@ -21,10 +21,10 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
         holder.precio.text = platillos[position].precio
         holder.desc.text = platillos[position].desc
     }
-    class ViewHolder (view : View):RecyclerView.ViewHolder(view){
+    class ViewHolder (view : View): RecyclerView.ViewHolder(view){
         val nombre: TextView
-        val precio:TextView
-        val desc:TextView
+        val precio: TextView
+        val desc: TextView
 
         init{
             nombre = view.findViewById(R.id.view_nombre)
@@ -35,11 +35,9 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.lista_admin_menu_card, parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.lista_promos_card, parent,false)
         return ViewHolder(view)
     }
 
     override fun getItemCount() = platillos.size
-
-
 }

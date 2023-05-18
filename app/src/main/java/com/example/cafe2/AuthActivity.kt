@@ -56,7 +56,8 @@ class AuthActivity : AppCompatActivity() {
                                 }
                                 //Mandamos a la pantalla principal de Administrador
                                 if(Rol.equals("Administrador")){
-                                    showHome(emailEditText.toString())
+                                    //editar
+                                    showRegistrar()
                                 }
                                 //Mandamos a la pantalla principal de Cajero
                                 if(Rol.equals("Cajero")){}
@@ -83,7 +84,8 @@ class AuthActivity : AppCompatActivity() {
 
 
     private fun showHome(email:String){
-        val homeIntent = Intent(this, EditarProducto::class.java).apply {
+
+        val homeIntent = Intent(this, inicio_admin::class.java).apply {
             putExtra("email",email)
         }
         startActivity(homeIntent)

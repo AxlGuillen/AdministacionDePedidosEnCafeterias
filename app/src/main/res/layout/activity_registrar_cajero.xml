@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".RegistrarActivity">
+    android:layout_height="match_parent"
+    tools:context=".RegistrarCajero">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnFlechita"
+                android:id="@+id/btnRegresar3"
                 android:layout_width="10dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
@@ -53,72 +53,63 @@
             android:layout_height="75dp" />
 
         <EditText
-            android:id="@+id/emailRegistrarRegistrarCajero"
+            android:id="@+id/emailRegistrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Correo"
+            android:background="@drawable/style_borde_edittext"
             android:inputType="textEmailAddress" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="30dp" />
 
         <EditText
-            android:id="@+id/passRegistrarRegistrarCajero"
+            android:id="@+id/passRegistrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Contraseña"
+            android:background="@drawable/style_borde_edittext"
             android:inputType="textPassword" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="27dp" />
 
         <EditText
-            android:id="@+id/telefonoRegistrarRegistrarCajero"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Telefono"
-            android:inputType="phone" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
-
-        <EditText
-            android:id="@+id/nombreRegistrarRegistrarCajero"
+            android:id="@+id/nombreRegistrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Nombre"
+            android:background="@drawable/style_borde_edittext"
             android:inputType="text" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="32dp" />
 
         <EditText
-            android:id="@+id/edadRegistrarRegistrarCajero"
+            android:id="@+id/edadRegistrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Edad"
+            android:background="@drawable/style_borde_edittext"
             android:inputType="number" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:layout_height="50dp" />
 
         <Button
-            android:id="@+id/btnRegistrarRegistrarCajero"
+            android:id="@+id/btnRegistrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#FF5722"
             android:text="Registrar" />
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

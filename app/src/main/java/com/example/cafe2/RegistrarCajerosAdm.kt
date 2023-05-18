@@ -6,34 +6,35 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.util.PatternsCompat
-import kotlinx.android.synthetic.main.activity_registrar.btnRegistrarRegistrarCajero
-import kotlinx.android.synthetic.main.activity_registrar.emailRegistrarRegistrarCajero
-import kotlinx.android.synthetic.main.activity_registrar.passRegistrarRegistrarCajero
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+
+import kotlinx.android.synthetic.main.activity_registrar.btnRegistrarRegistrarCajero
 import kotlinx.android.synthetic.main.activity_registrar.edadRegistrarRegistrarCajero
+import kotlinx.android.synthetic.main.activity_registrar.emailRegistrarRegistrarCajero
 import kotlinx.android.synthetic.main.activity_registrar.nombreRegistrarRegistrarCajero
+import kotlinx.android.synthetic.main.activity_registrar.passRegistrarRegistrarCajero
 import kotlinx.android.synthetic.main.activity_registrar.telefonoRegistrarRegistrarCajero
 import kotlinx.android.synthetic.main.activity_registrar_cajeros_adm.btnFlechita
 
+class RegistrarCajerosAdm : AppCompatActivity() {
 
-class RegistrarActivity : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registrar)
+        setContentView(R.layout.activity_registrar_cajeros_adm)
 
-        Registrarse()
+        AgregarCajero()
 
         //boton de la flechita
         btnFlechita.setOnClickListener {
             onBackPressed()
         }
-
     }
 
-    private fun Registrarse(){
-        title = "Registrarse"
+    private fun AgregarCajero(){
+        title = "Agregar Cajero"
 
         btnRegistrarRegistrarCajero.setOnClickListener{
 
@@ -44,7 +45,7 @@ class RegistrarActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance()
                     .createUserWithEmailAndPassword(emailRegistrarRegistrarCajero.text.toString(),passRegistrarRegistrarCajero.text.toString())
                     .addOnCompleteListener{ if (it.isSuccessful){
-                        showAuth()
+                        showOperacionExitosaAgregando()
                     }
                     else { showAlert() }
                     }
@@ -52,19 +53,19 @@ class RegistrarActivity : AppCompatActivity() {
                 //Aqui se guarda en la base de datos
                 db.collection("Usuarios").document(email.toString()).set(
                     hashMapOf("Edad" to edadRegistrarRegistrarCajero.text.toString(),
-                    "Estado" to true,
+                        "Estado" to true,
                         "Nombre" to nombreRegistrarRegistrarCajero.text.toString(),
                         "Privilegios" to false,
-                        "Rol" to "Cliente",
+                        "Rol" to "Cajero",
                         "Telefono" to telefonoRegistrarRegistrarCajero.text.toString()
-                        )
+                    )
                 )//datos a guardar: Edad, estado, Nombre,Privilegios,Rol,Telefono
 
 
             }
 
         }
-        }
+    }
 
     private fun validarDatos(): Boolean {
         //&& passRegistrar.text.isNotEmpty()
@@ -76,27 +77,27 @@ class RegistrarActivity : AppCompatActivity() {
         }
         else{
             //se valida si el email es valido o no.
-        if(!PatternsCompat.EMAIL_ADDRESS.matcher(emailRegistrarRegistrarCajero.text).matches()){
-            isValid = false;
-            emailRegistrarRegistrarCajero.error = "Por favor escriba un correo valido"
-        }
+            if(!PatternsCompat.EMAIL_ADDRESS.matcher(emailRegistrarRegistrarCajero.text).matches()){
+                isValid = false;
+                emailRegistrarRegistrarCajero.error = "Por favor escriba un correo valido"
+            }
             else{
                 //se resetea el mensaje de error
                 emailRegistrarRegistrarCajero.error=null;
             }
         }
 
-    //se valida que la contraseña no este vacia
+        //se valida que la contraseña no este vacia
         if(passRegistrarRegistrarCajero.text.isEmpty()){
             isValid = false;
             passRegistrarRegistrarCajero.error = "Se requiere contraseña"
 
         } else{
             //se valida que la contraseña tenga mas de 7 digitos
-            if(passRegistrarRegistrarCajero.length()<7){
-            passRegistrarRegistrarCajero.error = "La contraseña debe ser mas larga"}
-            else{
-            passRegistrarRegistrarCajero.error=null}}
+            if(passRegistrarRegistrarCajero.length()<7)
+                passRegistrarRegistrarCajero.error = "La contraseña debe ser mas larga"
+            else
+                passRegistrarRegistrarCajero.error=null}
         //se valida que el nombre no este vacio
         if(nombreRegistrarRegistrarCajero.text.isBlank()){
             isValid = false;
@@ -131,10 +132,11 @@ class RegistrarActivity : AppCompatActivity() {
 
     }
 
-    private fun showAuth(){
-        val authIntent = Intent(this, AuthActivity::class.java)
-        startActivity(authIntent)
+    private fun showOperacionExitosaAgregando(){
+        val OperacionExitosaIntent = Intent(this, OperacionExitosa::class.java).apply {
+            putExtra("Mensaje","El cajero fue agregado correctamente.")
+        }
+        startActivity(OperacionExitosaIntent)
 
     }
 }
-
