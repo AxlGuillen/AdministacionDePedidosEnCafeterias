@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_auth.loginButton
 import kotlinx.android.synthetic.main.activity_auth.passwordEditText
 import kotlinx.android.synthetic.main.activity_auth.signUpButton
 
+
 class AuthActivity : AppCompatActivity() {
 
     private val db = FirebaseFirestore.getInstance()
@@ -48,9 +49,10 @@ class AuthActivity : AppCompatActivity() {
                             //aqui accedemos a la base de datos para checar el rol
                             val Rol = db.collection("Usuarios").document(emailEditText.text.toString()).get().addOnSuccessListener {
                                 val Rol = (it.get("Rol") as String?).toString()
+                                val Estado = (it.get("Estado") as Boolean?)
                                 //Mandamos a la pantalla principal de cliente
-                                if(Rol.equals("Cliente")){
-                                    showHome(emailEditText.toString())
+                                if(Rol.equals("Cliente") && Estado==true){
+                                    //showHome(emailEditText.toString())
                                 }
                                 //Mandamos a la pantalla principal de Administrador
                                 if(Rol.equals("Administrador")){
