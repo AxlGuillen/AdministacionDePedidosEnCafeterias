@@ -39,7 +39,9 @@
         <activity
             android:name=".NuevaPromo"
             android:exported="false" />
-
+        <activity
+            android:name=".NuevoProducto"
+            android:exported="false" />
         <activity
             android:name=".menu_admin"
             android:exported="false" />

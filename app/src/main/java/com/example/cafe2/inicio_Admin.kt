@@ -3,6 +3,7 @@ package com.example.cafe2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnMenu
 
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnPerfilInicioAdm
@@ -15,14 +16,15 @@ class inicio_Admin : AppCompatActivity() {
         setContentView(R.layout.activity_inicio_admin)
 
         //extraemos el email para mandarlo a las siguiente pantallas, creo que no es necesario mnandarlo aqui
-        //intent.extras
-        //val bundle = intent.extras
-        //val email:String? = bundle?.getString("email")
-
+        intent.extras
+        val bundle = intent.extras
+        val email:String? = bundle?.getString("email")
 
         //abre el perfil
         btnPerfilInicioAdm.setOnClickListener {
-            val perfilIntent = Intent(this, Perfil::class.java)
+            val perfilIntent = Intent(this, Perfil::class.java).apply {
+                putExtra("email",email)
+            }
             startActivity(perfilIntent)
         }
 
