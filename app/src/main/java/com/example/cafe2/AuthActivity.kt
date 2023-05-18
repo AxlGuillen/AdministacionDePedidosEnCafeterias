@@ -51,8 +51,10 @@ class AuthActivity : AppCompatActivity() {
                                 val Rol = (it.get("Rol") as String?).toString()
                                 val Estado = (it.get("Estado") as Boolean?)
                                 //Mandamos a la pantalla principal de cliente
+
                                 if(Rol.equals("Cliente") && Estado==true){
-                                    //showHome(emailEditText.toString())
+                                    showHome(emailEditText.text.toString())
+
                                 }
                                 //Mandamos a la pantalla principal de Administrador
                                 if(Rol.equals("Administrador")){

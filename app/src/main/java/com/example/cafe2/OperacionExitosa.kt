@@ -16,10 +16,14 @@ class OperacionExitosa : AppCompatActivity() {
         intent.extras
         val bundle = intent.extras
         val mensaje: String? = bundle?.getString("Mensaje")
+        val email: String? = bundle?.getString("email")
         textMensaje.text = mensaje
 
+
         btnSi.setOnClickListener {
-                    val homeAdmIntent = Intent(this, inicio_Admin::class.java)
+                    val homeAdmIntent = Intent(this, inicio_Admin::class.java).apply {
+                        putExtra("email",email)
+                    }
                     startActivity(homeAdmIntent)
                 }
         }
