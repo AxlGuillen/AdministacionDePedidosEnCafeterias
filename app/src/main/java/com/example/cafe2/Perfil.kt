@@ -18,7 +18,7 @@ class Perfil : AppCompatActivity() {
 
         //MUESTRA LA PANTALLA DE EDITAR PERFIL Y LE MANDA EMAIL
         btnEditarPerfil.setOnClickListener {
-            val editarPerfilIntent = Intent(this, inicio_Admin::class.java).apply {
+            val editarPerfilIntent = Intent(this, EditarPerfil::class.java).apply {
                 putExtra("email",email)
             }
             startActivity(editarPerfilIntent)

@@ -83,7 +83,7 @@ class AuthActivity : AppCompatActivity() {
 
     private fun showHome(email:String){
 
-        val homeIntent = Intent(this, inicio_admin::class.java).apply {
+        val homeIntent = Intent(this, inicio_Admin::class.java).apply {
             putExtra("email",email)
         }
         startActivity(homeIntent)
