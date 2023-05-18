@@ -4,8 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnMenu
-import kotlinx.android.synthetic.main.activity_inicio_admin.btnNoti3
+
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnPerfilInicioAdm
+import kotlinx.android.synthetic.main.activity_inicio_admin.btnPromos
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnUsuarios
 
 class inicio_Admin : AppCompatActivity() {
@@ -26,9 +27,9 @@ class inicio_Admin : AppCompatActivity() {
         }
 
         //Falta el boton dela notificacion****
-        btnNoti3.setOnClickListener {
-            //val notificacionIntent = Intent(this, ::class.java)
-            //startActivity(notificacionIntent)
+        btnPromos.setOnClickListener {
+            val notificacionIntent = Intent(this, NuevaPromo::class.java)
+            startActivity(notificacionIntent)
         }
 
         //Abre el menu pero provisionalmente solo abre el de agregar nuevo producto
