@@ -17,9 +17,9 @@ class adapterPromos : RecyclerView.Adapter<adapterPromos.ViewHolder>() {
         this.context = context
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.nombre.text = platillos[position].nombre
-        holder.precio.text = platillos[position].precio
-        holder.desc.text = platillos[position].desc
+        //holder.nombre.text = platillos[position].nombre
+     //   holder.precio.text = platillos[position].precio
+    //    holder.desc.text = platillos[position].desc
     }
     class ViewHolder (view : View): RecyclerView.ViewHolder(view){
         val nombre: TextView
