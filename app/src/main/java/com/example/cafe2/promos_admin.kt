@@ -27,12 +27,12 @@ class promos_admin : AppCompatActivity() {
 
     private fun plati(): MutableList<menuModel> {
         var plaModels : MutableList<menuModel> = ArrayList()
-        plaModels.add(menuModel("Promo 1", "500","Descripcion 1"))
-        plaModels.add(menuModel("Promo 2", "500","Descripcion 2"))
-        plaModels.add(menuModel("Promo 3", "500","Descripcion 3"))
-        plaModels.add(menuModel("Promo 4", "500","Descripcion 4"))
-        plaModels.add(menuModel("Promo 5", "500","Descripcion 5"))
-        plaModels.add(menuModel("Promo 6", "500","Descripcion 6"))
+   //     plaModels.add(menuModel("Promo 1", "500","Descripcion 1"))
+     //   plaModels.add(menuModel("Promo 2", "500","Descripcion 2"))
+   //     plaModels.add(menuModel("Promo 3", "500","Descripcion 3"))
+    //    plaModels.add(menuModel("Promo 4", "500","Descripcion 4"))
+  //      plaModels.add(menuModel("Promo 5", "500","Descripcion 5"))
+       // plaModels.add(menuModel("Promo 6", "500","Descripcion 6"))
         return plaModels
 
     }
