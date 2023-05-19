@@ -5,7 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Email
-import com.google.firebase.firestore.FirebaseFirestore
+//import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_auth.emailEditText
 import kotlinx.android.synthetic.main.activity_editar_producto.btnCancelar
 import kotlinx.android.synthetic.main.activity_editar_producto.btnNoti4
@@ -83,11 +83,11 @@ class EditarProducto : AppCompatActivity() {
 
     }
 
-        seleccionar_foto.setOnClickListener{
-            seleccionarImagen()
-        }
+        //seleccionar_foto.setOnClickListener{
+       //     seleccionarImagen()
+       // }
 
-    }
+    //}
 
     private fun subirImagen() {
 
