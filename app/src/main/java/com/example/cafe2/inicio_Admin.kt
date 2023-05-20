@@ -30,11 +30,11 @@ class inicio_Admin : AppCompatActivity() {
 
         //Falta el boton dela notificacion****
         btnPromos.setOnClickListener {
-            val notificacionIntent = Intent(this, NuevaPromo::class.java)
+            val notificacionIntent = Intent(this, promos_admin::class.java)
             startActivity(notificacionIntent)
         }
 
-        //Abre el menu pero provisionalmente solo abre el de agregar nuevo producto
+        //Abre el menu
         btnMenu.setOnClickListener {
             val menuIntent = Intent(this, menu_admin::class.java)
             startActivity(menuIntent)

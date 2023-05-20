@@ -48,7 +48,8 @@ class NuevoProducto : AppCompatActivity() {
 
         //Agregamos los datos a la coleccion productos en la base de datos nombres es la primary key, los otros campos son precio estado y descripcion
         db.collection("Productos").document(nombre.toString()).set(
-            hashMapOf("Precio" to precio.toString(),
+            hashMapOf("Nombre" to nombre.toString(),
+                "Precio" to precio.toString(),
                 "Estado" to true,
                 "Descripcion" to descripcion.toString(),
                 "Nombre" to nombre.toString()
