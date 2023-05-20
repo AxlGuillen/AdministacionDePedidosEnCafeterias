@@ -30,8 +30,8 @@ class adapterClientes : RecyclerView.Adapter<adapterClientes.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: adapterClientes.ViewHolder, position: Int) {
-        holder.nombre.text = clientes[position].nombre
-        holder.email.text = clientes[position].email
+        holder.nombre.text = clientes[position].Nombre
+        holder.email.text = clientes[position].Email
     }
 
 

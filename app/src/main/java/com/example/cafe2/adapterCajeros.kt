@@ -1,45 +1,39 @@
 package com.example.cafe2
 
 import android.content.Context
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.storage.FirebaseStorage
+import java.io.File
 
-class adapterCajeros : RecyclerView.Adapter<adapterCajeros.ViewHolder>() {
+class adapterCajeros(private  val userList: ArrayList<clienteModel>): RecyclerView.Adapter<adapterCajeros.MyViewHolder>(){
 
-    var clientes: MutableList<clienteModel> = ArrayList()
-    lateinit var context: Context
-
-
-    fun cajerosAdapter(clientes: MutableList<clienteModel>, context: Context) {
-        this.clientes = clientes
-        this.context = context
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): adapterCajeros.MyViewHolder {
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.menu_cajeros_admin_card,parent, false)
+        return MyViewHolder(itemView)
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val nombre: TextView
-        val email: TextView
+    override fun onBindViewHolder(holder: adapterCajeros.MyViewHolder, position: Int) {
+        if(userList[position].Rol.equals("Cajero")){
+        val user : clienteModel = userList[position]
 
-        init {
-            nombre = view.findViewById(R.id.view_nombre)
-            email = view.findViewById(R.id.view_email)
-        }
+        holder.Nombre.text = user.Nombre
+        holder.Email.text = user.Email}
+    }
+
+    override fun getItemCount(): Int {
+
+        return userList.size
 
     }
 
-    override fun onBindViewHolder(holder: adapterCajeros.ViewHolder, position: Int) {
-        holder.nombre.text = clientes[position].nombre
-        holder.email.text = clientes[position].email
+    public class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val Nombre: TextView = itemView.findViewById(R.id.nombre_cliente)
+        val Email: TextView = itemView.findViewById(R.id.view_email)
     }
-
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): adapterCajeros.ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.menu_cajeros_admin_card, parent, false)
-        return adapterCajeros.ViewHolder(view)
-    }
-
-    override fun getItemCount() = clientes.size
 }
