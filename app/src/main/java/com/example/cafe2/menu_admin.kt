@@ -58,10 +58,9 @@ class menu_admin : AppCompatActivity() {
             val perfilIntent = Intent(this, Perfil::class.java)
             startActivity(perfilIntent)
         }
+    }
 
-
-
-    private fun EventChangeListener() {
+        fun EventChangeListener() {
         db = FirebaseFirestore.getInstance()
         db.collection("Productos").addSnapshotListener(object : EventListener<QuerySnapshot> {
             override fun onEvent(
@@ -85,7 +84,7 @@ class menu_admin : AppCompatActivity() {
     }
 
 
-    private fun EventChangeListener() {
+    /*private fun EventChangeListener() {
         db = FirebaseFirestore.getInstance()
         db.collection("Productos").addSnapshotListener(object : EventListener<QuerySnapshot> {
             override fun onEvent(
@@ -105,6 +104,6 @@ class menu_admin : AppCompatActivity() {
                 myAdapter.notifyDataSetChanged()
             }
         })
-    }
+    }*/
 
 }

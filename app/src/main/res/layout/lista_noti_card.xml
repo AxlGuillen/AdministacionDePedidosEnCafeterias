@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    card_view:cardBackgroundColor="#FF9800"
+    card_view:cardCornerRadius="20dp"
+    card_view:cardElevation="6dp"
+    card_view:contentPadding="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#713131"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imgComida"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:srcCompat="@drawable/menu" />
+
+        <TextView
+            android:id="@+id/view_titulo"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/imgComida"
+            android:layout_toRightOf="@+id/imgComida"
+            android:text="Titulo Noti"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/view_fecha"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_titulo"
+            android:layout_toEndOf="@+id/imgComida"
+            android:layout_toRightOf="@+id/imgComida"
+            android:text="Fecha"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/viewDesc"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_fecha"
+            android:layout_toEndOf="@+id/imgComida"
+            android:layout_toRightOf="@+id/imgComida"
+            android:text="Descripcion de la noti"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
