@@ -1,5 +1,6 @@
 package com.example.cafe2
 
+import android.content.Intent
 import android.media.metrics.Event
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_menu_admin.btnAgregarProducto
+import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnFlecha
+import kotlinx.android.synthetic.main.activity_menu_clientes_admin.imgbtnPerfil
 
 class menu_admin : AppCompatActivity() {
     private lateinit var  recyclerView: RecyclerView
@@ -34,7 +38,22 @@ class menu_admin : AppCompatActivity() {
 
         EventChangeListener()
 
+        //boton de agregar producto
+        btnAgregarProducto.setOnClickListener {
+            val menuIntent = Intent(this, NuevoProducto::class.java)
+            startActivity(menuIntent)
+        }
 
+        //boton de la flecha
+        imgbtnFlecha.setOnClickListener {
+            onBackPressed()
+        }
+
+        //boton de perfil
+        imgbtnPerfil.setOnClickListener {
+            val perfilIntent = Intent(this, Perfil::class.java)
+            startActivity(perfilIntent)
+        }
 
     }
 
