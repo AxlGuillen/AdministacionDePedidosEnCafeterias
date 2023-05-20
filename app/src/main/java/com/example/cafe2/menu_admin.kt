@@ -1,5 +1,6 @@
 package com.example.cafe2
 
+
 import android.content.Intent
 import android.media.metrics.Event
 import androidx.appcompat.app.AppCompatActivity
@@ -13,9 +14,11 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.storage.FirebaseStorage
+
 import kotlinx.android.synthetic.main.activity_menu_admin.btnAgregarProducto
 import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnFlecha
 import kotlinx.android.synthetic.main.activity_menu_clientes_admin.imgbtnPerfil
+
 
 class menu_admin : AppCompatActivity() {
     private lateinit var  recyclerView: RecyclerView
@@ -29,6 +32,7 @@ class menu_admin : AppCompatActivity() {
         recyclerView = findViewById(R.id.clientesRecycler)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
+
 
         userArrayList = arrayListOf()
 
@@ -55,7 +59,31 @@ class menu_admin : AppCompatActivity() {
             startActivity(perfilIntent)
         }
 
+
+
+    private fun EventChangeListener() {
+        db = FirebaseFirestore.getInstance()
+        db.collection("Productos").addSnapshotListener(object : EventListener<QuerySnapshot> {
+            override fun onEvent(
+                value: QuerySnapshot?,
+                error: FirebaseFirestoreException?
+            ) {
+                if(error!=null){
+                    Log.e("Firestore Error", error.message.toString())
+                    return
+                }
+                for(dc:DocumentChange in value?.documentChanges!!){
+                 if(dc.type == DocumentChange.Type.ADDED){
+                     userArrayList.add(dc.document.toObject(menuModel::class.java))
+
+
+                 }
+                }
+                myAdapter.notifyDataSetChanged()
+            }
+        })
     }
+
 
     private fun EventChangeListener() {
         db = FirebaseFirestore.getInstance()

@@ -57,6 +57,7 @@ class promos_admin : AppCompatActivity() {
                     if(dc.type == DocumentChange.Type.ADDED){
                         userArrayList.add(dc.document.toObject(menuModel::class.java))
 
+
                     }
                 }
                 myAdapter.notifyDataSetChanged()

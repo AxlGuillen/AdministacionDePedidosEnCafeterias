@@ -51,7 +51,8 @@ class NuevoProducto : AppCompatActivity() {
             hashMapOf("Nombre" to nombre.toString(),
                 "Precio" to precio.toString(),
                 "Estado" to true,
-                "Descripcion" to descripcion.toString()
+                "Descripcion" to descripcion.toString(),
+                "Nombre" to nombre.toString()
             )
             ).addOnCompleteListener{if (it.isSuccessful){
                 val OperacionExitosaIntent = Intent(this, OperacionExitosa::class.java).apply {
