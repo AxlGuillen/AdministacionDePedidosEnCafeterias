@@ -26,8 +26,10 @@ class adapterClientes (private  val userList: ArrayList<clienteModel>): Recycler
         holder.Email.text = user.Email}
     }
 
+
     override fun getItemCount(): Int {
         return userList.size
+
     }
 
     public class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

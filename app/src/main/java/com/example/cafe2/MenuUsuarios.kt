@@ -16,7 +16,7 @@ class MenuUsuarios : AppCompatActivity() {
 
         //manda proviisonalmente a registrar cajero pero deberia llevar al recycle de cajeros
         btnCajeros.setOnClickListener {
-            val registrarCajerosIntent = Intent(this, RegistrarCajerosAdm::class.java).apply {  }
+            val registrarCajerosIntent = Intent(this, menu_cajeros_admin::class.java).apply {  }
             startActivity(registrarCajerosIntent)
         }
         btnClientes.setOnClickListener{
