@@ -1,43 +1,49 @@
 package com.example.cafe2
 
 import android.content.Context
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.storage.FirebaseStorage
+import java.io.File
 
-class adapterPromos : RecyclerView.Adapter<adapterPromos.ViewHolder>() {
+class adapterPromos(private  val userList: ArrayList<menuModel>): RecyclerView.Adapter<adapterPromos.MyViewHolder>(){
 
-    var platillos : MutableList<menuModel> = ArrayList()
-    lateinit var context : Context
 
-    fun adapterPromos(platillos:MutableList<menuModel>, context: Context){
-        this.platillos = platillos
-        this.context = context
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): adapterPromos.MyViewHolder {
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.lista_promos_card,parent, false)
+        return MyViewHolder(itemView)
     }
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        //holder.nombre.text = platillos[position].nombre
-     //   holder.precio.text = platillos[position].precio
-    //    holder.desc.text = platillos[position].desc
-    }
-    class ViewHolder (view : View): RecyclerView.ViewHolder(view){
-        val nombre: TextView
-        val precio: TextView
-        val desc: TextView
 
-        init{
-            nombre = view.findViewById(R.id.view_nombre)
-            precio = view.findViewById(R.id.view_precio)
-            desc = view.findViewById(R.id.viewDesc)
+    override fun onBindViewHolder(holder: adapterPromos.MyViewHolder, position: Int) {
+        val user : menuModel = userList[position]
+        holder.Nombre.text = user.Nombre
+        holder.Precio.text = user.Precio
+        holder.Descripcion.text = user.Descripcion
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/${user.Nombre}.jpg")
+        val localfile = File.createTempFile("tempImage","jpg")
+        storageRef.getFile(localfile).addOnSuccessListener {
+            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+            holder.img.setImageBitmap(bitmap)
+        }.addOnFailureListener{
+
         }
+    }
+
+    override fun getItemCount(): Int {
+
+        return userList.size
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.lista_promos_card, parent,false)
-        return ViewHolder(view)
+    public class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val Nombre: TextView = itemView.findViewById(R.id.view_nombre)
+        val Precio: TextView = itemView.findViewById(R.id.view_precio)
+        val Descripcion: TextView = itemView.findViewById(R.id.viewDesc)
+        val img: ImageView = itemView.findViewById(R.id.imgComida)
     }
-
-    override fun getItemCount() = platillos.size
 }

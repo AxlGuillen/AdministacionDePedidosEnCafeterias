@@ -26,6 +26,7 @@ class adapterCajeros(private  val userList: ArrayList<clienteModel>): RecyclerVi
         holder.Email.text = user.Email}
     }
 
+
     override fun getItemCount(): Int {
 
         return userList.size
