@@ -135,7 +135,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:backgroundTint="#FF5722"
-            app:icon="@drawable/ventas"
+            app:icon="@drawable/historialbueno"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.111"
@@ -149,12 +149,12 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/btnUsuarios2"
+            android:id="@+id/btnMenuuu"
             android:layout_width="45dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:backgroundTint="#FF5722"
-            app:icon="@drawable/menu"
+            app:icon="@drawable/menubueno"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.381"
@@ -168,12 +168,12 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/btnHome"
+            android:id="@+id/btnUSUARIOSS"
             android:layout_width="45dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:backgroundTint="#FF5722"
-            app:icon="@drawable/home"
+            app:icon="@drawable/usuariosbueno"
             app:iconSize="26dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -193,7 +193,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:backgroundTint="#FF5722"
-            app:icon="@drawable/promos"
+            app:icon="@drawable/promocionesbueno"
             app:iconSize="21dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

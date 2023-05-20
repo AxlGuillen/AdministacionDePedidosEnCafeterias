@@ -12,6 +12,13 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.activity_menu_admin.btnAgregarProducto
+import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnFlecha
+import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnHistorial
+import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnMenuAdm
+import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnNotificaciones
+import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnPerfil
+import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnpromos
+import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnusuarios
 
 class promos_admin : AppCompatActivity() {
     private lateinit var  recyclerView: RecyclerView
@@ -22,6 +29,11 @@ class promos_admin : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_menu_admin)
+
+        //sacamos el email para mandarlo a otro lados
+        intent.extras
+        val bundle = intent.extras
+        val email:String? = bundle?.getString("email")
 
         recyclerView = findViewById(R.id.clientesRecycler)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -35,9 +47,57 @@ class promos_admin : AppCompatActivity() {
 
         EventChangeListener()
 
+        //boton de la flecha
+        imgbtnFlecha.setOnClickListener {
+            onBackPressed()
+        }
+
+        //NOTIFICACIONES
+        imgbtnNotificaciones.setOnClickListener {
+
+        }
+
+        //boton de perfil
+        imgbtnPerfil.setOnClickListener {
+            val perfilIntent = Intent(this, Perfil::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(perfilIntent)
+        }
+
+        //AGREGAR PROMO
         btnAgregarProducto.setOnClickListener {
             val menuIntent = Intent(this, NuevaPromo::class.java)
             startActivity(menuIntent)
+        }
+
+        //HISTORIAL
+        imgbtnHistorial.setOnClickListener {
+
+        }
+
+        //MENU
+        imgbtnMenuAdm.setOnClickListener {
+            val menuIntent = Intent(this, menu_admin::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(menuIntent)
+        }
+
+        //USUARIOS
+        imgbtnusuarios.setOnClickListener{
+            val menuUsuariosIntent = Intent(this, MenuUsuarios::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(menuUsuariosIntent)
+        }
+
+        //PROMOCIONES ESTAMOS AQUI
+        imgbtnpromos.setOnClickListener {
+            val notificacionIntent = Intent(this, promos_admin::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(notificacionIntent)
         }
 
     }

@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnMenu
+import kotlinx.android.synthetic.main.activity_inicio_admin.btnNoti3
 
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnPerfilInicioAdm
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnPromos
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnUsuarios
+import kotlinx.android.synthetic.main.activity_inicio_admin.btnVentas
 
 class inicio_Admin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +22,7 @@ class inicio_Admin : AppCompatActivity() {
         val bundle = intent.extras
         val email:String? = bundle?.getString("email")
 
-        //abre el perfil
+        //PERFIL
         btnPerfilInicioAdm.setOnClickListener {
             val perfilIntent = Intent(this, Perfil::class.java).apply {
                 putExtra("email",email)
@@ -28,21 +30,37 @@ class inicio_Admin : AppCompatActivity() {
             startActivity(perfilIntent)
         }
 
-        //Falta el boton dela notificacion****
+        //NOTIFICACIONES
+        btnNoti3.setOnClickListener {
+
+        }
+
+        //VENTAS
+        btnVentas.setOnClickListener {
+
+        }
+
+        //PROMOS
         btnPromos.setOnClickListener {
-            val notificacionIntent = Intent(this, promos_admin::class.java)
+            val notificacionIntent = Intent(this, promos_admin::class.java).apply {
+                putExtra("email",email)
+            }
             startActivity(notificacionIntent)
         }
 
-        //Abre el menu
+        //MENU
         btnMenu.setOnClickListener {
-            val menuIntent = Intent(this, menu_admin::class.java)
+            val menuIntent = Intent(this, menu_admin::class.java).apply {
+                putExtra("email",email)
+            }
             startActivity(menuIntent)
         }
 
-        //ABRE EL MENU DE USUARIOS (CLIENTES O CAJEROS)
+        //MENU USUARIOS
         btnUsuarios.setOnClickListener {
-            val menuUsuariosIntent = Intent(this, MenuUsuarios::class.java)
+            val menuUsuariosIntent = Intent(this, MenuUsuarios::class.java).apply {
+                putExtra("email",email)
+            }
             startActivity(menuUsuariosIntent)
         }
     }

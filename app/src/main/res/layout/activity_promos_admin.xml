@@ -28,13 +28,13 @@
         android:layout_marginTop="28dp"
         android:text="PROMOCIONES"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton6"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnNotificaciones"
         app:layout_constraintHorizontal_bias="0.229"
         app:layout_constraintStart_toEndOf="@+id/imgbtnFlecha"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/imgbtnNotificaciones"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -79,7 +79,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/imgbtnPromociones"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
@@ -92,7 +92,7 @@
         app:srcCompat="@android:drawable/ic_dialog_dialer" />
 
     <ImageButton
-        android:id="@+id/imageButton9"
+        android:id="@+id/imgbtnUsuarios2"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
@@ -105,7 +105,7 @@
         app:srcCompat="@android:drawable/ic_dialog_dialer" />
 
     <ImageButton
-        android:id="@+id/imageButton10"
+        android:id="@+id/imgbtnmenu2"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
@@ -118,7 +118,7 @@
         app:srcCompat="@android:drawable/ic_dialog_dialer" />
 
     <ImageButton
-        android:id="@+id/imageButton11"
+        android:id="@+id/imgbtnHistorial2"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
@@ -131,7 +131,7 @@
         app:srcCompat="@android:drawable/ic_dialog_dialer"
         />
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/imgbtnAgregarCajero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

@@ -27,22 +27,22 @@
         android:layout_marginTop="28dp"
         android:text="CAJEROS"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton6"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnNotificaciones"
         app:layout_constraintHorizontal_bias="0.229"
         app:layout_constraintStart_toEndOf="@+id/imgbtnFlecha"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/imgbtnNotificaciones"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#FF9800"
+        android:backgroundTint="#00FF5722"
         app:layout_constraintEnd_toStartOf="@+id/imgbtnPerfil"
         app:layout_constraintHorizontal_bias="0.956"
         app:layout_constraintStart_toEndOf="@+id/imgbtnFlecha"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_dialog_info" />
+        app:srcCompat="@drawable/notificacionbueno" />
 
     <ImageButton
         android:id="@+id/imgbtnPerfil"
@@ -50,11 +50,11 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="#FF9800"
+        android:backgroundTint="#00FF5722"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
+        app:srcCompat="@drawable/perfilbueno" />
 
     <ImageButton
         android:id="@+id/imgbtnFlecha"
@@ -62,7 +62,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#FF9800"
+        android:backgroundTint="#00FF5722"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="?attr/actionModeCloseDrawable" />
@@ -72,72 +72,76 @@
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:backgroundTint="#FF9800"
+        app:backgroundTint="#919191"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/imgbtnPromociones"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
+        android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.857"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/ic_dialog_dialer" />
+        app:srcCompat="@drawable/promocionesbueno" />
 
     <ImageButton
-        android:id="@+id/imageButton9"
+        android:id="@+id/imgbtnUsuarios2"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
+        android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.617"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/ic_dialog_dialer" />
+        app:srcCompat="@drawable/usuariosbueno" />
 
     <ImageButton
-        android:id="@+id/imageButton10"
+        android:id="@+id/imgbtnmenu2"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
+        android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.368"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/ic_dialog_dialer" />
+        app:srcCompat="@drawable/menubueno" />
 
     <ImageButton
-        android:id="@+id/imageButton11"
+        android:id="@+id/imgbtnHistorial2"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
+        android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.128"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/ic_dialog_dialer" />
+        app:srcCompat="@drawable/historialbueno" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imgbtnAgregarCajero"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#FF9800"
+        android:backgroundTint="#00FF9800"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.605"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@drawable/masbueno" />
 </androidx.constraintlayout.widget.ConstraintLayout>

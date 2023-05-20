@@ -17,7 +17,12 @@ import com.google.firebase.storage.FirebaseStorage
 
 import kotlinx.android.synthetic.main.activity_menu_admin.btnAgregarProducto
 import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnFlecha
-import kotlinx.android.synthetic.main.activity_menu_clientes_admin.imgbtnPerfil
+import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnHistorial
+import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnMenuAdm
+import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnNotificaciones
+import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnPerfil
+import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnpromos
+import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnusuarios
 
 
 class menu_admin : AppCompatActivity() {
@@ -28,6 +33,11 @@ class menu_admin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_admin)
+
+        //sacamos el email para mandarlo a otro lados
+        intent.extras
+        val bundle = intent.extras
+        val email:String? = bundle?.getString("email")
 
         recyclerView = findViewById(R.id.clientesRecycler)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -42,25 +52,65 @@ class menu_admin : AppCompatActivity() {
 
         EventChangeListener()
 
-        //boton de agregar producto
-        btnAgregarProducto.setOnClickListener {
-            val menuIntent = Intent(this, NuevoProducto::class.java)
-            startActivity(menuIntent)
-        }
-
         //boton de la flecha
         imgbtnFlecha.setOnClickListener {
             onBackPressed()
         }
 
+        //NOTIFICACIONES
+        imgbtnNotificaciones.setOnClickListener {
+
+        }
+
         //boton de perfil
         imgbtnPerfil.setOnClickListener {
-            val perfilIntent = Intent(this, Perfil::class.java)
+            val perfilIntent = Intent(this, Perfil::class.java).apply {
+                putExtra("email",email)
+            }
             startActivity(perfilIntent)
         }
+
+        //AGREGAR PRODUCTO
+        btnAgregarProducto.setOnClickListener {
+            val menuIntent = Intent(this, NuevoProducto::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(menuIntent)
+        }
+
+        //HISTORIAL
+        imgbtnHistorial.setOnClickListener {
+
+        }
+
+        //MENU ESTAMOS AQUI
+        imgbtnMenuAdm.setOnClickListener {
+            val menuIntent = Intent(this, menu_admin::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(menuIntent)
+        }
+
+        //USUARIOS
+        imgbtnusuarios.setOnClickListener{
+            val menuUsuariosIntent = Intent(this, MenuUsuarios::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(menuUsuariosIntent)
+        }
+
+        //PROMOCIONES
+        imgbtnpromos.setOnClickListener {
+            val notificacionIntent = Intent(this, promos_admin::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(notificacionIntent)
+        }
+
     }
 
-        fun EventChangeListener() {
+
+    private fun EventChangeListener() {
         db = FirebaseFirestore.getInstance()
         db.collection("Productos").addSnapshotListener(object : EventListener<QuerySnapshot> {
             override fun onEvent(
@@ -72,38 +122,15 @@ class menu_admin : AppCompatActivity() {
                     return
                 }
                 for(dc:DocumentChange in value?.documentChanges!!){
-                 if(dc.type == DocumentChange.Type.ADDED){
-                     userArrayList.add(dc.document.toObject(menuModel::class.java))
+                    if(dc.type == DocumentChange.Type.ADDED){
+                         userArrayList.add(dc.document.toObject(menuModel::class.java))
 
 
-                 }
+                    }
                 }
                 myAdapter.notifyDataSetChanged()
             }
         })
     }
-
-
-    /*private fun EventChangeListener() {
-        db = FirebaseFirestore.getInstance()
-        db.collection("Productos").addSnapshotListener(object : EventListener<QuerySnapshot> {
-            override fun onEvent(
-                value: QuerySnapshot?,
-                error: FirebaseFirestoreException?
-            ) {
-                if(error!=null){
-                    Log.e("Firestore Error", error.message.toString())
-                    return
-                }
-                for(dc:DocumentChange in value?.documentChanges!!){
-                 if(dc.type == DocumentChange.Type.ADDED){
-                     userArrayList.add(dc.document.toObject(menuModel::class.java))
-
-                 }
-                }
-                myAdapter.notifyDataSetChanged()
-            }
-        })
-    }*/
 
 }
