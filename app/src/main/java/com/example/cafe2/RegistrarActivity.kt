@@ -56,7 +56,8 @@ class RegistrarActivity : AppCompatActivity() {
                         "Nombre" to nombreRegistrarRegistrarCajero.text.toString(),
                         "Privilegios" to false,
                         "Rol" to "Cliente",
-                        "Telefono" to telefonoRegistrarRegistrarCajero.text.toString()
+                        "Telefono" to telefonoRegistrarRegistrarCajero.text.toString(),
+                        "Email" to email.toString()
                         )
                 )//datos a guardar: Edad, estado, Nombre,Privilegios,Rol,Telefono
 
