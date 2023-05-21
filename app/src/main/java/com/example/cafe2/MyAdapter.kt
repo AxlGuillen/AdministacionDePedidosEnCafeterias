@@ -1,14 +1,18 @@
 package com.example.cafe2
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.media.audiofx.AudioEffect.Descriptor
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.view.menu.ActionMenuItemView
+import androidx.core.content.ContextCompat.startActivity
 import kotlinx.android.synthetic.main.lista_admin_menu_card.view_nombre
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.auth.User
@@ -18,6 +22,7 @@ import java.io.File
 
 class MyAdapter(private  val userList: ArrayList<menuModel>): RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
 
+    var onItemClick : ((menuModel) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyAdapter.MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.lista_admin_menu_card,parent, false)
@@ -38,7 +43,15 @@ class MyAdapter(private  val userList: ArrayList<menuModel>): RecyclerView.Adapt
 
         }
 
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(user)
+        }
 
+        /*holder.editar.setOnClickListener {
+
+            val intent = Intent(this@MyAdapter,EditarProducto::class.java)
+
+        }*/
     }
 
     override fun getItemCount(): Int {
@@ -52,5 +65,8 @@ class MyAdapter(private  val userList: ArrayList<menuModel>): RecyclerView.Adapt
         val Precio: TextView = itemView.findViewById(R.id.view_precio)
         val Descripcion: TextView = itemView.findViewById(R.id.viewDesc)
         val img: ImageView = itemView.findViewById(R.id.imgComida)
+        //BOTONES
+        val editar: ImageButton = itemView.findViewById(R.id.editBtn)
+        val context: Context = itemView.context
     }
 }
