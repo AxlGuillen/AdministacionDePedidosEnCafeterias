@@ -12,6 +12,8 @@ import com.google.firebase.storage.FirebaseStorage
 import java.io.File
 
 class adapterClientes (private  val userList: ArrayList<clienteModel>): RecyclerView.Adapter<adapterClientes.MyViewHolder>(){
+    //1 Se crea la variable para el evento
+    var onItemClick : ((clienteModel) -> Unit)? = null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): adapterClientes.MyViewHolder {
@@ -22,7 +24,13 @@ class adapterClientes (private  val userList: ArrayList<clienteModel>): Recycler
     override fun onBindViewHolder(holder: adapterClientes.MyViewHolder, position: Int) {
         val user : clienteModel = userList[position]
         holder.Nombre.text = user.Nombre
-        holder.Email.text = user.Email}
+        holder.Email.text = user.Email
+
+        //2 Se hace el evento de picarle al boton
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(user)
+        }
+    }
 
 
 

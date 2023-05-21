@@ -29,7 +29,8 @@ class EditarPerfil : AppCompatActivity() {
 
     private val db = FirebaseFirestore.getInstance()
     var firebaseStorage: FirebaseStorage? =  null
-    lateinit var ImageUri: Uri
+    private var ImageUri: Uri? = null
+    private var imageUrl: String? = null
 
     companion object {
         val IMAGE_REQUEST_CODE = 1_000;
@@ -94,7 +95,7 @@ class EditarPerfil : AppCompatActivity() {
 
                     val refStorage = FirebaseStorage.getInstance().reference.child("images/$fileName")
 
-                    refStorage.putFile(ImageUri)
+                    refStorage.putFile(ImageUri!!)
                         .addOnSuccessListener(
                             OnSuccessListener<UploadTask.TaskSnapshot> { taskSnapshot ->
                                 taskSnapshot.storage.downloadUrl.addOnSuccessListener {

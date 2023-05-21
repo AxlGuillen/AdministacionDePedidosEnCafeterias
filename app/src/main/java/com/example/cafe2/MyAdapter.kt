@@ -47,11 +47,6 @@ class MyAdapter(private  val userList: ArrayList<menuModel>): RecyclerView.Adapt
             onItemClick?.invoke(user)
         }
 
-        /*holder.editar.setOnClickListener {
-
-            val intent = Intent(this@MyAdapter,EditarProducto::class.java)
-
-        }*/
     }
 
     override fun getItemCount(): Int {
@@ -65,8 +60,5 @@ class MyAdapter(private  val userList: ArrayList<menuModel>): RecyclerView.Adapt
         val Precio: TextView = itemView.findViewById(R.id.view_precio)
         val Descripcion: TextView = itemView.findViewById(R.id.viewDesc)
         val img: ImageView = itemView.findViewById(R.id.imgComida)
-        //BOTONES
-        val editar: ImageButton = itemView.findViewById(R.id.editBtn)
-        val context: Context = itemView.context
     }
 }

@@ -22,10 +22,10 @@
 
     <Button
         android:id="@+id/btnCancelar4"
-        android:layout_width="118dp"
+        android:layout_width="125dp"
         android:layout_height="40dp"
-        android:backgroundTint="#FF5722"
-        android:text="Cancelar"
+        android:backgroundTint="@color/design_default_color_error"
+        android:text="Eliminar"
         android:textSize="12sp"
         app:icon="@android:drawable/ic_delete"
         app:layout_constraintBottom_toBottomOf="parent"

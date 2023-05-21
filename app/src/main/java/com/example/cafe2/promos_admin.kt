@@ -47,6 +47,14 @@ class promos_admin : AppCompatActivity() {
 
         EventChangeListener()
 
+        //3 se configura
+        myAdapter.onItemClick = {
+            val intent = Intent(this,EditarPromo::class.java)
+            intent.putExtra("Promocion", it)
+            intent.putExtra("email",email)
+            startActivity(intent)
+        }
+
         //boton de la flecha
         imgbtnFlecha.setOnClickListener {
             onBackPressed()

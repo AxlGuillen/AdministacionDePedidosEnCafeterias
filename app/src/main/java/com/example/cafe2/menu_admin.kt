@@ -57,6 +57,7 @@ class menu_admin : AppCompatActivity() {
         myAdapter.onItemClick = {
             val intent = Intent(this,EditarProducto::class.java)
             intent.putExtra("Producto", it)
+            intent.putExtra("email",email)
             startActivity(intent)
         }
 
@@ -114,13 +115,6 @@ class menu_admin : AppCompatActivity() {
             }
             startActivity(notificacionIntent)
         }
-
-        /*editBtn.setOnClickListener {
-            val notificacionIntent = Intent(this, EditarProducto::class.java).apply {
-                putExtra("email",email)
-            }
-            startActivity(notificacionIntent)
-        }*/
 
     }
 

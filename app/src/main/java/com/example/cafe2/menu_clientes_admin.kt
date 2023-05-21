@@ -11,6 +11,9 @@ import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
+import kotlinx.android.synthetic.main.activity_editar_perfil.edadRegistrar2
+import kotlinx.android.synthetic.main.activity_editar_perfil.editTextNumber2
+import kotlinx.android.synthetic.main.activity_editar_perfil.nombreEditText
 import kotlinx.android.synthetic.main.activity_menu_clientes_admin.imgbtnHistorial2
 import kotlinx.android.synthetic.main.activity_menu_clientes_admin.imgbtnNotificaciones
 import kotlinx.android.synthetic.main.activity_menu_clientes_admin.imgbtnPerfil
@@ -44,6 +47,14 @@ class menu_clientes_admin : AppCompatActivity() {
         recyclerView.adapter = adapterClientes
 
         EventChangeListener()
+
+        //3 se configura
+        adapterClientes.onItemClick = {
+            val intent = Intent(this,BanearActivar::class.java)
+            intent.putExtra("Usuario", it)
+            intent.putExtra("email",email)
+            startActivity(intent)
+        }
 
         //FLECHITA
         imgbtnFlecha.setOnClickListener {

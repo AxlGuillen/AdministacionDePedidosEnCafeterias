@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_nueva_promo.btnRegresar5
 import kotlinx.android.synthetic.main.activity_nueva_promo.btnSave2
 import kotlinx.android.synthetic.main.activity_nueva_promo.button
 import kotlinx.android.synthetic.main.activity_nueva_promo.descripcionProducto2
+import kotlinx.android.synthetic.main.activity_nueva_promo.imageView2
 import kotlinx.android.synthetic.main.activity_nueva_promo.nombreProducto2
 import kotlinx.android.synthetic.main.activity_nueva_promo.precioProducto2
 import kotlinx.android.synthetic.main.activity_nuevo_producto.descripcionProducto
@@ -32,7 +33,8 @@ import kotlinx.android.synthetic.main.activity_registrar.telefonoRegistrarRegist
 class NuevaPromo : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
     var firebaseStorage: FirebaseStorage? =  null
-    lateinit var ImageUri: Uri
+    private var ImageUri: Uri? = null
+    private var imageUrl: String? = null
 
 
 
@@ -47,6 +49,7 @@ class NuevaPromo : AppCompatActivity() {
         btnRegresar5.setOnClickListener {
             onBackPressed()
         }
+
         button.setOnClickListener {
             seleccionarImagen()
         }
@@ -112,18 +115,18 @@ class NuevaPromo : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == EditarProducto.IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
             ImageUri = data?.data!!
-            imageView3.setImageURI(ImageUri)
+            imageView2.setImageURI(ImageUri)
         }
     }
 
     private fun subirImagen() {
 
         if (ImageUri != null) {
-            val fileName = nombreProducto.toString() + ".jpg"
+            val fileName = nombreProducto2.text.toString() + ".jpg"
 
             val refStorage = FirebaseStorage.getInstance().reference.child("images/$fileName")
 
-            refStorage.putFile(ImageUri)
+            refStorage.putFile(ImageUri!!)
                 .addOnSuccessListener(
                     OnSuccessListener<UploadTask.TaskSnapshot> { taskSnapshot ->
                         taskSnapshot.storage.downloadUrl.addOnSuccessListener {

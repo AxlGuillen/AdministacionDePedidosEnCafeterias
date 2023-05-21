@@ -13,6 +13,8 @@ import java.io.File
 
 class adapterPromos(private  val userList: ArrayList<menuModel>): RecyclerView.Adapter<adapterPromos.MyViewHolder>(){
 
+    //1 Se crea la variable para el evento
+    var onItemClick : ((menuModel) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): adapterPromos.MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.lista_promos_card,parent, false)
@@ -31,6 +33,11 @@ class adapterPromos(private  val userList: ArrayList<menuModel>): RecyclerView.A
             holder.img.setImageBitmap(bitmap)
         }.addOnFailureListener{
 
+        }
+
+        //2 Se hace el evento de picarle al boton
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(user)
         }
     }
 

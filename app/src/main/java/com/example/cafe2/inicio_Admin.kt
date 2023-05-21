@@ -24,10 +24,10 @@ class inicio_Admin : AppCompatActivity() {
 
         //PERFIL
         btnPerfilInicioAdm.setOnClickListener {
-            val perfilIntent = Intent(this, EditarPerfil::class.java).apply {
+            val notificacionIntent = Intent(this, Perfil::class.java).apply {
                 putExtra("email",email)
             }
-            startActivity(perfilIntent)
+            startActivity(notificacionIntent)
         }
 
         //NOTIFICACIONES
@@ -56,9 +56,6 @@ class inicio_Admin : AppCompatActivity() {
             startActivity(menuIntent)
         }
 
-        btnPerfilInicioAdm.setOnClickListener {
-
-        }
         //MENU USUARIOS
         btnUsuarios.setOnClickListener {
             val menuUsuariosIntent = Intent(this, MenuUsuarios::class.java).apply {
