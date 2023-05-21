@@ -105,10 +105,13 @@ class menu_clientes_admin : AppCompatActivity() {
                     return
                 }
                 for(dc: DocumentChange in value?.documentChanges!!){
-                    if(dc.type == DocumentChange.Type.ADDED){
-                        userArrayList.add(dc.document.toObject(clienteModel::class.java))
-
+                    if(dc.type == DocumentChange.Type.ADDED) {
+                        if (dc.document.toObject(clienteModel::class.java).Rol.toString()
+                                .equals("Cliente")
+                        )
+                            userArrayList.add(dc.document.toObject(clienteModel::class.java))
                     }
+
                 }
                 adapterClientes.notifyDataSetChanged()
             }

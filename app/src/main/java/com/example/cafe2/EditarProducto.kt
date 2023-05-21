@@ -22,11 +22,13 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
+import kotlinx.android.synthetic.main.activity_editar_producto.button14
 import kotlinx.android.synthetic.main.activity_nuevo_producto.btnSave
 import kotlinx.android.synthetic.main.activity_nuevo_producto.descripcionProducto
 import kotlinx.android.synthetic.main.activity_nuevo_producto.nombreProducto
 import kotlinx.android.synthetic.main.activity_nuevo_producto.precioProducto
 import kotlinx.android.synthetic.main.activity_nuevo_producto.seleccionar_foto
+import kotlinx.android.synthetic.main.lista_admin_menu_card.editBtn
 import kotlinx.android.synthetic.main.activity_nuevo_producto.imageView3
 import java.net.URI
 import java.text.SimpleDateFormat
@@ -80,12 +82,12 @@ class EditarProducto : AppCompatActivity() {
             //startActivity(homeIntent)
         }
 
-
+        button14.setOnClickListener{
+                seleccionarImagen()
+            }
     }
 
-        //seleccionar_foto.setOnClickListener{
-       //     seleccionarImagen()
-       // }
+        //
 
     //}
 
