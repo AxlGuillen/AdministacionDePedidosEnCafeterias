@@ -26,7 +26,7 @@
 
         <Button
             android:id="@+id/btnRegresar2"
-            android:layout_width="66dp"
+            android:layout_width="50dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:backgroundTint="#FF5722"
@@ -81,11 +81,11 @@
 
         <Button
             android:id="@+id/btnPerfil2"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:backgroundTint="#FF5722"
-            android:text="Perfil"
+            app:icon="@drawable/perfilbueno"
             app:layout_constraintBottom_toBottomOf="@+id/divider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.95"
