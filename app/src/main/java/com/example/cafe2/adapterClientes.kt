@@ -20,11 +20,10 @@ class adapterClientes (private  val userList: ArrayList<clienteModel>): Recycler
     }
 
     override fun onBindViewHolder(holder: adapterClientes.MyViewHolder, position: Int) {
-        if(userList[position].Rol.equals("Cliente")){
         val user : clienteModel = userList[position]
         holder.Nombre.text = user.Nombre
         holder.Email.text = user.Email}
-    }
+
 
 
     override fun getItemCount(): Int {

@@ -1,18 +1,25 @@
 package com.example.cafe2
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.activity_nueva_promo.btnRegresar5
 import kotlinx.android.synthetic.main.activity_nueva_promo.btnSave2
+import kotlinx.android.synthetic.main.activity_nueva_promo.button
 import kotlinx.android.synthetic.main.activity_nueva_promo.descripcionProducto2
 import kotlinx.android.synthetic.main.activity_nueva_promo.nombreProducto2
 import kotlinx.android.synthetic.main.activity_nueva_promo.precioProducto2
 import kotlinx.android.synthetic.main.activity_nuevo_producto.descripcionProducto
+import kotlinx.android.synthetic.main.activity_nuevo_producto.imageView3
 import kotlinx.android.synthetic.main.activity_nuevo_producto.nombreProducto
 import kotlinx.android.synthetic.main.activity_nuevo_producto.precioProducto
 import kotlinx.android.synthetic.main.activity_registrar.btnRegistrarRegistrarCajero
@@ -24,6 +31,14 @@ import kotlinx.android.synthetic.main.activity_registrar.telefonoRegistrarRegist
 
 class NuevaPromo : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
+    var firebaseStorage: FirebaseStorage? =  null
+    lateinit var ImageUri: Uri
+
+
+
+    companion object {
+        val IMAGE_REQUEST_CODE = 1_000;
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nueva_promo)
@@ -32,6 +47,9 @@ class NuevaPromo : AppCompatActivity() {
         btnRegresar5.setOnClickListener {
             onBackPressed()
         }
+        button.setOnClickListener {
+            seleccionarImagen()
+        }
 
         //se manda llamar el metodo
         btnSave2.setOnClickListener {
@@ -39,6 +57,7 @@ class NuevaPromo : AppCompatActivity() {
             //las validaciones deberian mostrar errores abajo
             if (nombreProducto2.text.isNotEmpty() && precioProducto2.text.isNotEmpty() && descripcionProducto2.text.isNotEmpty()){
                 AgregarPromocion()
+
             }
             else{
                 //mostrar esto como error preguntarle a rodri
@@ -63,8 +82,10 @@ class NuevaPromo : AppCompatActivity() {
                 "Descripcion" to descripcion.toString()
             )
         ).addOnCompleteListener{if (it.isSuccessful){
+            subirImagen();
             val OperacionExitosaIntent = Intent(this, OperacionExitosa::class.java).apply {
                 putExtra("Mensaje","Promocion añadida.")
+
             }
             startActivity(OperacionExitosaIntent)
         }else{
@@ -80,6 +101,44 @@ class NuevaPromo : AppCompatActivity() {
         builder.setPositiveButton("Aceptar",null)
         val dialog: AlertDialog = builder.create()
         dialog.show()
+    }
+
+    private fun seleccionarImagen() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, EditarProducto.IMAGE_REQUEST_CODE)
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == EditarProducto.IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
+            ImageUri = data?.data!!
+            imageView3.setImageURI(ImageUri)
+        }
+    }
+
+    private fun subirImagen() {
+
+        if (ImageUri != null) {
+            val fileName = nombreProducto.toString() + ".jpg"
+
+            val refStorage = FirebaseStorage.getInstance().reference.child("images/$fileName")
+
+            refStorage.putFile(ImageUri)
+                .addOnSuccessListener(
+                    OnSuccessListener<UploadTask.TaskSnapshot> { taskSnapshot ->
+                        taskSnapshot.storage.downloadUrl.addOnSuccessListener {
+                            val imageUrl = it.toString()
+                        }
+                    })
+
+                ?.addOnFailureListener(OnFailureListener { e ->
+                    print(e.message)
+                })
+        }
+
+
+
 
     }
+
 }
