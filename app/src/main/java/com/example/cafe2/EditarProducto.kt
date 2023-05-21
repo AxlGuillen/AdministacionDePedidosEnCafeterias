@@ -22,6 +22,9 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
+import kotlinx.android.synthetic.main.activity_editar_producto.descripcionProducto5
+import kotlinx.android.synthetic.main.activity_editar_producto.nombreProducto5
+import kotlinx.android.synthetic.main.activity_editar_producto.precioProducto5
 import kotlinx.android.synthetic.main.activity_nuevo_producto.btnSave
 import kotlinx.android.synthetic.main.activity_nuevo_producto.descripcionProducto
 import kotlinx.android.synthetic.main.activity_nuevo_producto.nombreProducto
@@ -49,6 +52,14 @@ class EditarProducto : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_producto)
+
+        val producto = intent.getParcelableExtra<menuModel>("Producto")
+
+        if (producto != null){
+            nombreProducto5.setText(producto.Nombre)
+            precioProducto5.setText(producto.Precio)
+            descripcionProducto5.setText(producto.Descripcion)
+        }
 
 
         //boton de la flechita

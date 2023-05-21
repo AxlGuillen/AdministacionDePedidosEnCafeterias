@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_editar_perfil.btnCancelar3
+import kotlinx.android.synthetic.main.activity_editar_perfil.btnNoti2
 import kotlinx.android.synthetic.main.activity_editar_perfil.btnRegresar2
 import kotlinx.android.synthetic.main.activity_editar_perfil.btnSave3
 import kotlinx.android.synthetic.main.activity_editar_perfil.edadRegistrar2
@@ -33,6 +34,11 @@ class EditarPerfil : AppCompatActivity() {
         //boton de la felchita
         btnRegresar2.setOnClickListener {
             onBackPressed()
+        }
+
+        //NOTIFICACIONES
+        btnNoti2.setOnClickListener {
+
         }
 
         //boton de cancelar

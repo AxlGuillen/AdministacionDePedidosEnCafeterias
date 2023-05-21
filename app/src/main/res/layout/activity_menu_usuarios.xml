@@ -112,6 +112,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
 
+    <Button
+        android:id="@+id/btnClientes"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#FF5722"
+        android:text="Clientes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.402" />
+
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"

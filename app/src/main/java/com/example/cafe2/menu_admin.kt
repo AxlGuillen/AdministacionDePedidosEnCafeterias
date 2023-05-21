@@ -6,6 +6,8 @@ import android.media.metrics.Event
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageButton
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.DocumentChange
@@ -51,6 +53,12 @@ class menu_admin : AppCompatActivity() {
         recyclerView.adapter = myAdapter
 
         EventChangeListener()
+
+        myAdapter.onItemClick = {
+            val intent = Intent(this,EditarProducto::class.java)
+            intent.putExtra("Producto", it)
+            startActivity(intent)
+        }
 
         //boton de la flecha
         imgbtnFlecha.setOnClickListener {
@@ -106,6 +114,13 @@ class menu_admin : AppCompatActivity() {
             }
             startActivity(notificacionIntent)
         }
+
+        /*editBtn.setOnClickListener {
+            val notificacionIntent = Intent(this, EditarProducto::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(notificacionIntent)
+        }*/
 
     }
 
