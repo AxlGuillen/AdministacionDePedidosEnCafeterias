@@ -14,7 +14,6 @@
         android:layout_weight="1"
         android:backgroundTint="#FF5722"
         app:icon="?attr/homeAsUpIndicator"
-        app:layout_constraintBottom_toBottomOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,6 +23,7 @@
         android:id="@+id/notiRecycler"
         android:layout_width="409dp"
         android:layout_height="665dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="65dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegresar6" />
 </androidx.constraintlayout.widget.ConstraintLayout>
