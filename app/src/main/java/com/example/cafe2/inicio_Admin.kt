@@ -1,12 +1,9 @@
 package com.example.cafe2
-
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnMenu
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnNoti3
-
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnPerfilInicioAdm
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnPromos
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnUsuarios
@@ -32,7 +29,10 @@ class inicio_Admin : AppCompatActivity() {
 
         //NOTIFICACIONES
         btnNoti3.setOnClickListener {
-
+            val Intent = Intent(this, Notificaciones::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(Intent)
         }
 
         //VENTAS

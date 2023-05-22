@@ -71,7 +71,10 @@ class EditarPerfil : AppCompatActivity() {
 
         //NOTIFICACIONES
         btnNoti2.setOnClickListener {
-
+            val Intent = Intent(this, Notificaciones::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(Intent)
         }
 
         //boton de cancelar

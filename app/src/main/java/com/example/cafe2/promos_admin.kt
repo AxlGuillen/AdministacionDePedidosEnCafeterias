@@ -62,7 +62,10 @@ class promos_admin : AppCompatActivity() {
 
         //NOTIFICACIONES
         imgbtnNotificaciones.setOnClickListener {
-
+            val Intent = Intent(this, Notificaciones::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(Intent)
         }
 
         //boton de perfil

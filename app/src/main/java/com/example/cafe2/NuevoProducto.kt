@@ -10,7 +10,6 @@ import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
-import kotlinx.android.synthetic.main.activity_nuevo_producto.btnPerfil
 import kotlinx.android.synthetic.main.activity_nuevo_producto.btnRegresar
 import kotlinx.android.synthetic.main.activity_nuevo_producto.btnSave
 import kotlinx.android.synthetic.main.activity_nuevo_producto.descripcionProducto
@@ -39,11 +38,6 @@ class NuevoProducto : AppCompatActivity() {
             onBackPressed()
         }
 
-        //abre el perfil
-        btnPerfil.setOnClickListener {
-            val perfilIntent = Intent(this, Perfil::class.java)
-            startActivity(perfilIntent)
-        }
 
         //SELECCIONA IMAGEN
         seleccionar_foto.setOnClickListener {

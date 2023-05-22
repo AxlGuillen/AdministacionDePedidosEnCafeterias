@@ -1,5 +1,6 @@
 package com.example.cafe2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
+import kotlinx.android.synthetic.main.activity_banear_activar.estado2
 
 class Notificaciones : AppCompatActivity() {
 
@@ -36,6 +38,11 @@ class Notificaciones : AppCompatActivity() {
         EventChangeListener()
     }
     fun EventChangeListener() {
+        //sacamos el email para mandarlo a otro lados
+        intent.extras
+        val bundle = intent.extras
+        val email:String? = bundle?.getString("email")
+
         db = FirebaseFirestore.getInstance()
         db.collection("Notificaciones").addSnapshotListener(object : EventListener<QuerySnapshot> {
             override fun onEvent(
@@ -48,8 +55,9 @@ class Notificaciones : AppCompatActivity() {
                 }
                 for(dc: DocumentChange in value?.documentChanges!!){
                     if(dc.type == DocumentChange.Type.ADDED){
-                        userArrayList.add(dc.document.toObject(notiModel::class.java))
-
+                        if (dc.document.toObject(notiModel::class.java).Destinatario.toString().equals(email)) {
+                            userArrayList.add(dc.document.toObject(notiModel::class.java))
+                        }
 
                     }
                 }

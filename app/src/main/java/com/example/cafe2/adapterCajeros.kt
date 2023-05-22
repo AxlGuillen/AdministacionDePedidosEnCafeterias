@@ -19,12 +19,12 @@ class adapterCajeros(private  val userList: ArrayList<clienteModel>): RecyclerVi
     }
 
     override fun onBindViewHolder(holder: adapterCajeros.MyViewHolder, position: Int) {
-        if(userList[position].Rol.equals("Cajero")){
+
         val user : clienteModel = userList[position]
 
         holder.Nombre.text = user.Nombre
         holder.Email.text = user.Email}
-    }
+
 
 
     override fun getItemCount(): Int {

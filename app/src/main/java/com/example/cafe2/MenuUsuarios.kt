@@ -38,7 +38,10 @@ class MenuUsuarios : AppCompatActivity() {
 
         //NOTIFICACIONES
         btnNoti2.setOnClickListener {
-
+            val Intent = Intent(this, Notificaciones::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(Intent)
         }
 
         //CAJEROS

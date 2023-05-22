@@ -21,21 +21,10 @@ class notiAdapter (private  val userList: ArrayList<notiModel>): RecyclerView.Ad
     override fun onBindViewHolder(holder: notiAdapter.MyViewHolder, position: Int) {
 
         //Me imagino que aqui irian los condicionantes para desplegar las notificaciones de cada usuario o algo así
-        val user : notiModel = userList[position]
-        holder.Descripcion.text = user.Descripcion
-        holder.Fecha.text = user.Fecha
-        holder.Titulo.text = user.Titulo
-
-        //Aqui como rayos relacionaremos la imagen a la notificación? Supuse que si le damos el id de la fecha se podria diferenciar o algo asi
-        val storageRef = FirebaseStorage.getInstance().reference.child("images/${user.Fecha}.jpg")
-        val localfile = File.createTempFile("tempImage","jpg")
-        storageRef.getFile(localfile).addOnSuccessListener {
-            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
-            holder.img.setImageBitmap(bitmap)
-        }.addOnFailureListener{
-
-        }
-
+            val user : notiModel = userList[position]
+                holder.Descripcion.text = user.Descripcion
+                holder.Fecha.text = user.Fecha
+                holder.Titulo.text = user.Titulo
 
     }
 
@@ -47,6 +36,5 @@ class notiAdapter (private  val userList: ArrayList<notiModel>): RecyclerView.Ad
         val Titulo: TextView = itemView.findViewById(R.id.view_titulo)
         val Fecha: TextView = itemView.findViewById(R.id.view_fecha)
         val Descripcion: TextView = itemView.findViewById(R.id.viewDesc)
-        val img: ImageView = itemView.findViewById(R.id.imgComida)
     }
 }
