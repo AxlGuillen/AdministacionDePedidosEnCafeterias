@@ -113,7 +113,10 @@ class EditarProducto : AppCompatActivity() {
 
         //No hace nada es el de NOTIFICACIONES
         btnNoti4.setOnClickListener {
-
+            val Intent = Intent(this, Notificaciones::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(Intent)
         }
 
         //Guarda los cambios
