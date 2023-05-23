@@ -12,6 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.activity_banear_activar.estado2
+import kotlinx.android.synthetic.main.activity_notificaciones.btnRegresar6
 
 class Notificaciones : AppCompatActivity() {
 
@@ -36,6 +37,11 @@ class Notificaciones : AppCompatActivity() {
         recyclerView.adapter = myAdapter
 
         EventChangeListener()
+
+        //Flechita
+        btnRegresar6.setOnClickListener {
+            onBackPressed()
+        }
     }
     fun EventChangeListener() {
         //sacamos el email para mandarlo a otro lados

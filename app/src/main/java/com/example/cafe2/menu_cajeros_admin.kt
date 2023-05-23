@@ -48,6 +48,14 @@ class menu_cajeros_admin : AppCompatActivity() {
 
         EventChangeListener()
 
+        //3 se configura
+        adapterCajeros.onItemClick = {
+            val intent = Intent(this,BanearActivar::class.java)
+            intent.putExtra("Usuario", it)
+            intent.putExtra("email",email)
+            startActivity(intent)
+        }
+
         //FLECHITA
         imgbtnFlecha.setOnClickListener {
             onBackPressed()
@@ -79,7 +87,10 @@ class menu_cajeros_admin : AppCompatActivity() {
 
         //HISTORIAL
         imgbtnHistorial2.setOnClickListener {
-
+            val intent = Intent(this, menu_historial::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(intent)
         }
 
         //MENU

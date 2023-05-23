@@ -79,7 +79,10 @@ class menu_clientes_admin : AppCompatActivity() {
 
         //HISTORIAL
         imgbtnHistorial2.setOnClickListener {
-
+            val intent = Intent(this, menu_historial::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(intent)
         }
 
         //MENU

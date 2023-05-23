@@ -50,6 +50,7 @@ class NuevaPromo : AppCompatActivity() {
             onBackPressed()
         }
 
+        //SELECCIONAR IMAGEN
         button.setOnClickListener {
             seleccionarImagen()
         }
@@ -60,7 +61,6 @@ class NuevaPromo : AppCompatActivity() {
             //las validaciones deberian mostrar errores abajo
             if (nombreProducto2.text.isNotEmpty() && precioProducto2.text.isNotEmpty() && descripcionProducto2.text.isNotEmpty()){
                 AgregarPromocion()
-
             }
             else{
                 //mostrar esto como error preguntarle a rodri

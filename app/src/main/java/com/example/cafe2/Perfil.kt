@@ -8,11 +8,7 @@ import android.util.Log
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_auth.emailEditText
-import kotlinx.android.synthetic.main.activity_editar_perfil.imageView6
-import kotlinx.android.synthetic.main.activity_imagen_prueba.imageView10
 import kotlinx.android.synthetic.main.activity_perfil.btnEditarPerfil
-import kotlinx.android.synthetic.main.activity_perfil.btnNoti2
 import kotlinx.android.synthetic.main.activity_perfil.btnRegresar2
 import kotlinx.android.synthetic.main.activity_perfil.edadPerfil
 import kotlinx.android.synthetic.main.activity_perfil.imageView5
@@ -66,12 +62,6 @@ class Perfil : AppCompatActivity() {
             startActivity(editarPerfilIntent)
         }
 
-        btnNoti2.setOnClickListener {
-            val Intent = Intent(this, Notificaciones::class.java).apply {
-                putExtra("email",email)
-            }
-            startActivity(Intent)
-        }
 
         //boton de la felchita
         btnRegresar2.setOnClickListener {
