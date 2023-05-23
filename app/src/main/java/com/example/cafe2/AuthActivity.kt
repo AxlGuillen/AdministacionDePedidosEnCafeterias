@@ -62,8 +62,12 @@ class AuthActivity : AppCompatActivity() {
                                 //Mandamos a la pantalla principal de cliente
 
                                 if(Rol.equals("Cliente") && Estado==true){
-                                    showHome(emailLogin.text.toString())
-
+                                    //showHome(emailLogin.text.toString())
+                                    val homeIntent = Intent(this, inicio_clientes::class.java).apply {
+                                        putExtra("email",emailLogin.text.toString())
+                                    }
+                                    startActivity(homeIntent)
+                                    finish()
                                 }
                                 //Mandamos a la pantalla principal de Administrador
                                 if(Rol.equals("Administrador")){
@@ -71,7 +75,12 @@ class AuthActivity : AppCompatActivity() {
                                     showRegistrar()
                                 }
                                 //Mandamos a la pantalla principal de Cajero
-                                if(Rol.equals("Cajero")){}
+                                if(Rol.equals("Cajero")){
+                                    val homeIntent = Intent(this, inicio_Admin::class.java).apply {
+                                        putExtra("email",emailLogin.text.toString())
+                                    }
+                                    startActivity(homeIntent)
+                                }
                             }
                     }
                     else { showAlert() }

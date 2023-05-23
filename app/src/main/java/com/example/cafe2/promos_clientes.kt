@@ -1,6 +1,5 @@
 package com.example.cafe2
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,11 +11,6 @@ import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
-import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnFlecha4
-import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnHome2
-import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnNotificaciones4
-import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnPerfil4
-import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnpromos4
 import kotlinx.android.synthetic.main.activity_menu_admin.btnAgregarProducto
 import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnFlecha
 import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnHistorial
@@ -25,65 +19,72 @@ import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnNotificaciones
 import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnPerfil
 import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnpromos
 import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnusuarios
-import kotlinx.android.synthetic.main.activity_ver_producto.numberCantidad
+import kotlinx.android.synthetic.main.activity_promos_clientes.imgbtnCarrito2
+import kotlinx.android.synthetic.main.activity_promos_clientes.imgbtnFlecha2
+import kotlinx.android.synthetic.main.activity_promos_clientes.imgbtnHome
+import kotlinx.android.synthetic.main.activity_promos_clientes.imgbtnNotificaciones3
+import kotlinx.android.synthetic.main.activity_promos_clientes.imgbtnPerfil3
+import kotlinx.android.synthetic.main.activity_promos_clientes.imgbtnhistorial
 
-class CarritoCompras : AppCompatActivity() {
+class promos_clientes : AppCompatActivity() {
     private lateinit var  recyclerView: RecyclerView
-    private lateinit var  userArrayList:ArrayList<model_Carrito>
-    private lateinit var  myAdapter: adapterCarrito
+    private lateinit var  userArrayList:ArrayList<menuModel>
+    private lateinit var  myAdapter: MyAdapter
     private lateinit var  db : FirebaseFirestore
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_carrito_compras)
+        setContentView(R.layout.activity_promos_clientes)
 
         //sacamos el email para mandarlo a otro lados
         intent.extras
         val bundle = intent.extras
         val email:String? = bundle?.getString("email")
 
-        recyclerView = findViewById(R.id.carritoRecycler)
+        recyclerView = findViewById(R.id.promosClientesRecycler)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
 
-
         userArrayList = arrayListOf()
 
-        myAdapter = adapterCarrito(userArrayList)
+        myAdapter = MyAdapter(userArrayList)
 
         recyclerView.adapter = myAdapter
 
         EventChangeListener()
 
+        //3 se configura
         myAdapter.onItemClick = {
-            val intent = Intent(this, EditarMiPedido::class.java)
-            intent.putExtra("Carrito", it)
+            val intent = Intent(this,VerProducto::class.java)
+            intent.putExtra("Promocion", it)
             intent.putExtra("email",email)
             startActivity(intent)
         }
 
-
         //boton de la flecha
-        imgbtnFlecha4.setOnClickListener {
+        imgbtnFlecha2.setOnClickListener {
             onBackPressed()
         }
 
         //NOTIFICACIONES
-        imgbtnNotificaciones4.setOnClickListener {
-
+        imgbtnNotificaciones3.setOnClickListener {
+            //
         }
 
         //boton de perfil
-        imgbtnPerfil4.setOnClickListener {
+        imgbtnPerfil3.setOnClickListener {
             val perfilIntent = Intent(this, Perfil::class.java).apply {
                 putExtra("email",email)
             }
             startActivity(perfilIntent)
         }
 
+        //HISTORIAL
+        imgbtnhistorial.setOnClickListener {
+            //
+        }
 
         //HOME
-        imgbtnHome2.setOnClickListener {
+        imgbtnHome.setOnClickListener {
             val menuIntent = Intent(this, inicio_clientes::class.java).apply {
                 putExtra("email",email)
             }
@@ -91,25 +92,19 @@ class CarritoCompras : AppCompatActivity() {
             finish()
         }
 
-
-        //PROMOCIONES
-        imgbtnpromos4.setOnClickListener {
-            val notificacionIntent = Intent(this, promos_clientes::class.java).apply {
+        //CARRITO
+        imgbtnCarrito2.setOnClickListener{
+            val menuUsuariosIntent = Intent(this, CarritoCompras::class.java).apply {
                 putExtra("email",email)
             }
-            startActivity(notificacionIntent)
+            startActivity(menuUsuariosIntent)
         }
 
     }
 
-
     private fun EventChangeListener() {
-        intent.extras
-        val bundle = intent.extras
-        val email:String? = bundle?.getString("email")
-
         db = FirebaseFirestore.getInstance()
-        db.collection("Carrito/${email}/Productos").addSnapshotListener(object : EventListener<QuerySnapshot> {
+        db.collection("Promociones").addSnapshotListener(object : EventListener<QuerySnapshot> {
             override fun onEvent(
                 value: QuerySnapshot?,
                 error: FirebaseFirestoreException?
@@ -120,7 +115,7 @@ class CarritoCompras : AppCompatActivity() {
                 }
                 for(dc: DocumentChange in value?.documentChanges!!){
                     if(dc.type == DocumentChange.Type.ADDED){
-                        userArrayList.add(dc.document.toObject(model_Carrito::class.java))
+                        userArrayList.add(dc.document.toObject(menuModel::class.java))
 
 
                     }
