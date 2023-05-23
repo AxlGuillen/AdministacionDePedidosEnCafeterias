@@ -13,17 +13,23 @@ import java.io.File
 
 class adapterCajeros(private  val userList: ArrayList<clienteModel>): RecyclerView.Adapter<adapterCajeros.MyViewHolder>(){
 
+    //1 Se crea la variable para el evento
+    var onItemClick : ((clienteModel) -> Unit)? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): adapterCajeros.MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.menu_cajeros_admin_card,parent, false)
         return MyViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: adapterCajeros.MyViewHolder, position: Int) {
-
         val user : clienteModel = userList[position]
-
         holder.Nombre.text = user.Nombre
-        holder.Email.text = user.Email}
+        holder.Email.text = user.Email
+
+        //2 Se hace el evento de picarle al boton
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(user)
+        }
+    }
 
 
 

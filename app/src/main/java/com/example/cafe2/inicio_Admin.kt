@@ -37,7 +37,10 @@ class inicio_Admin : AppCompatActivity() {
 
         //VENTAS
         btnVentas.setOnClickListener {
-
+            val intent = Intent(this, menu_historial::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(intent)
         }
 
         //PROMOS

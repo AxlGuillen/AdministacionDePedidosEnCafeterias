@@ -35,7 +35,7 @@
 
         <TextView
             android:id="@+id/textTitulo2"
-            android:layout_width="250dp"
+            android:layout_width="311dp"
             android:layout_height="38dp"
             android:layout_weight="1"
             android:text="Titulo"
@@ -48,22 +48,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.557"
             tools:text="PERFIL" />
-
-        <Button
-            android:id="@+id/btnNoti2"
-            android:layout_width="20dp"
-            android:layout_height="46dp"
-            android:layout_weight="1"
-            android:backgroundTint="#FF5722"
-            android:textAlignment="center"
-            app:icon="@android:drawable/ic_popup_reminder"
-            app:iconGravity="start"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.675"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.037" />
 
     </LinearLayout>
 
