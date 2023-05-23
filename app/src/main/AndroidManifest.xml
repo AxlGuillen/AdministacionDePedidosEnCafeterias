@@ -24,6 +24,9 @@
             android:exported="false" />
         <activity
             android:name=".VerProducto"
+             android:exported="false" />
+      <activity
+            android:name=".menu_historial"
             android:exported="false" />
         <activity
             android:name=".BanearActivar"

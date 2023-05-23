@@ -63,7 +63,10 @@ class menu_clientes_admin : AppCompatActivity() {
 
         //NOTIFICACIONES
         imgbtnNotificaciones.setOnClickListener {
-
+            val Intent = Intent(this, Notificaciones::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(Intent)
         }
 
         //PERFIL
@@ -76,7 +79,10 @@ class menu_clientes_admin : AppCompatActivity() {
 
         //HISTORIAL
         imgbtnHistorial2.setOnClickListener {
-
+            val intent = Intent(this, menu_historial::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(intent)
         }
 
         //MENU
@@ -117,10 +123,9 @@ class menu_clientes_admin : AppCompatActivity() {
                 }
                 for(dc: DocumentChange in value?.documentChanges!!){
                     if(dc.type == DocumentChange.Type.ADDED) {
-                        if (dc.document.toObject(clienteModel::class.java).Rol.toString()
-                                .equals("Cliente")
-                        )
+                        if (dc.document.toObject(clienteModel::class.java).Rol.toString().equals("Cliente")) {
                             userArrayList.add(dc.document.toObject(clienteModel::class.java))
+                        }
                     }
 
                 }

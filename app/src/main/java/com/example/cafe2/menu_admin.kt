@@ -68,7 +68,10 @@ class menu_admin : AppCompatActivity() {
 
         //NOTIFICACIONES
         imgbtnNotificaciones.setOnClickListener {
-
+            val Intent = Intent(this, Notificaciones::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(Intent)
         }
 
         //boton de perfil
@@ -89,7 +92,10 @@ class menu_admin : AppCompatActivity() {
 
         //HISTORIAL
         imgbtnHistorial.setOnClickListener {
-
+            val intent = Intent(this, menu_historial::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(intent)
         }
 
         //MENU ESTAMOS AQUI

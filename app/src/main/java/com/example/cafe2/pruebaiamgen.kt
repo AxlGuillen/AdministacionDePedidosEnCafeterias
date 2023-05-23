@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_imagen_prueba.BotonCargarImagen
 import kotlinx.android.synthetic.main.activity_imagen_prueba.imageView10
 import java.io.File
 
-class ImagenPrueba : AppCompatActivity() {
+class pruebaiamgen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

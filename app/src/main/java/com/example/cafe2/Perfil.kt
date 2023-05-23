@@ -8,9 +8,6 @@ import android.util.Log
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_auth.emailEditText
-import kotlinx.android.synthetic.main.activity_editar_perfil.imageView6
-import kotlinx.android.synthetic.main.activity_imagen_prueba.imageView10
 import kotlinx.android.synthetic.main.activity_perfil.btnEditarPerfil
 import kotlinx.android.synthetic.main.activity_perfil.btnRegresar2
 import kotlinx.android.synthetic.main.activity_perfil.edadPerfil
@@ -64,6 +61,7 @@ class Perfil : AppCompatActivity() {
             }
             startActivity(editarPerfilIntent)
         }
+
 
         //boton de la felchita
         btnRegresar2.setOnClickListener {

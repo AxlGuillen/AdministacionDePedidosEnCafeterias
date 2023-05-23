@@ -55,32 +55,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnNoti"
-        android:layout_width="66dp"
-        android:layout_height="46dp"
-        android:backgroundTint="#FF5722"
-        app:icon="@android:drawable/ic_popup_reminder"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.675"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037" />
-
-    <Button
-        android:id="@+id/btnPerfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FF5722"
-        android:text="Perfil"
-        app:layout_constraintBottom_toBottomOf="@+id/divider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.47" />
-
     <TextView
         android:id="@+id/textCampos"
         android:layout_width="wrap_content"
@@ -112,10 +86,10 @@
         app:icon="@android:drawable/ic_menu_more"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.905"
+        app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCampos"
-        app:layout_constraintVertical_bias="0.125" />
+        app:layout_constraintVertical_bias="0.152" />
 
     <EditText
         android:id="@+id/nombreProducto"
@@ -132,58 +106,6 @@
         app:layout_constraintVertical_bias="0.432" />
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#FF5722"
-        app:icon="@drawable/ventas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.958" />
-
-    <Button
-        android:id="@+id/btnUsuariosNuevoProducto"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#FF5722"
-        app:icon="@drawable/usuarios"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.381"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.958" />
-
-    <Button
-        android:id="@+id/btnInicioAdmNuevoProducto"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#FF5722"
-        app:icon="@drawable/home"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.643"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.958" />
-
-    <Button
-        android:id="@+id/btnPromocionesNuevoProducto"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#FF5722"
-        app:icon="@drawable/promos"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.874"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.958" />
-
-    <Button
         android:id="@+id/btnSave"
         android:layout_width="118dp"
         android:layout_height="40dp"
@@ -193,10 +115,10 @@
         app:icon="@android:drawable/ic_menu_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.859" />
+        app:layout_constraintVertical_bias="0.861" />
 
     <EditText
         android:id="@+id/descripcionProducto"

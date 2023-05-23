@@ -35,7 +35,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/emailEditText"
+            android:id="@+id/emailLogin"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:ems="10"
@@ -85,5 +85,18 @@
                 android:backgroundTint="#FF5722"
                 android:text="Acceder" />
         </LinearLayout>
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnRestablecerContraseña"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00FFFFFF"
+        android:text="Restablecer contraseña"
+        android:textColor="#3F51B5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
