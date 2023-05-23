@@ -4,31 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".menu_historial">
+    tools:context=".pedidos_curso">
+
+    <ImageButton
+        android:id="@+id/imgbtnNotificaciones"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00FF9800"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnPerfil"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnFlecha"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/notificacionbueno" />
+
+    <ImageButton
+        android:id="@+id/imgbtnPerfil"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#00FF9800"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/perfilbueno" />
 
     <Button
-        android:id="@+id/btnRegresar6"
+        android:id="@+id/imgbtnFlecha"
         android:layout_width="66dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
-        android:backgroundTint="#737170"
+        android:backgroundTint="#FF5722"
         app:icon="?attr/homeAsUpIndicator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="PEDIDOS EN CURSO"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnNotificaciones"
+        app:layout_constraintHorizontal_bias="0.229"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnFlecha"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/notiRecycler"
+        android:id="@+id/pedidosCursoRecycler"
         android:layout_width="409dp"
         android:layout_height="610dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegresar6"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnFlecha" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
@@ -38,9 +72,7 @@
         app:backgroundTint="#919191"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notiRecycler"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/imgbtnPromociones"
@@ -97,5 +129,4 @@
         app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/historialbueno" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
