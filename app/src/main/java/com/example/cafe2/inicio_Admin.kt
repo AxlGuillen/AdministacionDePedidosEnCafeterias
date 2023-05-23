@@ -2,6 +2,8 @@ package com.example.cafe2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnMenu
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnNoti3
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnPerfilInicioAdm
@@ -10,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_inicio_admin.btnUsuarios
 import kotlinx.android.synthetic.main.activity_inicio_admin.btnVentas
 
 class inicio_Admin : AppCompatActivity() {
+    private lateinit var db: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio_admin)
@@ -18,6 +21,8 @@ class inicio_Admin : AppCompatActivity() {
         intent.extras
         val bundle = intent.extras
         val email:String? = bundle?.getString("email")
+
+        prueba()
 
         //PERFIL
         btnPerfilInicioAdm.setOnClickListener {
@@ -53,7 +58,7 @@ class inicio_Admin : AppCompatActivity() {
 
         //MENU
         btnMenu.setOnClickListener {
-            val menuIntent = Intent(this, menu_admin::class.java).apply {
+            val menuIntent = Intent(this, CarritoCompras::class.java).apply {
                 putExtra("email",email)
             }
             startActivity(menuIntent)
@@ -68,4 +73,19 @@ class inicio_Admin : AppCompatActivity() {
         }
     }
 
+
+        //codigo para las opiniones
+    private fun prueba() {
+        db = FirebaseFirestore.getInstance()
+        intent.extras
+        val bundle = intent.extras
+        val email: String? = bundle?.getString("email")
+
+        db.collection("Evaluaciones/${"Pozole"}/${"Opiniones"}").document(email.toString()).get()
+            .addOnSuccessListener {
+                val Correo = (it.get("Correo") as String?).toString()
+                val Opinion = (it.get("Opinion") as String?).toString()
+                //val Puntuacion = (it.get("Puntuacion") as Int?)
+            }
+    }
 }

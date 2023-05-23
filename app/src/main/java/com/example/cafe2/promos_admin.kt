@@ -27,7 +27,6 @@ class promos_admin : AppCompatActivity() {
     private lateinit var  db : FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_menu_admin)
 
         //sacamos el email para mandarlo a otro lados
