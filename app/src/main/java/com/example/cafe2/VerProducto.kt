@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_editar_producto.descripcionProduc
 import kotlinx.android.synthetic.main.activity_editar_producto.imageView9
 import kotlinx.android.synthetic.main.activity_editar_producto.nombreProducto5
 import kotlinx.android.synthetic.main.activity_editar_producto.precioProducto5
+import kotlinx.android.synthetic.main.activity_editar_promo.imageView7
 import kotlinx.android.synthetic.main.activity_ver_producto.btnAdd
 import kotlinx.android.synthetic.main.activity_ver_producto.btnRegresar7
 import kotlinx.android.synthetic.main.activity_ver_producto.imageProduc
@@ -27,6 +28,8 @@ import kotlinx.android.synthetic.main.activity_ver_producto.viewName
 import kotlinx.android.synthetic.main.activity_ver_producto.viewPrecio
 import kotlinx.android.synthetic.main.lista_noti_card.viewDesc
 import java.io.File
+import android.view.View;
+import kotlinx.android.synthetic.main.activity_ver_producto.textView16
 
 class VerProducto : AppCompatActivity() {
 
@@ -45,6 +48,7 @@ class VerProducto : AppCompatActivity() {
         setContentView(R.layout.activity_ver_producto)
 
         val producto = intent.getParcelableExtra<menuModel>("Producto")
+        val promocion = intent.getParcelableExtra<menuModel>("Promocion")
         val email = intent.extras?.getString("email")
         val pre = numberCantidad.text.toString()
         val comentarios = textComen.text
@@ -53,20 +57,36 @@ class VerProducto : AppCompatActivity() {
         if (producto != null){
             viewName.setText(producto.Nombre)
             viewPrecio.setText("$" + producto.Precio + ".00")
-
             viewDescripcion.setText(producto.Descripcion)
+
+            val storageRef = FirebaseStorage.getInstance().reference.child("images/${producto?.Nombre}.jpg")
+            val localfile = File.createTempFile("tempImage","jpg")
+            storageRef.getFile(localfile).addOnSuccessListener {
+                val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+                imageProduc.setImageBitmap(bitmap)
+            }.addOnFailureListener{
+                Toast.makeText(this,"Failed to download the image", Toast.LENGTH_LONG).show()
+
+            }
+        } else if(promocion != null){
+            //Desaparece el espacio de comentarios
+            textView16.setVisibility(View.GONE)
+            textComen.setVisibility(View.GONE)
+
+            viewName.setText(promocion.Nombre)
+            viewPrecio.setText("$" + promocion.Precio + ".00")
+            viewDescripcion.setText(promocion.Descripcion)
+            val storageRef = FirebaseStorage.getInstance().reference.child("images/${promocion?.Nombre}.jpg")
+            val localfile = File.createTempFile("tempImage","jpg")
+            storageRef.getFile(localfile).addOnSuccessListener {
+                val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+                imageProduc.setImageBitmap(bitmap)
+            }.addOnFailureListener{
+                Toast.makeText(this,"Failed to download the image", Toast.LENGTH_LONG).show()
+
+            }
         }
 
-
-        val storageRef = FirebaseStorage.getInstance().reference.child("images/${producto?.Nombre}.jpg")
-        val localfile = File.createTempFile("tempImage","jpg")
-        storageRef.getFile(localfile).addOnSuccessListener {
-            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
-            imageProduc.setImageBitmap(bitmap)
-        }.addOnFailureListener{
-            Toast.makeText(this,"Failed to download the image", Toast.LENGTH_LONG).show()
-
-        }
 
         //boton de la flechita
         btnRegresar7.setOnClickListener {

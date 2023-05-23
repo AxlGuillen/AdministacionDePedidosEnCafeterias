@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_perfil.btnCerrarSesion
 import kotlinx.android.synthetic.main.activity_perfil.btnEditarPerfil
 import kotlinx.android.synthetic.main.activity_perfil.btnRegresar2
 import kotlinx.android.synthetic.main.activity_perfil.edadPerfil
@@ -66,6 +67,13 @@ class Perfil : AppCompatActivity() {
         //boton de la felchita
         btnRegresar2.setOnClickListener {
             onBackPressed()
+        }
+
+        //CERRAR SESION
+        btnCerrarSesion.setOnClickListener {
+            val editarPerfilIntent = Intent(this, AuthActivity::class.java).apply {
+            }
+            startActivity(editarPerfilIntent)
         }
     }
 }
