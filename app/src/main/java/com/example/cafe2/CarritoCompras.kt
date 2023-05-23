@@ -29,10 +29,10 @@ import kotlinx.android.synthetic.main.activity_ver_producto.numberCantidad
 
 class CarritoCompras : AppCompatActivity() {
     private lateinit var  recyclerView: RecyclerView
-    private lateinit var  userArrayList:ArrayList<menuModel>
-    private lateinit var  myAdapter: MyAdapter
+    private lateinit var  userArrayList:ArrayList<model_Carrito>
+    private lateinit var  myAdapter: adapterCarrito
     private lateinit var  db : FirebaseFirestore
-    @SuppressLint("MissingInflatedId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_carrito_compras)
@@ -41,10 +41,6 @@ class CarritoCompras : AppCompatActivity() {
         intent.extras
         val bundle = intent.extras
         val email:String? = bundle?.getString("email")
-        val producto:String? = bundle?.getString("producto")
-        val precio:String? = bundle?.getString("precio")
-        val comentarios:String? = bundle?.getString("comentarios")
-        val cantidad:String? = bundle?.getString("cantidad")
 
         recyclerView = findViewById(R.id.carritoRecycler)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -53,21 +49,17 @@ class CarritoCompras : AppCompatActivity() {
 
         userArrayList = arrayListOf()
 
-        myAdapter = MyAdapter(userArrayList)
+        myAdapter = adapterCarrito(userArrayList)
 
         recyclerView.adapter = myAdapter
 
         EventChangeListener()
 
         myAdapter.onItemClick = {
-            val notificacionIntent = Intent(this, EditarMiPedido::class.java).apply {
-                putExtra("email", email)
-                putExtra("producto", producto)
-                putExtra("precio", precio)
-                putExtra("comentarios", comentarios)
-                putExtra("cantidad", cantidad)
-            }
-            startActivity(notificacionIntent)
+            val intent = Intent(this, EditarMiPedido::class.java)
+            intent.putExtra("Carrito", it)
+            intent.putExtra("email",email)
+            startActivity(intent)
         }
 
 
@@ -111,8 +103,12 @@ class CarritoCompras : AppCompatActivity() {
 
 
     private fun EventChangeListener() {
+        intent.extras
+        val bundle = intent.extras
+        val email:String? = bundle?.getString("email")
+
         db = FirebaseFirestore.getInstance()
-        db.collection("Productos").addSnapshotListener(object : EventListener<QuerySnapshot> {
+        db.collection("Carrito/${email}/Productos").addSnapshotListener(object : EventListener<QuerySnapshot> {
             override fun onEvent(
                 value: QuerySnapshot?,
                 error: FirebaseFirestoreException?
@@ -123,7 +119,7 @@ class CarritoCompras : AppCompatActivity() {
                 }
                 for(dc: DocumentChange in value?.documentChanges!!){
                     if(dc.type == DocumentChange.Type.ADDED){
-                        userArrayList.add(dc.document.toObject(menuModel::class.java))
+                        userArrayList.add(dc.document.toObject(model_Carrito::class.java))
 
 
                     }

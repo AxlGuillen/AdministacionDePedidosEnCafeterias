@@ -10,8 +10,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.activity_editar_producto.btnCancelar
-import kotlinx.android.synthetic.main.activity_editar_producto.btnNoti4
-import kotlinx.android.synthetic.main.activity_editar_producto.btnPerfil4
 import kotlinx.android.synthetic.main.activity_editar_producto.btnRegresar5
 import kotlinx.android.synthetic.main.activity_editar_producto.btnSave5
 import kotlinx.android.synthetic.main.activity_editar_producto.button14
@@ -20,8 +18,6 @@ import kotlinx.android.synthetic.main.activity_editar_producto.imageView9
 import kotlinx.android.synthetic.main.activity_editar_producto.nombreProducto5
 import kotlinx.android.synthetic.main.activity_editar_producto.precioProducto5
 import kotlinx.android.synthetic.main.activity_ver_producto.btnAdd
-import kotlinx.android.synthetic.main.activity_ver_producto.btnNoti5
-import kotlinx.android.synthetic.main.activity_ver_producto.btnPerfil3
 import kotlinx.android.synthetic.main.activity_ver_producto.btnRegresar7
 import kotlinx.android.synthetic.main.activity_ver_producto.imageProduc
 import kotlinx.android.synthetic.main.activity_ver_producto.numberCantidad
@@ -77,18 +73,6 @@ class VerProducto : AppCompatActivity() {
             onBackPressed()
         }
 
-        //muestra la interfaz de perfil
-        btnPerfil3.setOnClickListener {
-            val perfilIntent = Intent(this, Perfil::class.java).apply {
-                putExtra("email",email)
-            }
-            startActivity(perfilIntent)
-        }
-
-        //Notificaciones
-        btnNoti5.setOnClickListener{
-            //
-        }
         //Añade al carrito
         btnAdd.setOnClickListener {
             //
