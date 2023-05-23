@@ -27,7 +27,6 @@ class promos_admin : AppCompatActivity() {
     private lateinit var  db : FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_menu_admin)
 
         //sacamos el email para mandarlo a otro lados
@@ -62,7 +61,10 @@ class promos_admin : AppCompatActivity() {
 
         //NOTIFICACIONES
         imgbtnNotificaciones.setOnClickListener {
-
+            val Intent = Intent(this, Notificaciones::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(Intent)
         }
 
         //boton de perfil
@@ -81,7 +83,10 @@ class promos_admin : AppCompatActivity() {
 
         //HISTORIAL
         imgbtnHistorial.setOnClickListener {
-
+            val intent = Intent(this, menu_historial::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(intent)
         }
 
         //MENU

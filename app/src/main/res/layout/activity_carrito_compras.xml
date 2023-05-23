@@ -4,46 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".menu_historial">
+    tools:context=".CarritoCompras">
 
-    <Button
-        android:id="@+id/btnRegresar6"
-        android:layout_width="66dp"
-        android:layout_height="48dp"
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CARRITO"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnNotificaciones4"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnFlecha4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <ImageButton
+        android:id="@+id/imgbtnNotificaciones4"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#00FF5722"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnPerfil4"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:srcCompat="@drawable/notificacionbueno" />
+
+    <ImageButton
+        android:id="@+id/imgbtnPerfil4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:layout_weight="1"
-        android:backgroundTint="#737170"
-        app:icon="?attr/homeAsUpIndicator"
+        android:layout_marginEnd="44dp"
+        android:backgroundTint="#00FF5722"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/perfilbueno" />
+
+    <ImageButton
+        android:id="@+id/imgbtnFlecha4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00FF5722"
+        android:src="?attr/homeAsUpIndicator"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/notiRecycler"
-        android:layout_width="409dp"
-        android:layout_height="610dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegresar6"
-        app:layout_constraintVertical_bias="0.05" />
-
     <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
+        android:id="@+id/bottomAppBar4"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:backgroundTint="#919191"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notiRecycler"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/imgbtnPromociones"
+        android:id="@+id/imgbtnpromos4"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
@@ -57,7 +80,7 @@
         app:srcCompat="@drawable/promocionesbueno" />
 
     <ImageButton
-        android:id="@+id/imgbtnUsuarios2"
+        android:id="@+id/imgbtnusuarios4"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
@@ -71,7 +94,7 @@
         app:srcCompat="@drawable/usuariosbueno" />
 
     <ImageButton
-        android:id="@+id/imgbtnmenu2"
+        android:id="@+id/imgbtnMenuAdm4"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
@@ -85,7 +108,7 @@
         app:srcCompat="@drawable/menubueno" />
 
     <ImageButton
-        android:id="@+id/imgbtnHistorial2"
+        android:id="@+id/imgbtnHistorial5"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
@@ -98,4 +121,19 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/historialbueno" />
 
+    <LinearLayout
+        android:layout_width="418dp"
+        android:layout_height="558dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="55dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/carritoRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

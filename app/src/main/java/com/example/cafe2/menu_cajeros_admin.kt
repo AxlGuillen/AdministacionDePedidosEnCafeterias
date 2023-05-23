@@ -48,6 +48,14 @@ class menu_cajeros_admin : AppCompatActivity() {
 
         EventChangeListener()
 
+        //3 se configura
+        adapterCajeros.onItemClick = {
+            val intent = Intent(this,BanearActivar::class.java)
+            intent.putExtra("Usuario", it)
+            intent.putExtra("email",email)
+            startActivity(intent)
+        }
+
         //FLECHITA
         imgbtnFlecha.setOnClickListener {
             onBackPressed()
@@ -63,7 +71,10 @@ class menu_cajeros_admin : AppCompatActivity() {
 
         //NOTIFICACIONES
         imgbtnNotificaciones.setOnClickListener {
-
+            val Intent = Intent(this, Notificaciones::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(Intent)
         }
 
         //PERFIL
@@ -76,7 +87,10 @@ class menu_cajeros_admin : AppCompatActivity() {
 
         //HISTORIAL
         imgbtnHistorial2.setOnClickListener {
-
+            val intent = Intent(this, menu_historial::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(intent)
         }
 
         //MENU
@@ -117,8 +131,9 @@ class menu_cajeros_admin : AppCompatActivity() {
                 }
                 for(dc: DocumentChange in value?.documentChanges!!){
                     if(dc.type == DocumentChange.Type.ADDED){
-                        userArrayList.add(dc.document.toObject(clienteModel::class.java))
-
+                        if (dc.document.toObject(clienteModel::class.java).Rol.toString().equals("Cajero")) {
+                            userArrayList.add(dc.document.toObject(clienteModel::class.java))
+                        }
                     }
                 }
                 adapterCajeros.notifyDataSetChanged()

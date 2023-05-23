@@ -52,7 +52,18 @@ class PreguntaConfirmacion : AppCompatActivity() {
                         startActivity(operacionExitosaIntent)
                     }
             }
-
+            //CARRITO
+            if (mensaje.equals("¿ELIMINAR DEL CARRITO?")){
+                db.collection("Carrito/${email}/Productos").document(nombre.toString())
+                    .delete()
+                    .addOnSuccessListener {
+                        val operacionExitosaIntent = Intent(this, OperacionExitosa::class.java).apply {
+                            putExtra("Mensaje","Producto eliminado del carrito")
+                            putExtra("email",email)
+                        }
+                        startActivity(operacionExitosaIntent)
+                    }
+            }
         }
 
         //Cacelar

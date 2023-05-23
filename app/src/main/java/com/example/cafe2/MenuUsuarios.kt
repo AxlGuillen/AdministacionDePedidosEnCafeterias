@@ -38,7 +38,10 @@ class MenuUsuarios : AppCompatActivity() {
 
         //NOTIFICACIONES
         btnNoti2.setOnClickListener {
-
+            val Intent = Intent(this, Notificaciones::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(Intent)
         }
 
         //CAJEROS
@@ -60,7 +63,10 @@ class MenuUsuarios : AppCompatActivity() {
 
         //HISTORIAL
         btnVentas2.setOnClickListener {
-
+            val intent = Intent(this, menu_historial::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(intent)
         }
 
         //MENU

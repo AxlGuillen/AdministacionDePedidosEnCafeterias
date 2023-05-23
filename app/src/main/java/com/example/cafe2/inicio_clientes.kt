@@ -1,13 +1,9 @@
 package com.example.cafe2
 
-
 import android.content.Intent
-import android.media.metrics.Event
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageButton
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.DocumentChange
@@ -15,8 +11,11 @@ import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
-import com.google.firebase.storage.FirebaseStorage
-
+import kotlinx.android.synthetic.main.activity_inicio_clientes.imgbtnCarrito
+import kotlinx.android.synthetic.main.activity_inicio_clientes.imgbtnNotificaciones2
+import kotlinx.android.synthetic.main.activity_inicio_clientes.imgbtnPerfil2
+import kotlinx.android.synthetic.main.activity_inicio_clientes.imgbtnhistorial2
+import kotlinx.android.synthetic.main.activity_inicio_clientes.imgbtnpromo
 import kotlinx.android.synthetic.main.activity_menu_admin.btnAgregarProducto
 import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnFlecha
 import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnHistorial
@@ -26,22 +25,21 @@ import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnPerfil
 import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnpromos
 import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnusuarios
 
-
-class menu_admin : AppCompatActivity() {
+class inicio_clientes : AppCompatActivity() {
     private lateinit var  recyclerView: RecyclerView
     private lateinit var  userArrayList:ArrayList<menuModel>
     private lateinit var  myAdapter: MyAdapter
     private lateinit var  db : FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu_admin)
+        setContentView(R.layout.activity_inicio_clientes)
 
         //sacamos el email para mandarlo a otro lados
         intent.extras
         val bundle = intent.extras
         val email:String? = bundle?.getString("email")
 
-        recyclerView = findViewById(R.id.clientesRecycler)
+        recyclerView = findViewById(R.id.inicioRecycler)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
 
@@ -55,71 +53,42 @@ class menu_admin : AppCompatActivity() {
         EventChangeListener()
 
         myAdapter.onItemClick = {
-            val intent = Intent(this,EditarProducto::class.java)
+            val intent = Intent(this,VerProducto::class.java)
             intent.putExtra("Producto", it)
             intent.putExtra("email",email)
             startActivity(intent)
         }
 
-        //boton de la flecha
-        imgbtnFlecha.setOnClickListener {
-            onBackPressed()
-        }
 
         //NOTIFICACIONES
-        imgbtnNotificaciones.setOnClickListener {
-            val Intent = Intent(this, Notificaciones::class.java).apply {
-                putExtra("email",email)
-            }
-            startActivity(Intent)
+        imgbtnNotificaciones2.setOnClickListener {
+            //
         }
 
         //boton de perfil
-        imgbtnPerfil.setOnClickListener {
+        imgbtnPerfil2.setOnClickListener {
             val perfilIntent = Intent(this, Perfil::class.java).apply {
                 putExtra("email",email)
             }
             startActivity(perfilIntent)
         }
 
-        //AGREGAR PRODUCTO
-        btnAgregarProducto.setOnClickListener {
-            val menuIntent = Intent(this, NuevoProducto::class.java).apply {
-                putExtra("email",email)
-            }
-            startActivity(menuIntent)
-        }
-
         //HISTORIAL
-        imgbtnHistorial.setOnClickListener {
-            val intent = Intent(this, menu_historial::class.java).apply {
-                putExtra("email",email)
-            }
-            startActivity(intent)
+        imgbtnhistorial2.setOnClickListener {
+            //
         }
 
-        //MENU ESTAMOS AQUI
-        imgbtnMenuAdm.setOnClickListener {
-            val menuIntent = Intent(this, menu_admin::class.java).apply {
+        //CARRITO
+        imgbtnCarrito.setOnClickListener {
+            val menuIntent = Intent(this, CarritoCompras::class.java).apply {
                 putExtra("email",email)
             }
             startActivity(menuIntent)
         }
 
-        //USUARIOS
-        imgbtnusuarios.setOnClickListener{
-            val menuUsuariosIntent = Intent(this, MenuUsuarios::class.java).apply {
-                putExtra("email",email)
-            }
-            startActivity(menuUsuariosIntent)
-        }
-
-        //PROMOCIONES
-        imgbtnpromos.setOnClickListener {
-            val notificacionIntent = Intent(this, promos_admin::class.java).apply {
-                putExtra("email",email)
-            }
-            startActivity(notificacionIntent)
+        //PROMOS
+        imgbtnpromo.setOnClickListener{
+            //
         }
 
     }
@@ -136,16 +105,13 @@ class menu_admin : AppCompatActivity() {
                     Log.e("Firestore Error", error.message.toString())
                     return
                 }
-                for(dc:DocumentChange in value?.documentChanges!!){
+                for(dc: DocumentChange in value?.documentChanges!!){
                     if(dc.type == DocumentChange.Type.ADDED){
-                         userArrayList.add(dc.document.toObject(menuModel::class.java))
-
-
+                        userArrayList.add(dc.document.toObject(menuModel::class.java))
                     }
                 }
                 myAdapter.notifyDataSetChanged()
             }
         })
     }
-
 }
