@@ -12,7 +12,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.activity_inicio_clientes.imgbtnCarrito
-import kotlinx.android.synthetic.main.activity_inicio_clientes.imgbtnFlecha2
 import kotlinx.android.synthetic.main.activity_inicio_clientes.imgbtnNotificaciones2
 import kotlinx.android.synthetic.main.activity_inicio_clientes.imgbtnPerfil2
 import kotlinx.android.synthetic.main.activity_inicio_clientes.imgbtnhistorial2
@@ -60,10 +59,6 @@ class inicio_clientes : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //boton de la flecha
-        imgbtnFlecha2.setOnClickListener {
-            onBackPressed()
-        }
 
         //NOTIFICACIONES
         imgbtnNotificaciones2.setOnClickListener {
