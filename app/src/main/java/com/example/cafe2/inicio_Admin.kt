@@ -58,7 +58,7 @@ class inicio_Admin : AppCompatActivity() {
 
         //MENU
         btnMenu.setOnClickListener {
-            val menuIntent = Intent(this, CarritoCompras::class.java).apply {
+            val menuIntent = Intent(this, inicio_Admin::class.java).apply {
                 putExtra("email",email)
             }
             startActivity(menuIntent)

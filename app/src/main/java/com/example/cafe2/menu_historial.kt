@@ -12,10 +12,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.activity_menu_historial.btnRegresar6
-import kotlinx.android.synthetic.main.activity_menu_historial.imgbtnHistorial2
-import kotlinx.android.synthetic.main.activity_menu_historial.imgbtnPromociones
-import kotlinx.android.synthetic.main.activity_menu_historial.imgbtnUsuarios2
-import kotlinx.android.synthetic.main.activity_menu_historial.imgbtnmenu2
 
 class menu_historial : AppCompatActivity() {
 
@@ -53,37 +49,7 @@ class menu_historial : AppCompatActivity() {
             onBackPressed()
         }
 
-        //Historial
-        imgbtnHistorial2.setOnClickListener {
-            val intent = Intent(this, menu_historial::class.java).apply {
-                putExtra("email",email)
-            }
-            startActivity(intent)
-        }
 
-        //MENU
-        imgbtnmenu2.setOnClickListener {
-            val menuIntent = Intent(this, menu_admin::class.java).apply {
-                putExtra("email",email)
-            }
-            startActivity(menuIntent)
-        }
-
-        //Usuarios
-        imgbtnUsuarios2.setOnClickListener {
-            val menuUsuariosIntent = Intent(this, MenuUsuarios::class.java).apply {
-                putExtra("email",email)
-            }
-            startActivity(menuUsuariosIntent)
-        }
-
-        //Promociones
-        imgbtnPromociones.setOnClickListener {
-            val notificacionIntent = Intent(this, promos_admin::class.java).apply {
-                putExtra("email",email)
-            }
-            startActivity(notificacionIntent)
-        }
     }
 
 

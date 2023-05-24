@@ -69,9 +69,6 @@ class VerProducto : AppCompatActivity() {
 
             }
         } else if(promocion != null){
-            //Desaparece el espacio de comentarios
-            textView16.setVisibility(View.GONE)
-            textComen.setVisibility(View.GONE)
 
             viewName.setText(promocion.Nombre)
             viewPrecio.setText("$" + promocion.Precio + ".00")
@@ -95,15 +92,53 @@ class VerProducto : AppCompatActivity() {
 
         //Añade al carrito
         btnAdd.setOnClickListener {
-            //
-            val notificacionIntent = Intent(this, CarritoCompras::class.java).apply {
-                putExtra("email",email)
-                putExtra("producto", producto)
-                putExtra("precio", pre)
-                putExtra("comentarios", comentarios)
-                putExtra("cantidad", numberCantidad.text)
+
+            val NombreProducto = viewName.text.toString()
+            val Precio = viewPrecio.text.toString()
+            val Descripcion = viewDescripcion.text.toString()
+            val Comentarios = textComen.text.toString()
+            val Cantidad = numberCantidad.text.toString()
+
+            if (producto != null){
+                db.collection("Carrito/${email}/Productos").document(NombreProducto).set(
+                    hashMapOf(  "NombreProducto" to NombreProducto,
+                                "Precio" to Precio,
+                                "Descripcion" to Descripcion,
+                                "Comentarios" to Comentarios,
+                                "Cantidad" to Cantidad
+                    )
+                ).addOnCompleteListener{if (it.isSuccessful){
+                    Toast.makeText(this,"Añadido exitosamente al carrito.", Toast.LENGTH_LONG).show()
+
+                    val intent = Intent(this, CarritoCompras::class.java).apply {
+                        putExtra("email",email)
+                    }
+
+
+                    startActivity(intent)
+                }
+                }
             }
-            startActivity(notificacionIntent)
+
+            if (promocion != null){
+                db.collection("Carrito/${email}/Productos").document(NombreProducto).set(
+                    hashMapOf(  "NombreProducto" to NombreProducto,
+                        "Precio" to Precio,
+                        "Descripcion" to Descripcion,
+                        "Comentarios" to Comentarios,
+                        "Cantidad" to Cantidad
+                    )
+                ).addOnCompleteListener{if (it.isSuccessful){
+                    Toast.makeText(this,"Añadido exitosamente al carrito.", Toast.LENGTH_LONG).show()
+
+                    val intent = Intent(this, CarritoCompras::class.java).apply {
+                        putExtra("email",email)
+                    }
+
+                    startActivity(intent)
+                }
+                }
+            }
         }
     }
 }

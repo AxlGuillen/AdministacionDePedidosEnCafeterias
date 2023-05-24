@@ -1,10 +1,10 @@
 package com.example.cafe2
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.DocumentChange
@@ -13,19 +13,13 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnFlecha4
+import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnHistorial5
 import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnHome2
 import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnNotificaciones4
 import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnPerfil4
 import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnpromos4
-import kotlinx.android.synthetic.main.activity_menu_admin.btnAgregarProducto
-import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnFlecha
-import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnHistorial
-import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnMenuAdm
-import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnNotificaciones
-import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnPerfil
-import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnpromos
-import kotlinx.android.synthetic.main.activity_menu_admin.imgbtnusuarios
-import kotlinx.android.synthetic.main.activity_ver_producto.numberCantidad
+import kotlinx.android.synthetic.main.activity_carrito_compras.pagar
+
 
 class CarritoCompras : AppCompatActivity() {
     private lateinit var  recyclerView: RecyclerView
@@ -70,7 +64,10 @@ class CarritoCompras : AppCompatActivity() {
 
         //NOTIFICACIONES
         imgbtnNotificaciones4.setOnClickListener {
-
+            val Intent = Intent(this, Notificaciones::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(Intent)
         }
 
         //boton de perfil
@@ -79,6 +76,14 @@ class CarritoCompras : AppCompatActivity() {
                 putExtra("email",email)
             }
             startActivity(perfilIntent)
+        }
+
+        //Historial
+        imgbtnHistorial5.setOnClickListener {
+            val intent = Intent(this, menu_historial::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(intent)
         }
 
 
@@ -98,6 +103,54 @@ class CarritoCompras : AppCompatActivity() {
                 putExtra("email",email)
             }
             startActivity(notificacionIntent)
+        }
+
+        //PAGAR
+        pagar.setOnClickListener {
+            intent.extras
+            val bundle = intent.extras
+            val email:String? = bundle?.getString("email")
+            val pagado = true
+            val fecha = "1212121212"
+            val tipoDePago = "tarjeta"
+
+            if (pagado){
+                for (game in userArrayList) {
+                    val NombreProducto = game.NombreProducto
+                    val Cantidad = game.Cantidad
+                    val Comentarios = game.Comentarios
+                    val Descripcion = game.Descripcion
+                    val Precio = game.Precio
+
+                    //faltan muchas cosas pero ya sireveeeee siuuuu
+                    db.collection("Pedidos/${fecha}/Productos").document(NombreProducto.toString()).set(
+                        hashMapOf(  "email" to email,
+                                    "fecha" to fecha,
+                                    "estado" to "pendiente",
+                                    "tipoDePago" to tipoDePago,
+                                    "Cantidad" to Cantidad,
+                                    "Comentarios" to Comentarios,
+                                    "Descripcion" to Descripcion,
+                                    "NombreProducto" to NombreProducto,
+                                    "Precio" to Precio
+                        )
+                    ).addOnCompleteListener{if (it.isSuccessful){
+                        Toast.makeText(this,"Pedido realizado.", Toast.LENGTH_LONG).show()
+
+                        val intent = Intent(this, CarritoCompras::class.java).apply {
+                            putExtra("email",email)
+                        }
+
+                        startActivity(intent)
+                    }
+                    }
+
+                }
+            }
+            else{
+                //Fallo en el pago
+
+            }
         }
 
     }

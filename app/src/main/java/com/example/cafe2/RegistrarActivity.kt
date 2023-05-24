@@ -52,12 +52,12 @@ class RegistrarActivity : AppCompatActivity() {
                 //Aqui se guarda en la base de datos
                 db.collection("Usuarios").document(email.toString()).set(
                     hashMapOf("Edad" to edadRegistrarRegistrarCajero.text.toString(),
-                    "Estado" to true,
-                        "Nombre" to nombreRegistrarRegistrarCajero.text.toString(),
-                        "Privilegios" to false,
-                        "Rol" to "Cliente",
-                        "Telefono" to telefonoRegistrarRegistrarCajero.text.toString(),
-                        "Email" to email.toString()
+                            "Estado" to true,
+                            "Nombre" to nombreRegistrarRegistrarCajero.text.toString(),
+                            "Privilegios" to false,
+                            "Rol" to "Cliente",
+                            "Telefono" to telefonoRegistrarRegistrarCajero.text.toString(),
+                            "Email" to email.toString()
                         )
                 )//datos a guardar: Edad, estado, Nombre,Privilegios,Rol,Telefono
 
