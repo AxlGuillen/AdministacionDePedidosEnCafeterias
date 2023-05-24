@@ -67,7 +67,10 @@ class promos_clientes : AppCompatActivity() {
 
         //NOTIFICACIONES
         imgbtnNotificaciones3.setOnClickListener {
-            //
+            val Intent = Intent(this, Notificaciones::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(Intent)
         }
 
         //boton de perfil
@@ -80,7 +83,10 @@ class promos_clientes : AppCompatActivity() {
 
         //HISTORIAL
         imgbtnhistorial.setOnClickListener {
-            //
+            val intent = Intent(this, menu_historial::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(intent)
         }
 
         //HOME

@@ -72,7 +72,10 @@ class AuthActivity : AppCompatActivity() {
                                 //Mandamos a la pantalla principal de Administrador
                                 if(Rol.equals("Administrador")){
                                     //editar
-                                    showRegistrar()
+                                    val homeIntent = Intent(this, inicio_Admin::class.java).apply {
+                                        putExtra("email",emailLogin.text.toString())
+                                    }
+                                    startActivity(homeIntent)
                                 }
                                 //Mandamos a la pantalla principal de Cajero
                                 if(Rol.equals("Cajero")){

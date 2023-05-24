@@ -10,12 +10,12 @@
         android:id="@+id/btnRegresar6"
         android:layout_width="66dp"
         android:layout_height="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_weight="1"
-        android:backgroundTint="#FF5722"
+        android:backgroundTint="#7C7B7A"
         app:icon="?attr/homeAsUpIndicator"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,6 +23,7 @@
         android:id="@+id/notiRecycler"
         android:layout_width="409dp"
         android:layout_height="665dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRegresar6" />
