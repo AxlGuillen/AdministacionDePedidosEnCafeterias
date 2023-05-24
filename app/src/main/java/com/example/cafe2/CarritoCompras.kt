@@ -13,6 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.activity_carrito_compras.editTextText
+import kotlinx.android.synthetic.main.activity_carrito_compras.editTextText2
 import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnFlecha4
 import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnHistorial5
 import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnHome2
@@ -27,6 +28,8 @@ class CarritoCompras : AppCompatActivity() {
     private lateinit var  userArrayList:ArrayList<model_Carrito>
     private lateinit var  myAdapter: adapterCarrito
     private lateinit var  db : FirebaseFirestore
+    private lateinit var fecha:String
+    private lateinit var hora:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +59,7 @@ class CarritoCompras : AppCompatActivity() {
             intent.putExtra("email",email)
             startActivity(intent)
         }
-
+        editTextText2.setOnClickListener { showTimePickerDialog() }
 
         //boton de la flecha
         imgbtnFlecha4.setOnClickListener {
@@ -113,7 +116,6 @@ class CarritoCompras : AppCompatActivity() {
             val bundle = intent.extras
             val email:String? = bundle?.getString("email")
             val pagado = true
-            val fecha = "999999999"
             val tipoDePago = "tarjeta"
 
             if (pagado){
@@ -125,7 +127,7 @@ class CarritoCompras : AppCompatActivity() {
                     val Precio = game.Precio
 
                     //GENERA EL PEDIDO
-                    db.collection("Pedidos/${fecha}/Productos").document(NombreProducto.toString()).set(
+                    db.collection("Pedidos/${fecha}/${hora}").document(NombreProducto.toString()).set(
                         hashMapOf(  "email" to email,
                                     "fecha" to fecha,
                                     "estado" to "pendiente",
@@ -155,13 +157,24 @@ class CarritoCompras : AppCompatActivity() {
                 }
             }
 
+    private fun showTimePickerDialog() {
+        val timePicker = HoraPickerFragment { onTimeSelected(it) }
+        timePicker.show(supportFragmentManager, "timePicker")
+    }
+
+    private fun onTimeSelected(time: String) {
+        editTextText2.setText("Reserva para las $time")
+        hora = time
+    }
+
     private fun showDatePickerDialog() {
         val datePicker = FechaDateFragment { day, month, year -> onDateSelected(day, month, year) }
         datePicker.show(supportFragmentManager, "datePicker")
     }
 
     private fun onDateSelected(day: Int, month: Int, year: Int) {
-        editTextText.setText("Has seleccionado el $day del $month del año $year")
+        editTextText.setText("$day del $month del año $year")
+        fecha = "${day}-${month}-${year}"
     }
 
 
