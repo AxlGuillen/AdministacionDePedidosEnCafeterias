@@ -12,6 +12,7 @@ import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
+import kotlinx.android.synthetic.main.activity_carrito_compras.editTextText
 import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnFlecha4
 import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnHistorial5
 import kotlinx.android.synthetic.main.activity_carrito_compras.imgbtnHome2
@@ -104,6 +105,7 @@ class CarritoCompras : AppCompatActivity() {
             }
             startActivity(notificacionIntent)
         }
+        editTextText.setOnClickListener { showDatePickerDialog() }
 
         //PAGAR
         pagar.setOnClickListener {
@@ -111,7 +113,7 @@ class CarritoCompras : AppCompatActivity() {
             val bundle = intent.extras
             val email:String? = bundle?.getString("email")
             val pagado = true
-            val fecha = "1212121212"
+            val fecha = "999999999"
             val tipoDePago = "tarjeta"
 
             if (pagado){
@@ -122,7 +124,7 @@ class CarritoCompras : AppCompatActivity() {
                     val Descripcion = game.Descripcion
                     val Precio = game.Precio
 
-                    //faltan muchas cosas pero ya sireveeeee siuuuu
+                    //GENERA EL PEDIDO
                     db.collection("Pedidos/${fecha}/Productos").document(NombreProducto.toString()).set(
                         hashMapOf(  "email" to email,
                                     "fecha" to fecha,
@@ -136,24 +138,32 @@ class CarritoCompras : AppCompatActivity() {
                         )
                     ).addOnCompleteListener{if (it.isSuccessful){
                         Toast.makeText(this,"Pedido realizado.", Toast.LENGTH_LONG).show()
-
-                        val intent = Intent(this, CarritoCompras::class.java).apply {
-                            putExtra("email",email)
                         }
 
-                        startActivity(intent)
                     }
+
+                    //elimina los productos del carrito
+                    db.collection("Carrito/${email}/Productos").document(NombreProducto.toString())
+                        .delete()
+                        .addOnSuccessListener {
+                            Toast.makeText(this,"Eliminado del carrito.", Toast.LENGTH_LONG).show()
+                            }
+
+                        }
                     }
 
                 }
             }
-            else{
-                //Fallo en el pago
 
-            }
-        }
-
+    private fun showDatePickerDialog() {
+        val datePicker = FechaDateFragment { day, month, year -> onDateSelected(day, month, year) }
+        datePicker.show(supportFragmentManager, "datePicker")
     }
+
+    private fun onDateSelected(day: Int, month: Int, year: Int) {
+        editTextText.setText("Has seleccionado el $day del $month del año $year")
+    }
+
 
 
     private fun EventChangeListener() {
