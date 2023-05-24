@@ -19,6 +19,9 @@
         <activity
             android:name=".inicio_cajero"
             android:exported="false" />
+         <activity
+            android:name=".promos_clientes"
+            android:exported="false" />
         <activity
             android:name=".pedido_individual_curso"
             android:exported="false" />

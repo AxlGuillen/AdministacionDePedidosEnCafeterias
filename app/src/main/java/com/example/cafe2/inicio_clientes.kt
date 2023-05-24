@@ -88,7 +88,10 @@ class inicio_clientes : AppCompatActivity() {
 
         //PROMOS
         imgbtnpromo.setOnClickListener{
-            //
+            val menuIntent = Intent(this, promos_clientes::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(menuIntent)
         }
 
     }

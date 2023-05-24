@@ -4,40 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CarritoCompras">
+    tools:context=".promos_clientes">
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CARRITO"
+        android:layout_marginTop="28dp"
+        android:text="PROMOS"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imgbtnNotificaciones4"
-        app:layout_constraintHorizontal_bias="0.457"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnFlecha4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043" />
-
-    <ImageButton
-        android:id="@+id/imgbtnNotificaciones4"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:backgroundTint="#00FF5722"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imgbtnPerfil4"
-        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023"
-        app:srcCompat="@drawable/notificacionbueno" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imgbtnPerfil4"
+        android:id="@+id/imgbtnNotificaciones3"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="44dp"
+        android:backgroundTint="#00FF5722"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnPerfil3"
+        app:layout_constraintHorizontal_bias="0.915"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/notificacionbueno" />
+
+    <ImageButton
+        android:id="@+id/imgbtnPerfil3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:backgroundTint="#00FF5722"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +44,7 @@
         app:srcCompat="@drawable/perfilbueno" />
 
     <ImageButton
-        android:id="@+id/imgbtnFlecha4"
+        android:id="@+id/imgbtnFlecha2"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -56,7 +55,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar4"
+        android:id="@+id/bottomAppBar3"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -66,58 +65,59 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/imgbtnpromos4"
+        android:id="@+id/imgbtnhistorial"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.185"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/historial2" />
+
+    <ImageButton
+        android:id="@+id/imgbtnHome"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="8dp"
         android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/promocionesbueno" />
-
-    <ImageButton
-        android:id="@+id/imgbtnHistorial5"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="5dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.128"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/historialbueno" />
-
-    <ImageButton
-        android:id="@+id/imgbtnHome2"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/bottomAppBar4"
         app:srcCompat="@drawable/home2" />
 
     <LinearLayout
-        android:layout_width="418dp"
-        android:layout_height="558dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginTop="80dp"
         android:layout_marginBottom="55dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/carritoRecycler"
+            android:id="@+id/promosClientesRecycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imgbtnCarrito2"
+        android:layout_width="30dp"
+        android:layout_height="38dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.839"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.988"
+        app:srcCompat="@drawable/carrito_compras" />
 </androidx.constraintlayout.widget.ConstraintLayout>
