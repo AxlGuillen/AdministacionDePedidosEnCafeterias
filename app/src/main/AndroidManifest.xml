@@ -17,13 +17,15 @@
         android:theme="@style/Theme.Cafe2"
         tools:targetApi="31">
         <activity
-
+            android:name=".inicio_cajero"
+            android:exported="false" />
+        <activity
             android:name=".pedido_individual_curso"
             android:exported="false" />
         <activity
             android:name=".pedidos_curso"
             android:exported="false" />
-         <activity
+        <activity
             android:name=".inicio_clientes"
             android:exported="false" />
         <activity
