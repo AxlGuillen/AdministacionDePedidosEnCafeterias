@@ -6,16 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
-    card_view:cardBackgroundColor="#FF9800"
-    card_view:cardCornerRadius="20dp"
-    card_view:cardElevation="6dp"
-    card_view:contentPadding="4dp">
+    card_view:background="@drawable/style_borde_edittext">
 
     <RelativeLayout
+        android:background="@drawable/style_borde_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        >
+        android:backgroundTint="#9E8979"
+        android:padding="16dp">
 
         <ImageView
             android:id="@+id/imgComida"
@@ -36,21 +34,21 @@
             android:layout_toEndOf="@+id/imgComida"
             android:layout_toRightOf="@+id/imgComida"
             android:text="Nombre Promo"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
+
         <TextView
             android:id="@+id/view_precio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="Precio"
-            android:textStyle="bold"
+            android:layout_below="@+id/view_nombre"
             android:layout_toEndOf="@+id/imgComida"
             android:layout_toRightOf="@+id/imgComida"
-            android:layout_below="@+id/view_nombre"
+            android:text="Precio"
+            android:textColor="@color/white"
             android:textSize="17sp"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/viewDesc"
@@ -60,7 +58,7 @@
             android:layout_toEndOf="@+id/imgComida"
             android:layout_toRightOf="@+id/imgComida"
             android:text="Descripcion de la promo"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 

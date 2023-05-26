@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F6E8D9"
     tools:context=".promos_clientes">
 
     <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:text="PROMOS"
-        android:textSize="20sp"
+        android:textColor="#816456"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintHorizontal_bias="0.374"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,12 +26,12 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#00FF5722"
+        android:background="#9C704F"
         app:layout_constraintEnd_toStartOf="@+id/imgbtnPerfil3"
         app:layout_constraintHorizontal_bias="0.915"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/notificacionbueno" />
+        app:srcCompat="@android:drawable/ic_popup_reminder" />
 
     <ImageButton
         android:id="@+id/imgbtnPerfil3"
@@ -37,11 +39,12 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="#00FF5722"
+        android:background="#9C704F"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/perfilbueno" />
+        app:srcCompat="@drawable/perfilbueno"
+        app:tint="@color/white" />
 
     <ImageButton
         android:id="@+id/imgbtnFlecha2"
@@ -49,17 +52,18 @@
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#00FF5722"
+        android:background="#9C704F"
         android:src="?attr/homeAsUpIndicator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar3"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="418dp"
+        android:layout_height="52dp"
         android:layout_gravity="bottom"
-        app:backgroundTint="#919191"
+        app:backgroundTint="#877364"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -75,22 +79,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/historial2" />
+        app:srcCompat="@drawable/historial2"
+        app:tint="@color/white" />
 
     <ImageButton
         android:id="@+id/imgbtnHome"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginTop="5dp"
         android:layout_marginBottom="8dp"
         android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/home2" />
+        app:srcCompat="@drawable/home2"
+        app:tint="@color/white" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -119,5 +122,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.988"
-        app:srcCompat="@drawable/carrito_compras" />
+        app:srcCompat="@drawable/carrito_compras"
+        app:tint="@color/white" />
 </androidx.constraintlayout.widget.ConstraintLayout>

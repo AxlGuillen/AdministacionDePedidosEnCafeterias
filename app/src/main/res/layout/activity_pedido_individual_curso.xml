@@ -108,18 +108,6 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/Cobrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="#FFAA00"
-        android:text="Cobrar"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/bottomAppBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/Entregar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -149,7 +137,6 @@
         android:id="@+id/pedido_ind_recycler"
         android:layout_width="match_parent"
         android:layout_height="460dp"
-        app:layout_constraintBottom_toTopOf="@+id/Cobrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
