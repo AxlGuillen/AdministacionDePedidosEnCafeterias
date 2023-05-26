@@ -115,45 +115,14 @@ class CarritoCompras : AppCompatActivity() {
             intent.extras
             val bundle = intent.extras
             val email:String? = bundle?.getString("email")
-            val pagado = true
-            val tipoDePago = "tarjeta"
 
-            if (pagado){
-                for (game in userArrayList) {
-                    val NombreProducto = game.NombreProducto
-                    val Cantidad = game.Cantidad
-                    val Comentarios = game.Comentarios
-                    val Descripcion = game.Descripcion
-                    val Precio = game.Precio
-
-                    //GENERA EL PEDIDO
-                    db.collection("Pedidos/${fecha}/${hora}").document(NombreProducto.toString()).set(
-                        hashMapOf(  "email" to email,
-                                    "fecha" to fecha,
-                                    "estado" to "pendiente",
-                                    "tipoDePago" to tipoDePago,
-                                    "Cantidad" to Cantidad,
-                                    "Comentarios" to Comentarios,
-                                    "Descripcion" to Descripcion,
-                                    "NombreProducto" to NombreProducto,
-                                    "Precio" to Precio
-                        )
-                    ).addOnCompleteListener{if (it.isSuccessful){
-                        Toast.makeText(this,"Pedido realizado.", Toast.LENGTH_LONG).show()
-                        }
-
-                    }
-
-                    //elimina los productos del carrito
-                    db.collection("Carrito/${email}/Productos").document(NombreProducto.toString())
-                        .delete()
-                        .addOnSuccessListener {
-                            Toast.makeText(this,"Eliminado del carrito.", Toast.LENGTH_LONG).show()
-                            }
-
-                        }
-                    }
-
+            val intent = Intent(this, ConfirmarPagoConTarjeta::class.java).apply {
+                putExtra("email",email)
+                putExtra("fecha",fecha)
+                putExtra("hora",hora)
+                putExtra("arreglo",userArrayList)
+            }
+            startActivity(intent)
                 }
             }
 

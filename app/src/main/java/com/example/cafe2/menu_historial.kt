@@ -16,7 +16,13 @@ import kotlinx.android.synthetic.main.activity_menu_historial.btnRegresar6
 class menu_historial : AppCompatActivity() {
 
     private lateinit var  recyclerView: RecyclerView
+    //productos de la venta tiene que cambiar a otro modelo
     private lateinit var  userArrayList:ArrayList<model_historial>
+    //fechas
+    private val fechaArrayList = arrayListOf<String>("Fecha")
+    //Horas
+    private val horasArrayList = arrayListOf<String>("Horas")
+
     private lateinit var  adapter_historial: adapter_historial
     private lateinit var  db : FirebaseFirestore
 
@@ -56,7 +62,7 @@ class menu_historial : AppCompatActivity() {
 
     private fun EventChangeListener() {
         db = FirebaseFirestore.getInstance()
-        //Le puse de nombre a la Coleccion "Ventas", porque aun no existe
+        //Le puse de nombre a la Coleccion "Ventas", porque aun no existe MODIFICARLO
         db.collection("Ventas").addSnapshotListener(object : EventListener<QuerySnapshot> {
             override fun onEvent(
                 value: QuerySnapshot?,
