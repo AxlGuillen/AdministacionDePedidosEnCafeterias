@@ -4,12 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF3D0"
     tools:context=".EditarPerfil">
 
     <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="412dp"
+        android:layout_height="342dp"
+        android:background="#816456"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"></LinearLayout>
+
+    <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="409dp"
+        android:layout_height="61dp"
         android:layout_marginStart="2dp"
         android:layout_marginEnd="2dp"
         android:orientation="horizontal"
@@ -18,19 +32,19 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023">
+        app:layout_constraintVertical_bias="0.005">
 
         <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="14dp"
+            android:layout_height="match_parent"
             android:layout_weight="1" />
 
         <Button
             android:id="@+id/btnRegresar2"
-            android:layout_width="43dp"
+            android:layout_width="60dp"
             android:layout_height="48dp"
             android:layout_weight="1"
-            android:backgroundTint="#FF5722"
+            android:backgroundTint="#9C704F"
             app:icon="?attr/homeAsUpIndicator"
             app:layout_constraintBottom_toBottomOf="@+id/divider"
             app:layout_constraintEnd_toEndOf="parent"
@@ -38,19 +52,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Space
-            android:layout_width="12dp"
-            android:layout_height="38dp"
-            android:layout_weight="1" />
-
         <TextView
             android:id="@+id/textTitulo2"
-            android:layout_width="228dp"
+            android:layout_width="273dp"
             android:layout_height="38dp"
             android:layout_weight="1"
-            android:text="Titulo"
-            android:textAlignment="textStart"
-            android:textSize="20sp"
+            android:text="PERFIL"
+            android:textAlignment="center"
+            android:textColor="#816456"
+            android:textSize="34sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/divider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.332"
@@ -59,94 +70,102 @@
             app:layout_constraintVertical_bias="0.557"
             tools:text="PERFIL" />
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="154dp"
-        android:layout_height="145dp"
+        android:layout_width="236dp"
+        android:layout_height="154dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.23"
+        app:layout_constraintVertical_bias="0.142"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <Button
         android:id="@+id/btnSeleccionarFoto"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:backgroundTint="#FF5722"
+        android:backgroundTint="#9C704F"
         android:text="Seleccionar foto"
         android:textSize="16sp"
         app:icon="@android:drawable/ic_menu_more"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.262" />
+        app:layout_constraintVertical_bias="0.346" />
 
-    <EditText
-        android:id="@+id/nombreEditText"
-        android:layout_width="370dp"
-        android:layout_height="50dp"
-        android:background="@drawable/style_borde_edittext"
-        android:ems="10"
-        android:hint="Nombre"
-        android:inputType="text"
+    <LinearLayout
+        android:layout_width="405dp"
+        android:layout_height="266dp"
+        android:background="@drawable/fondo_texto"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.651">
 
-    <EditText
-        android:id="@+id/edadRegistrar2"
-        android:layout_width="370dp"
-        android:layout_height="50dp"
-        android:background="@drawable/style_borde_edittext"
-        android:ems="10"
-        android:hint="Edad"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.609" />
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre" />
 
-    <EditText
-        android:id="@+id/editTextNumber2"
-        android:layout_width="370dp"
-        android:layout_height="50dp"
-        android:background="@drawable/style_borde_edittext"
-        android:ems="10"
-        android:hint="Telefono"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.715" />
+        <EditText
+            android:id="@+id/nombreEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/style_borde_edittext"
+            android:ems="10"
+            android:hint="Nombre"
+            android:inputType="text"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Teléfono" />
+
+        <EditText
+            android:id="@+id/editTextNumber2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/style_borde_edittext"
+            android:ems="10"
+            android:hint="Telefono"
+            android:inputType="number"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edad" />
+
+        <EditText
+            android:id="@+id/edadRegistrar2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/style_borde_edittext"
+            android:ems="10"
+            android:hint="Edad"
+            android:inputType="number"
+            android:textAlignment="center" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnCancelar3"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:backgroundTint="#FF5722"
+        android:backgroundTint="#721121"
         android:text="Cancelar"
         android:textSize="16sp"
         app:icon="@android:drawable/ic_delete"
@@ -161,7 +180,7 @@
         android:id="@+id/btnSave3"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:backgroundTint="#FF5722"
+        android:backgroundTint="#9C704F"
         android:text="Guardar"
         android:textSize="16sp"
         app:icon="@android:drawable/ic_menu_save"

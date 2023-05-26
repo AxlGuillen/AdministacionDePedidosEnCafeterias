@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#CCB3A1"
     tools:context=".PedidoCompletado">
 
     <Button
@@ -11,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
-        android:backgroundTint="#FF5722"
+        android:backgroundTint="#9C704F"
         android:text="Publicar"
         android:textSize="16sp"
         app:icon="@drawable/publicar"
@@ -27,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:backgroundTint="#FF5722"
+        android:backgroundTint="#9C704F"
         android:text="Saltar"
         android:textSize="16sp"
         app:icon="?attr/actionModeCloseDrawable"
@@ -42,7 +43,7 @@
         android:id="@+id/linearLayout4"
         android:layout_width="410dp"
         android:layout_height="390dp"
-        android:background="#E4E2D2"
+        android:background="#F6E8D9"
         android:orientation="vertical"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
