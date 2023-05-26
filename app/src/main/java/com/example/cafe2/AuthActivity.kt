@@ -36,16 +36,16 @@ class AuthActivity : AppCompatActivity() {
             sendPasswordReset(correo.text.toString())
         }
 
-    //setup
+        //setup
         setup()
 
     }
     private fun setup(){
         title = "Autentificacion"
 
-       signUpButton.setOnClickListener{
-           showRegistrar()
-       }
+        signUpButton.setOnClickListener{
+            showRegistrar()
+        }
 
         loginButton.setOnClickListener{
             Log.i("Boton de login clickeadoooo","Mensaje de prueba")
@@ -85,8 +85,8 @@ class AuthActivity : AppCompatActivity() {
                                     startActivity(homeIntent)
                                 }
                             }
-                    }
-                    else { showAlert() }
+                        }
+                        else { showAlert() }
                     }
             }
         }
