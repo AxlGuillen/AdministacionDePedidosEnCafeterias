@@ -1,5 +1,6 @@
 package com.example.cafe2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +13,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.activity_pedido_individual_curso.Cancelar
 import kotlinx.android.synthetic.main.activity_pedido_individual_curso.Entregar
+import kotlinx.android.synthetic.main.activity_pedido_individual_curso.imageButton
+import kotlinx.android.synthetic.main.activity_pedido_individual_curso.imgbtnFlecha
 import kotlinx.android.synthetic.main.activity_pedido_individual_curso.view_id_pedido
 import kotlinx.android.synthetic.main.activity_pedido_individual_curso.view_status
 
@@ -27,7 +30,10 @@ class pedido_individual_curso : AppCompatActivity() {
         setContentView(R.layout.activity_pedido_individual_curso)
 
         val pedido = intent.getParcelableExtra<model_pedidos_activos_cliente>("Pedido")
+        val numero = pedido?.numero.toString()
+        val destinatario = pedido?.email.toString()
         val etiqueta = intent.extras?.getString("Etiqueta")
+        val email = intent.extras?.getString("email")
 
         if (etiqueta.toString().equals("Aceptar/Cancelar")){
             Entregar.text = "Aceptar"
@@ -51,20 +57,52 @@ class pedido_individual_curso : AppCompatActivity() {
         Entregar.setOnClickListener {
             if (etiqueta.toString().equals("Aceptar/Cancelar")){
                 val a = db.collection("Pedidos").document(pedido?.numero.toString())
-                a.update("status","aceptado")
+                a.update("status","aceptado").addOnCompleteListener {
                 //notiicacion de que su pedido fue aceptado
+                db.collection("Notificaciones").document().set(
+                    hashMapOf("Destinatario" to pedido?.email,
+                        "Descripcion" to "Tu pedido fue aceptado y ya lo estamos preparando.",
+                        "Estado" to false,
+                        "Titulo" to "Pedido aceptado"
+                    )
+                ).addOnCompleteListener {
+                    val perfilIntent = Intent(this, inicio_cajero::class.java).apply {
+                        putExtra("email",email)
+                    }
+                    startActivity(perfilIntent)
+                }
+                }
             }
             else{
                 val a = db.collection("Pedidos").document(pedido?.numero.toString())
                 a.update("estado","entregado")
-                //encuesta del producto a la persona
             }
         }
 
         Cancelar.setOnClickListener {
-            val a = db.collection("Pedidos").document(pedido?.numero.toString())
-            a.update("status","Cancelado")
-            //notiicacion de que su pedido fue CANCELADO
+
+            val perfilIntent = Intent(this, MotivoDeCancelacion::class.java).apply {
+                putExtra("numero",numero)
+                putExtra("destinatario",destinatario)
+                putExtra("email",email)
+            }
+            startActivity(perfilIntent)
+
+        }
+
+
+        //FLECHITA
+        imgbtnFlecha.setOnClickListener {
+            onBackPressed()
+        }
+
+        //CASITA
+        imageButton.setOnClickListener {
+            val menuIntent = Intent(this, inicio_cajero::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(menuIntent)
+            finish()
         }
     }
 

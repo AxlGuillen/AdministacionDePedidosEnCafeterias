@@ -11,6 +11,9 @@ import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
+import kotlinx.android.synthetic.main.activity_pedidos_activos_cliente.btnPerfilInicioAdm
+import kotlinx.android.synthetic.main.activity_pedidos_activos_cliente.btnRegresar2
+import kotlinx.android.synthetic.main.activity_pedidos_activos_cliente.imgbtnHome2
 
 class pedidos_activos_cliente : AppCompatActivity() {
 
@@ -65,6 +68,28 @@ class pedidos_activos_cliente : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+
+        btnRegresar2.setOnClickListener {
+            onBackPressed()
+        }
+
+        btnPerfilInicioAdm.setOnClickListener {
+            val perfilIntent = Intent(this, Perfil::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(perfilIntent)
+        }
+
+        //casita
+        imgbtnHome2.setOnClickListener {
+            val menuIntent = Intent(this, inicio_cajero::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(menuIntent)
+            finish()
+        }
+
+        //histor
 
     }
 
