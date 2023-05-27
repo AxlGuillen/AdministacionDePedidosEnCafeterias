@@ -1,5 +1,6 @@
 package com.example.cafe2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -17,6 +18,7 @@ class pedidos_activos_cliente : AppCompatActivity() {
     private lateinit var  userArrayList:ArrayList<model_pedidos_activos_cliente>
     private lateinit var  adapter_pedidos_activos_cliente: adapter_pedidos_activos_cliente
     private lateinit var  db : FirebaseFirestore
+    var Rol = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +28,7 @@ class pedidos_activos_cliente : AppCompatActivity() {
         intent.extras
         val bundle = intent.extras
         val email: String? = bundle?.getString("email")
+        val porAceptar: String? = bundle?.getString("porAceptar")
 
         recyclerView = findViewById(R.id.pedidosClieRecycler)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -37,10 +40,35 @@ class pedidos_activos_cliente : AppCompatActivity() {
 
         recyclerView.adapter = adapter_pedidos_activos_cliente
 
-        EventChangeListener()
+        db = FirebaseFirestore.getInstance()
+
+        if (porAceptar == null){
+            obtenerRol()
+        }
+        if (porAceptar.equals("porAceptar")) {
+
+            EventChangeListenerCajeros()
+        }
+
+        adapter_pedidos_activos_cliente.onItemClick = {
+            if (porAceptar == null){
+            val intent = Intent(this,pedido_individual_curso::class.java)
+            intent.putExtra("Pedido", it)
+            intent.putExtra("email",email)
+            startActivity(intent)
+            }
+            if (porAceptar.equals("porAceptar")) {
+                val intent = Intent(this,pedido_individual_curso::class.java)
+                intent.putExtra("Pedido", it)
+                intent.putExtra("email",email)
+                intent.putExtra("Etiqueta","Aceptar/Cancelar")
+                startActivity(intent)
+            }
+        }
+
     }
 
-    private fun EventChangeListener() {
+    private fun EventChangeListenerCajeros() {
         db = FirebaseFirestore.getInstance()
         //Le puse de nombre a la Coleccion "Pedidos", porque aun no existe, Creo jajaja
         db.collection("Pedidos").addSnapshotListener(object : EventListener<QuerySnapshot> {
@@ -54,13 +82,117 @@ class pedidos_activos_cliente : AppCompatActivity() {
                 }
                 for(dc: DocumentChange in value?.documentChanges!!){
                     if(dc.type == DocumentChange.Type.ADDED){
-                        userArrayList.add(dc.document.toObject(model_pedidos_activos_cliente::class.java))
-
+                        if(dc.document.toObject(model_pedidos_activos_cliente::class.java).status.toString().equals("procesamiento")
+                            && dc.document.toObject(model_pedidos_activos_cliente::class.java).estado.toString().equals("pendiente")) {
+                            userArrayList.add(dc.document.toObject(model_pedidos_activos_cliente::class.java))
+                        }
                     }
                 }
                 adapter_pedidos_activos_cliente.notifyDataSetChanged()
             }
         })
+    }
+
+    private fun EventChangeListenerCajeros2() {
+        db = FirebaseFirestore.getInstance()
+        //Le puse de nombre a la Coleccion "Pedidos", porque aun no existe, Creo jajaja
+        db.collection("Pedidos").addSnapshotListener(object : EventListener<QuerySnapshot> {
+            override fun onEvent(
+                value: QuerySnapshot?,
+                error: FirebaseFirestoreException?
+            ) {
+                if(error!=null){
+                    Log.e("Firestore Error", error.message.toString())
+                    return
+                }
+                for(dc: DocumentChange in value?.documentChanges!!){
+                    if(dc.type == DocumentChange.Type.ADDED){
+                        if(dc.document.toObject(model_pedidos_activos_cliente::class.java).status.toString().equals("aceptado")
+                            && dc.document.toObject(model_pedidos_activos_cliente::class.java).estado.toString().equals("pendiente")) {
+                            userArrayList.add(dc.document.toObject(model_pedidos_activos_cliente::class.java))
+                        }
+                    }
+                }
+                adapter_pedidos_activos_cliente.notifyDataSetChanged()
+            }
+        })
+    }
+
+    private fun EventChangeListenerClientes() {
+        intent.extras
+        val bundle = intent.extras
+        val email: String? = bundle?.getString("email")
+        db = FirebaseFirestore.getInstance()
+        //Le puse de nombre a la Coleccion "Pedidos", porque aun no existe, Creo jajaja
+        db.collection("Pedidos").addSnapshotListener(object : EventListener<QuerySnapshot> {
+            override fun onEvent(
+                value: QuerySnapshot?,
+                error: FirebaseFirestoreException?
+            ) {
+                if(error!=null){
+                    Log.e("Firestore Error", error.message.toString())
+                    return
+                }
+                for(dc: DocumentChange in value?.documentChanges!!){
+                    if(dc.type == DocumentChange.Type.ADDED){
+                        if(dc.document.toObject(model_pedidos_activos_cliente::class.java).status.toString().equals("aceptado")
+                            && dc.document.toObject(model_pedidos_activos_cliente::class.java).estado.toString().equals("pendiente")
+                            && dc.document.toObject(model_pedidos_activos_cliente::class.java).email.toString().equals(email)) {
+                            userArrayList.add(dc.document.toObject(model_pedidos_activos_cliente::class.java))
+                        }
+                    }
+                }
+                adapter_pedidos_activos_cliente.notifyDataSetChanged()
+            }
+        })
+    }
+
+    private fun EventChangeListenerAdm() {
+        intent.extras
+        val bundle = intent.extras
+        val email: String? = bundle?.getString("email")
+        db = FirebaseFirestore.getInstance()
+        //Le puse de nombre a la Coleccion "Pedidos", porque aun no existe, Creo jajaja
+        db.collection("Pedidos").addSnapshotListener(object : EventListener<QuerySnapshot> {
+            override fun onEvent(
+                value: QuerySnapshot?,
+                error: FirebaseFirestoreException?
+            ) {
+                if(error!=null){
+                    Log.e("Firestore Error", error.message.toString())
+                    return
+                }
+                for(dc: DocumentChange in value?.documentChanges!!){
+                    if(dc.type == DocumentChange.Type.ADDED){
+                        if(dc.document.toObject(model_pedidos_activos_cliente::class.java).status.toString().equals("aceptado")
+                            && dc.document.toObject(model_pedidos_activos_cliente::class.java).estado.toString().equals("entregado")) {
+                            userArrayList.add(dc.document.toObject(model_pedidos_activos_cliente::class.java))
+                        }
+                    }
+                }
+                adapter_pedidos_activos_cliente.notifyDataSetChanged()
+            }
+        })
+    }
+
+    private  fun  obtenerRol(){
+        intent.extras
+        val bundle = intent.extras
+        val email: String? = bundle?.getString("email")
+
+        db.collection("Usuarios").document(email.toString()).get().addOnSuccessListener {
+            Rol = (it.get("Rol") as String?).toString()
+
+            if (Rol.equals("Cliente")){
+                EventChangeListenerClientes()
+            }
+            if (Rol.equals("Administrador")){
+                EventChangeListenerAdm()
+            }
+            if (Rol.equals("Cajero")){
+                EventChangeListenerCajeros2()
+            }
+        }
     }
 
 }

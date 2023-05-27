@@ -79,7 +79,7 @@ class AuthActivity : AppCompatActivity() {
                                 }
                                 //Mandamos a la pantalla principal de Cajero
                                 if(Rol.equals("Cajero")){
-                                    val homeIntent = Intent(this, inicio_Admin::class.java).apply {
+                                    val homeIntent = Intent(this, inicio_cajero::class.java).apply {
                                         putExtra("email",emailLogin.text.toString())
                                     }
                                     startActivity(homeIntent)

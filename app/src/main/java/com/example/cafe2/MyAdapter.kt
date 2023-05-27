@@ -1,23 +1,13 @@
 package com.example.cafe2
 
-import android.content.Context
-import android.content.Intent
 import android.graphics.BitmapFactory
-import android.media.audiofx.AudioEffect.Descriptor
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.view.menu.ActionMenuItemView
-import androidx.core.content.ContextCompat.startActivity
-import kotlinx.android.synthetic.main.lista_admin_menu_card.view_nombre
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.firestore.auth.User
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_imagen_prueba.imageView10
 import java.io.File
 
 class MyAdapter(private  val userList: ArrayList<menuModel>): RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
@@ -56,7 +46,7 @@ class MyAdapter(private  val userList: ArrayList<menuModel>): RecyclerView.Adapt
     }
 
     public class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val Nombre: TextView = itemView.findViewById(R.id.view_nombre)
+        val Nombre: TextView = itemView.findViewById(R.id.view_status)
         val Precio: TextView = itemView.findViewById(R.id.view_precio)
         val Descripcion: TextView = itemView.findViewById(R.id.viewDesc)
         val img: ImageView = itemView.findViewById(R.id.imgComida)

@@ -16,10 +16,10 @@ class adapter_historial(private  val userList: ArrayList<model_historial>): Recy
     override fun onBindViewHolder(holder: adapter_historial.MyViewHolder, position: Int) {
 
         val user : model_historial = userList[position]
-        holder.Producto.text = user.Producto
-        holder.id_Pedido.text = user.id_Pedido
+        holder.Producto.text = user.NombreProducto
+        holder.id_Pedido.text = user.idPedido
         holder.view_Precio2.text = user.Precio
-        holder.view_Fecha2.text = user.Fecha
+        holder.view_Fecha2.text = user.fecha
 
     }
 
