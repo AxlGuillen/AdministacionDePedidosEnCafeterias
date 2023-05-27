@@ -29,7 +29,7 @@
             app:srcCompat="@drawable/menu" />
 
         <TextView
-            android:id="@+id/view_nombre"
+            android:id="@+id/view_status"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -46,7 +46,7 @@
             android:textColor="@color/black"
             android:text="$"
             android:layout_toRightOf="@+id/imgComida"
-            android:layout_below="@+id/view_nombre"
+            android:layout_below="@+id/view_status"
             android:textSize="17sp"
             android:layout_marginTop="10dp"
             />
@@ -59,7 +59,7 @@
             android:textStyle="bold"
             android:layout_toEndOf="@+id/mony"
             android:layout_toRightOf="@+id/mony"
-            android:layout_below="@+id/view_nombre"
+            android:layout_below="@+id/view_status"
             android:textSize="17sp"
             android:layout_marginTop="10dp"
             />
@@ -70,7 +70,7 @@
             android:textColor="@color/black"
             android:text="Cantidad:"
             android:layout_toEndOf="@+id/view_precio"
-            android:layout_below="@+id/view_nombre"
+            android:layout_below="@+id/view_status"
             android:textSize="17sp"
             android:layout_marginTop="10dp"
             />
@@ -81,7 +81,7 @@
             android:textColor="@color/black"
             android:text="Unidad"
             android:layout_toEndOf="@+id/cantidad"
-            android:layout_below="@+id/view_nombre"
+            android:layout_below="@+id/view_status"
             android:textSize="17sp"
             android:layout_marginTop="10dp"
             android:textStyle="bold"

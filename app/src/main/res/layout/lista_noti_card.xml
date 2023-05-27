@@ -41,7 +41,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/view_fecha"
+            android:id="@+id/view_correo"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/view_titulo"
@@ -55,7 +55,7 @@
             android:id="@+id/viewDesc"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/view_fecha"
+            android:layout_below="@+id/view_correo"
             android:layout_toEndOf="@+id/imgComida"
             android:layout_toRightOf="@+id/imgComida"
             android:text="Descripcion de la noti"
