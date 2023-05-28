@@ -58,6 +58,7 @@ class pedidos_activos_cliente : AppCompatActivity() {
             val intent = Intent(this,pedido_individual_curso::class.java)
             intent.putExtra("Pedido", it)
             intent.putExtra("email",email)
+
             startActivity(intent)
             }
             if (porAceptar.equals("porAceptar")) {
@@ -107,7 +108,7 @@ class pedidos_activos_cliente : AppCompatActivity() {
                 }
                 for(dc: DocumentChange in value?.documentChanges!!){
                     if(dc.type == DocumentChange.Type.ADDED){
-                        if(dc.document.toObject(model_pedidos_activos_cliente::class.java).status.toString().equals("procesamiento")
+                        if(dc.document.toObject(model_pedidos_activos_cliente::class.java).status.toString().equals("procesando")
                             && dc.document.toObject(model_pedidos_activos_cliente::class.java).estado.toString().equals("pendiente")) {
                             userArrayList.add(dc.document.toObject(model_pedidos_activos_cliente::class.java))
                         }
