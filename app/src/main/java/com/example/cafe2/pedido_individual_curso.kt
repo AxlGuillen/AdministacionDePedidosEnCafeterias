@@ -40,7 +40,7 @@ class pedido_individual_curso : AppCompatActivity() {
         val Rol = intent.extras?.getString("Rol")
         db = FirebaseFirestore.getInstance()
 
-        if(Rol.equals("Cliente")){
+        if(Rol.equals("Cliente") || Rol.equals("Administrador")){
             Entregar.isVisible = false
             Entregar.isFocusable = false
             Cancelar.isVisible = false
