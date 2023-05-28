@@ -6,15 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
-    card_view:cardBackgroundColor="#FF9800"
+    android:backgroundTint="#9E8979"
     card_view:cardCornerRadius="20dp"
     card_view:cardElevation="6dp"
     card_view:contentPadding="4dp">
 
     <RelativeLayout
+        android:background="@drawable/style_borde_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#713131"
         android:padding="16dp">
 
         <ImageView
@@ -36,7 +36,7 @@
             android:layout_toEndOf="@+id/imgComida"
             android:layout_toRightOf="@+id/imgComida"
             android:text="Titulo Noti"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -48,7 +48,7 @@
             android:layout_toEndOf="@+id/imgComida"
             android:layout_toRightOf="@+id/imgComida"
             android:text="Fecha"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="17sp" />
 
         <TextView
@@ -59,7 +59,7 @@
             android:layout_toEndOf="@+id/imgComida"
             android:layout_toRightOf="@+id/imgComida"
             android:text="Descripcion de la noti"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 

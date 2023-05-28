@@ -3,7 +3,6 @@ package com.example.cafe2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_inicio_cajero.btnNoti
 import kotlinx.android.synthetic.main.activity_inicio_cajero.btnNoti3
 import kotlinx.android.synthetic.main.activity_inicio_cajero.btnNoti4
 import kotlinx.android.synthetic.main.activity_inicio_cajero.btnPerfilInicioAdm
@@ -18,13 +17,6 @@ class inicio_cajero : AppCompatActivity() {
         val bundle = intent.extras
         val email:String? = bundle?.getString("email")
 
-        //NOTIFICACIONES
-        btnNoti.setOnClickListener {
-            val Intent = Intent(this, Notificaciones::class.java).apply {
-                putExtra("email",email)
-            }
-            startActivity(Intent)
-        }
 
         //Perfil
         btnPerfilInicioAdm.setOnClickListener {
