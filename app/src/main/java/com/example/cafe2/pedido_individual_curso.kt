@@ -26,6 +26,7 @@ class pedido_individual_curso : AppCompatActivity() {
     private lateinit var  userArrayList:ArrayList<model_historial>
     private lateinit var  adapter_pedido_individual: adapter_pedido_individual
     private lateinit var  db : FirebaseFirestore
+    var Rol = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +38,7 @@ class pedido_individual_curso : AppCompatActivity() {
         val etiqueta = intent.extras?.getString("Etiqueta")
         val email = intent.extras?.getString("email")
         val Rol = intent.extras?.getString("Rol")
+        db = FirebaseFirestore.getInstance()
 
         if(Rol.equals("Cliente")){
             Entregar.isVisible = false
@@ -113,11 +115,24 @@ class pedido_individual_curso : AppCompatActivity() {
 
         //CASITA
         imageButton.setOnClickListener {
+            if(Rol.equals("Cajero")){
             val menuIntent = Intent(this, inicio_cajero::class.java).apply {
                 putExtra("email",email)
             }
             startActivity(menuIntent)
-            finish()
+            finish()}
+            if(Rol.equals("Administrador")){
+                val menuIntent = Intent(this, inicio_Admin::class.java).apply {
+                    putExtra("email",email)
+                }
+                startActivity(menuIntent)
+                finish()}
+            if(Rol.equals("Cliente")){
+                val menuIntent = Intent(this, inicio_clientes::class.java).apply {
+                    putExtra("email",email)
+                }
+                startActivity(menuIntent)
+                finish()}
         }
     }
 
@@ -153,6 +168,16 @@ class pedido_individual_curso : AppCompatActivity() {
 
 
 
+    }
+    private  fun  obtenerRol(){
+        intent.extras
+        val bundle = intent.extras
+        val email: String? = bundle?.getString("email")
+
+        db.collection("Usuarios").document(email.toString()).get().addOnSuccessListener {
+            Rol = (it.get("Rol") as String?).toString()
+
+        }
     }
 
 }
