@@ -94,8 +94,9 @@ class RegistrarCajerosAdm : AppCompatActivity() {
 
         } else{
             //se valida que la contraseña tenga mas de 7 digitos
-            if(passRegistrarRegistrarCajero.length()<7)
-                passRegistrarRegistrarCajero.error = "La contraseña debe ser mas larga"
+            if(passRegistrarRegistrarCajero.length()<=7){
+                isValid = false;
+                passRegistrarRegistrarCajero.error = "La contraseña debe ser mas larga"}
             else
                 passRegistrarRegistrarCajero.error=null}
         //se valida que el nombre no este vacio
@@ -133,8 +134,13 @@ class RegistrarCajerosAdm : AppCompatActivity() {
     }
 
     private fun showOperacionExitosaAgregando(){
+        intent.extras
+        val bundle = intent.extras
+        val email: String? = bundle?.getString("email")
+
         val OperacionExitosaIntent = Intent(this, OperacionExitosa::class.java).apply {
             putExtra("Mensaje","El cajero fue agregado correctamente.")
+            putExtra("email",email)
         }
         startActivity(OperacionExitosaIntent)
 

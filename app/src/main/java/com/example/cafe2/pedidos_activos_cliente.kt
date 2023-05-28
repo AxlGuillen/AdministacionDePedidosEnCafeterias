@@ -83,16 +83,34 @@ class pedidos_activos_cliente : AppCompatActivity() {
 
         //casita
         imgbtnHome2.setOnClickListener {
-            val menuIntent = Intent(this, inicio_cajero::class.java).apply {
-                putExtra("email",email)
+            if(Rol.equals("Cajero")) {
+                val menuIntent = Intent(this, inicio_cajero::class.java).apply {
+                    putExtra("email", email)
+                }
+                startActivity(menuIntent)
+                finish()
             }
-            startActivity(menuIntent)
-            finish()
+            if(Rol.equals("Cliente")) {
+                val menuIntent = Intent(this, inicio_clientes::class.java).apply {
+                    putExtra("email", email)
+                }
+                startActivity(menuIntent)
+                finish()
+            }
+            if(Rol.equals("Administrador")) {
+                val menuIntent = Intent(this, inicio_Admin::class.java).apply {
+                    putExtra("email", email)
+                }
+                startActivity(menuIntent)
+                finish()
+            }
         }
 
         //histor
 
     }
+
+
 
     private fun EventChangeListenerCajeros() {
         db = FirebaseFirestore.getInstance()
