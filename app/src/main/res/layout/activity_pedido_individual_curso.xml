@@ -4,18 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF3D0"
     tools:context=".pedido_individual_curso">
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="ACCIONES DE PEDIDO"
+        android:textColor="#816456"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.259"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnFlecha"
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -24,7 +27,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
-        android:backgroundTint="#FF5722"
+        android:backgroundTint="#9C704F"
         app:icon="?attr/homeAsUpIndicator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.075"
@@ -33,10 +36,10 @@
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="419dp"
+        android:layout_height="58dp"
         android:layout_gravity="bottom"
-        app:backgroundTint="#919191"
+        app:backgroundTint="#877364"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -45,7 +48,7 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#4CAF50"
+        android:background="#9C704F"
         android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomAppBar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,13 +67,13 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="NOMBRE DE USUARIO"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="12sp"
             android:textStyle="bold" />
 
 
         <TextView
-            android:id="@+id/view_fecha"
+            android:id="@+id/view_correo"
             android:layout_width="94dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -78,7 +81,7 @@
             android:layout_marginRight="16dp"
             android:layout_toRightOf="@+id/nombre_Productos"
             android:text="ID DEL PEDIDO"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="12sp"
             android:textStyle="bold" />
 
@@ -86,52 +89,54 @@
             android:id="@+id/view_id_pedido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/view_fecha"
+            android:layout_below="@+id/view_correo"
             android:layout_marginStart="16dp"
             android:layout_marginRight="16dp"
-            android:layout_toRightOf="@+id/view_nombre"
+            android:layout_toRightOf="@+id/view_status"
             android:text="Inserte ID del pedido"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="12sp" />
 
 
         <TextView
-            android:id="@+id/view_nombre"
+            android:id="@+id/view_status"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/nombre_Productos"
             android:text="Inserte nombre del usuario"
-
-
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="12sp" />
     </RelativeLayout>
 
     <Button
         android:id="@+id/Entregar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="#56AF4C"
+        android:layout_width="140dp"
+        android:layout_height="55dp"
+        android:backgroundTint="#9C704F"
         android:text="Entregar"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/bottomAppBar"
+        android:textColor="@color/white"
+        app:icon="@drawable/palomita"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.893" />
 
     <Button
         android:id="@+id/Cancelar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="#F44336"
-        android:textColor="#000000"
+        android:layout_width="140dp"
+        android:layout_height="55dp"
+        android:backgroundTint="#721121"
         android:text="Cancelar"
-        app:layout_constraintBottom_toTopOf="@+id/bottomAppBar"
+        android:textColor="@color/white"
+        app:icon="@android:drawable/ic_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.919"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.893" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pedido_ind_recycler"
@@ -143,10 +148,11 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
         android:backgroundTint="#00FFC107"
         android:scaleType="centerCrop"
+        app:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/bottomAppBar"
         app:layout_constraintStart_toStartOf="@+id/bottomAppBar"

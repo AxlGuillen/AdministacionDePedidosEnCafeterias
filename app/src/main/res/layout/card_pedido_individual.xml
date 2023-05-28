@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
-    card_view:cardBackgroundColor="#FF9800"
     card_view:cardCornerRadius="20dp"
     card_view:cardElevation="6dp"
     card_view:contentPadding="4dp">
@@ -14,6 +13,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#9E8979"
         android:padding="16dp"
         >
 
@@ -29,24 +29,24 @@
             app:srcCompat="@drawable/menu" />
 
         <TextView
-            android:id="@+id/view_nombre"
+            android:id="@+id/view_status"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/imgComida"
             android:layout_toRightOf="@+id/imgComida"
             android:text="Nombre del Platillo"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
              />
         <TextView
             android:id="@+id/mony"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:text="$"
             android:layout_toRightOf="@+id/imgComida"
-            android:layout_below="@+id/view_nombre"
+            android:layout_below="@+id/view_status"
             android:textSize="17sp"
             android:layout_marginTop="10dp"
             />
@@ -54,12 +54,12 @@
             android:id="@+id/view_precio"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:text="Precio U"
             android:textStyle="bold"
             android:layout_toEndOf="@+id/mony"
             android:layout_toRightOf="@+id/mony"
-            android:layout_below="@+id/view_nombre"
+            android:layout_below="@+id/view_status"
             android:textSize="17sp"
             android:layout_marginTop="10dp"
             />
@@ -67,10 +67,10 @@
             android:id="@+id/cantidad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:text="Cantidad:"
             android:layout_toEndOf="@+id/view_precio"
-            android:layout_below="@+id/view_nombre"
+            android:layout_below="@+id/view_status"
             android:textSize="17sp"
             android:layout_marginTop="10dp"
             />
@@ -78,10 +78,10 @@
             android:id="@+id/view_cantidad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:text="Unidad"
             android:layout_toEndOf="@+id/cantidad"
-            android:layout_below="@+id/view_nombre"
+            android:layout_below="@+id/view_status"
             android:textSize="17sp"
             android:layout_marginTop="10dp"
             android:textStyle="bold"
@@ -95,7 +95,7 @@
             android:layout_toEndOf="@+id/imgComida"
             android:layout_toRightOf="@+id/imgComida"
             android:text="Detalles"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginTop="10dp"/>

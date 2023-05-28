@@ -7,22 +7,6 @@
     android:background="#F6E8D9"
     tools:context=".pedidos_activos_cliente">
 
-    <Button
-        android:id="@+id/btnNoti"
-        android:layout_width="70dp"
-        android:layout_height="52dp"
-        android:layout_weight="1"
-        android:backgroundTint="#9C704F"
-        android:textAlignment="center"
-        app:icon="@android:drawable/ic_popup_reminder"
-        app:iconGravity="start"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.713"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.026" />
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="158dp"
@@ -33,10 +17,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.352"
+        app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.024" />
 
     <Button
         android:id="@+id/btnPerfilInicioAdm"
@@ -79,19 +63,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/imgbtnHistorial5"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottomAppBar2"
-        app:srcCompat="@drawable/historialbueno"
-        app:tint="@color/white" />
 
-    <ImageButton
         android:id="@+id/imgbtnHome2"
         android:layout_width="45dp"
         android:layout_height="45dp"
@@ -105,31 +77,15 @@
         app:srcCompat="@drawable/home2"
         app:tint="@color/white" />
 
-    <ImageButton
-        android:id="@+id/imgbtnpromos4"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottomAppBar2"
-        app:layout_constraintVertical_bias="0.5"
-        app:srcCompat="@drawable/promocionesbueno"
-        app:tint="@color/white" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pedidosClieRecycler"
         android:layout_width="409dp"
         android:layout_height="593dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomAppBar2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnNoti"
-        app:layout_constraintVertical_bias="0.714" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,10 +3,12 @@ package com.example.cafe2
 import android.os.Parcel
 import android.os.Parcelable
 
-data class model_pedidos_activos_cliente(val Producto:String?= null, val Fecha:String?=null) :
+data class model_pedidos_activos_cliente(val email:String?= null, val estado:String?=null , val numero:String?=null, val status:String?=null) :
     Parcelable {
 
     constructor(parcel: Parcel) : this(
+        parcel.readString(),
+        parcel.readString(),
         parcel.readString(),
         parcel.readString()
     ) {
@@ -17,8 +19,10 @@ data class model_pedidos_activos_cliente(val Producto:String?= null, val Fecha:S
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(Producto)
-        parcel.writeString(Fecha)
+        parcel.writeString(email)
+        parcel.writeString(estado)
+        parcel.writeString(numero)
+        parcel.writeString(status)
     }
 
     companion object CREATOR : Parcelable.Creator<model_pedidos_activos_cliente> {

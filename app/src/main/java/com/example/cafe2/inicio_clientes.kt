@@ -78,7 +78,7 @@ class inicio_clientes : AppCompatActivity() {
 
         //HISTORIAL
         imgbtnhistorial2.setOnClickListener {
-            val intent = Intent(this, menu_historial::class.java).apply {
+            val intent = Intent(this, pedidos_activos_cliente::class.java).apply {
                 putExtra("email",email)
             }
             startActivity(intent)

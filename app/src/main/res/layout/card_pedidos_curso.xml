@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
-    android:backgroundTint="#FF9800"
-    card_view:cardBackgroundColor="#FF9800"
+    android:backgroundTint="#9E8979"
     card_view:cardCornerRadius="20dp"
     card_view:cardElevation="6dp"
     card_view:contentPadding="4dp">
@@ -16,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        card_view:cardBackgroundColor="#FF9800"
+        android:background="@drawable/style_borde_edittext"
         >
 
         <TextView
@@ -29,13 +28,13 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="NOMBRE DE USUARIO"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="12sp"
             android:textStyle="bold" />
 
 
         <TextView
-            android:id="@+id/view_fecha"
+            android:id="@+id/view_correo"
             android:layout_width="94dp"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/nombre_Productos"
@@ -43,7 +42,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="ID DEL PEDIDO"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="12sp"
             android:textStyle="bold" />
 
@@ -51,25 +50,23 @@
             android:id="@+id/view_id_pedido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/view_nombre"
-            android:layout_below="@+id/view_fecha"
+            android:layout_toRightOf="@+id/view_status"
+            android:layout_below="@+id/view_correo"
             android:layout_marginStart="16dp"
             android:layout_marginRight="16dp"
             android:text="Inserte ID del pedido"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="12sp" />
 
 
 
         <TextView
-            android:id="@+id/view_nombre"
+            android:id="@+id/view_status"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/nombre_Productos"
             android:text="Inserte nombre del usuario"
-
-
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="12sp" />
 
 

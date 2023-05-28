@@ -60,39 +60,32 @@ class AuthActivity : AppCompatActivity() {
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
                             //aqui accedemos a la base de datos para checar el rol
-                            val Rol =
-                                db.collection("Usuarios").document(emailLogin.text.toString()).get()
-                                    .addOnSuccessListener {
-                                        val Rol = (it.get("Rol") as String?).toString()
-                                        val Estado = (it.get("Estado") as Boolean?)
-                                        //Mandamos a la pantalla principal de cliente
 
-                                        if (Rol.equals("Cliente") && Estado == true) {
-                                            //showHome(emailLogin.text.toString())
-                                            val homeIntent =
-                                                Intent(this, inicio_clientes::class.java).apply {
-                                                    putExtra("email", emailLogin.text.toString())
-                                                }
-                                            startActivity(homeIntent)
-                                            finish()
-                                        }
-                                        //Mandamos a la pantalla principal de Administrador
-                                        if (Rol.equals("Administrador")) {
-                                            //editar
-                                            val homeIntent =
-                                                Intent(this, inicio_Admin::class.java).apply {
-                                                    putExtra("email", emailLogin.text.toString())
-                                                }
-                                            startActivity(homeIntent)
-                                        }
-                                        //Mandamos a la pantalla principal de Cajero
-                                        if (Rol.equals("Cajero")) {
-                                            val homeIntent =
-                                                Intent(this, inicio_Admin::class.java).apply {
-                                                    putExtra("email", emailLogin.text.toString())
-                                                }
-                                            startActivity(homeIntent)
-                                        }
+                            val Rol = db.collection("Usuarios").document(emailLogin.text.toString()).get().addOnSuccessListener {
+                                val Rol = (it.get("Rol") as String?).toString()
+                                val Estado = (it.get("Estado") as Boolean?)
+                                //Mandamos a la pantalla principal de cliente
+
+                                if(Rol.equals("Cliente") && Estado==true){
+                                    //showHome(emailLogin.text.toString())
+                                    val homeIntent = Intent(this, inicio_clientes::class.java).apply {
+                                        putExtra("email",emailLogin.text.toString())
+                                    }
+                                    startActivity(homeIntent)
+                                    finish()
+                                }
+                                //Mandamos a la pantalla principal de Administrador
+                                if(Rol.equals("Administrador")){
+                                    //editar
+                                    val homeIntent = Intent(this, inicio_Admin::class.java).apply {
+                                        putExtra("email",emailLogin.text.toString())
+                                    }
+                                    startActivity(homeIntent)
+                                }
+                                //Mandamos a la pantalla principal de Cajero
+                                if(Rol.equals("Cajero")){
+                                    val homeIntent = Intent(this, inicio_cajero::class.java).apply {
+                                        putExtra("email",emailLogin.text.toString())
                                     }
                         } else {
                             showAlert()

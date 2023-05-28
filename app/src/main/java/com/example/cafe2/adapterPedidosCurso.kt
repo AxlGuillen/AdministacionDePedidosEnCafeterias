@@ -35,7 +35,7 @@ class adapterPedidosCurso (private  val userList: ArrayList<pedidosCursoModel>):
     }
 
     public class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val Nombre: TextView = itemView.findViewById(R.id.view_nombre)
+        val Nombre: TextView = itemView.findViewById(R.id.view_status)
         val id_Pedido: TextView = itemView.findViewById(R.id.view_id_pedido)
     }
 }

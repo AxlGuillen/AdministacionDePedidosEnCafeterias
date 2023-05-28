@@ -1,7 +1,6 @@
 package com.example.cafe2
 
 import android.graphics.BitmapFactory
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,7 +47,7 @@ class adapterCarrito (private  val userList: ArrayList<model_Carrito>): Recycler
     }
 
     public class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val NombreProducto: TextView = itemView.findViewById(R.id.view_nombre)
+        val NombreProducto: TextView = itemView.findViewById(R.id.view_status)
         val Precio: TextView = itemView.findViewById(R.id.view_precio)
         val Descripcion: TextView = itemView.findViewById(R.id.viewDesc)
         val img: ImageView = itemView.findViewById(R.id.imgComida)
