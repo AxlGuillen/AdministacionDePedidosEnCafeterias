@@ -47,12 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/imgComida"
             android:layout_toRightOf="@+id/imgComida"
-
-            android:layout_below="@+id/view_status"
-
             android:text="Precio"
             android:textColor="@color/white"
-
             android:textSize="17sp"
             android:textStyle="bold" />
 
