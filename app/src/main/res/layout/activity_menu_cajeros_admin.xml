@@ -68,6 +68,7 @@
         android:layout_height="51dp"
         android:layout_marginTop="16dp"
         android:background="#9C704F"
+        android:src="?attr/actionModeCloseDrawable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"

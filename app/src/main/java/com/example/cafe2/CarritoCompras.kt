@@ -35,6 +35,8 @@ class CarritoCompras : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_carrito_compras)
 
+        hora=""
+        fecha=""
         //sacamos el email para mandarlo a otro lados
         intent.extras
         val bundle = intent.extras
@@ -112,18 +114,22 @@ class CarritoCompras : AppCompatActivity() {
 
         //PAGAR
         pagar.setOnClickListener {
-            intent.extras
-            val bundle = intent.extras
-            val email:String? = bundle?.getString("email")
+            if (fecha.toString().isEmpty() && hora.toString().isEmpty()) {
+                Toast.makeText(this, "Selecciona una Fecha y Hora de Entrega", Toast.LENGTH_SHORT).show()
+            }else{
+                intent.extras
+                val bundle = intent.extras
+                val email: String? = bundle?.getString("email")
 
-            val intent = Intent(this, ConfirmarPagoConTarjeta::class.java).apply {
-                putExtra("email",email)
-                putExtra("fecha",fecha)
-                putExtra("hora",hora)
-                putExtra("arreglo",userArrayList)
-            }
-            startActivity(intent)
+                val intent = Intent(this, ConfirmarPagoConTarjeta::class.java).apply {
+                    putExtra("email", email)
+                    putExtra("fecha", fecha)
+                    putExtra("hora", hora)
+                    putExtra("arreglo", userArrayList)
                 }
+                startActivity(intent)
+            }
+        }
             }
 
     private fun showTimePickerDialog() {
@@ -137,7 +143,7 @@ class CarritoCompras : AppCompatActivity() {
     }
 
     private fun showDatePickerDialog() {
-        val datePicker = FechaDateFragment { day, month, year -> onDateSelected(day, month, year) }
+        val datePicker = FechaDateFragment { day, month, year -> onDateSelected(day, month+1, year) }
         datePicker.show(supportFragmentManager, "datePicker")
     }
 

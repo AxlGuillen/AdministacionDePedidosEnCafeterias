@@ -55,7 +55,7 @@
         android:textColor="#816456"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/imgbtnNotificaciones"
-        app:layout_constraintHorizontal_bias="0.703"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imgbtnFlecha"
         app:layout_constraintTop_toTopOf="parent" />
 
