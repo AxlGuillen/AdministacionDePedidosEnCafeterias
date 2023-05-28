@@ -44,6 +44,7 @@ class AuthActivity : AppCompatActivity() {
     private fun setup() {
         title = "Autentificacion"
 
+
         signUpButton.setOnClickListener {
             showRegistrar()
         }
@@ -87,9 +88,12 @@ class AuthActivity : AppCompatActivity() {
                                     val homeIntent = Intent(this, inicio_cajero::class.java).apply {
                                         putExtra("email",emailLogin.text.toString())
                                     }
-                        } else {
-                            showAlert()
+                                    startActivity(homeIntent)
+                                }
+                            }
                         }
+                        else { showAlert() }
+
                     }
             }
         }
