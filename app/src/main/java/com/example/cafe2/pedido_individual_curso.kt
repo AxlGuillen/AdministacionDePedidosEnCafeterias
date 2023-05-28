@@ -70,12 +70,18 @@ class pedido_individual_curso : AppCompatActivity() {
                         putExtra("email",email)
                     }
                     startActivity(perfilIntent)
+                    finish()
                 }
                 }
             }
             else{
                 val a = db.collection("Pedidos").document(pedido?.numero.toString())
                 a.update("estado","entregado")
+                val perfilIntent = Intent(this, inicio_cajero::class.java).apply {
+                    putExtra("email",email)
+                }
+                startActivity(perfilIntent)
+                finish()
             }
         }
 

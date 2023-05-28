@@ -30,7 +30,7 @@ class AuthActivity : AppCompatActivity() {
 
         firebaseAuth = Firebase.auth
 
-        var correo: TextView = findViewById(R.id.emailLogin)
+        val correo: TextView = findViewById (R.id.emailLogin)
 
         btnRestablecerContraseña.setOnClickListener {
             sendPasswordReset(correo.text.toString())
@@ -40,28 +40,24 @@ class AuthActivity : AppCompatActivity() {
         setup()
 
     }
-
-    private fun setup() {
+    private fun setup(){
         title = "Autentificacion"
+
 
 
         signUpButton.setOnClickListener {
             showRegistrar()
         }
 
-        loginButton.setOnClickListener {
-            Log.i("Boton de login clickeadoooo", "Mensaje de prueba")
-            if (emailLogin.text.isNotEmpty() && passwordEditText.text.isNotEmpty()) {
+        loginButton.setOnClickListener{
+            Log.i("Boton de login clickeadoooo","Mensaje de prueba")
+            if ( emailLogin.text.isNotEmpty() && passwordEditText.text.isNotEmpty()){
                 //Aqui autentificamos que este el usuario dado de alta en la base de datos
                 FirebaseAuth.getInstance()
-                    .signInWithEmailAndPassword(
-                        emailLogin.text.toString(),
-                        passwordEditText.text.toString()
-                    )
-                    .addOnCompleteListener {
-                        if (it.isSuccessful) {
+                    .signInWithEmailAndPassword(emailLogin.text.toString(),passwordEditText.text.toString())
+                    .addOnCompleteListener{
+                        if (it.isSuccessful){
                             //aqui accedemos a la base de datos para checar el rol
-
                             val Rol = db.collection("Usuarios").document(emailLogin.text.toString()).get().addOnSuccessListener {
                                 val Rol = (it.get("Rol") as String?).toString()
                                 val Estado = (it.get("Estado") as Boolean?)
@@ -100,52 +96,59 @@ class AuthActivity : AppCompatActivity() {
     }
 
 
-    private fun showAlert() {
+
+
+    private fun showAlert(){
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
         builder.setMessage("Se ha producido un error autenticando al usuario")
-        builder.setPositiveButton("Aceptar", null)
+        builder.setPositiveButton("Aceptar",null)
         val dialog: AlertDialog = builder.create()
         dialog.show()
 
     }
 
 
-    private fun showHome(email: String) {
+    private fun showHome(email:String){
 
         val homeIntent = Intent(this, inicio_Admin::class.java).apply {
-            putExtra("email", email)
+            putExtra("email",email)
         }
         startActivity(homeIntent)
 
     }
 
-    private fun showRegistrar() {
-        val RegistrarIntent = Intent(this, RegistrarActivity::class.java)
+    private fun showRegistrar(){
+        val RegistrarIntent = Intent (this, RegistrarActivity::class.java)
         startActivity(RegistrarIntent)
     }
 
-    private fun sendPasswordReset(email: String) {
-        if (email.toString().isNotEmpty()) {
-            firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
+            private fun sendPasswordReset(email: String) {
+                if (email.toString().isNotEmpty()) {
+                    firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
 
-                if (task.isSuccessful) {
+                        if (task.isSuccessful) {
+                            Toast.makeText(
+                                baseContext,
+                                "Correo de recuperacion enviado.",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        } else {
+                            Toast.makeText(
+                                baseContext,
+                                "Error al enviar el email.",
+                                Toast.LENGTH_LONG
+                            )
+                                .show()
+                        }
+                    }
+                } else {
                     Toast.makeText(
                         baseContext,
-                        "Correo de recuperacion enviado.",
+                        "Ingresa un Email Valido",
                         Toast.LENGTH_LONG
                     ).show()
-                } else {
-                    Toast.makeText(baseContext, "Error al enviar el email.", Toast.LENGTH_LONG)
-                        .show()
                 }
             }
-        } else {
-            Toast.makeText(
-                baseContext,
-                "Ingresa un Email Valido",
-                Toast.LENGTH_LONG
-            ).show()
-        }
+
     }
-}
