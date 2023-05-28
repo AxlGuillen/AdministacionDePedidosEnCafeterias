@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F6E8D9"
     tools:context=".menu_clientes_admin">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,13 +24,15 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="CAJEROS"
+        android:layout_width="128dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="16dp"
+        android:text="LISTA CAJEROS"
+        android:textColor="#816456"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/imgbtnNotificaciones"
-        app:layout_constraintHorizontal_bias="0.229"
+        app:layout_constraintHorizontal_bias="0.274"
         app:layout_constraintStart_toEndOf="@+id/imgbtnFlecha"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,12 +41,13 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#00FF5722"
+        android:background="#9C704F"
+        app:tint="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/imgbtnPerfil"
-        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintHorizontal_bias="0.943"
         app:layout_constraintStart_toEndOf="@+id/imgbtnFlecha"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/notificacionbueno" />
+        app:srcCompat="@android:drawable/ic_popup_reminder" />
 
     <ImageButton
         android:id="@+id/imgbtnPerfil"
@@ -50,21 +55,25 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="#00FF5722"
+        android:background="#9C704F"
 
+        app:tint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/perfilbueno" />
 
     <ImageButton
         android:id="@+id/imgbtnFlecha"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="54dp"
+        android:layout_height="51dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#00FF5722"
+        android:background="#9C704F"
+        android:src="?attr/actionModeCloseDrawable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white"
         tools:srcCompat="?attr/actionModeCloseDrawable" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
@@ -72,7 +81,7 @@
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:backgroundTint="#919191"
+        app:backgroundTint="#877364"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -83,6 +92,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
         android:background="#00FFFFFF"
+        app:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.857"
@@ -97,6 +107,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
         android:background="#00FFFFFF"
+        app:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.617"
@@ -111,6 +122,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
         android:background="#00FFFFFF"
+        app:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.368"
@@ -125,6 +137,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="5dp"
         android:background="#00FFFFFF"
+        app:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.128"
@@ -138,7 +151,8 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#00FF9800"
+        android:background="#9C704F"
+        app:tint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.605"
         app:layout_constraintStart_toStartOf="parent"

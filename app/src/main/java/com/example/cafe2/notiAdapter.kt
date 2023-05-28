@@ -1,14 +1,10 @@
 package com.example.cafe2
 
-import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.storage.FirebaseStorage
-import java.io.File
 
 class notiAdapter (private  val userList: ArrayList<notiModel>): RecyclerView.Adapter<notiAdapter.MyViewHolder>(){
 
@@ -34,7 +30,7 @@ class notiAdapter (private  val userList: ArrayList<notiModel>): RecyclerView.Ad
 
     public class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val Titulo: TextView = itemView.findViewById(R.id.view_titulo)
-        val Fecha: TextView = itemView.findViewById(R.id.view_fecha)
+        val Fecha: TextView = itemView.findViewById(R.id.view_correo)
         val Descripcion: TextView = itemView.findViewById(R.id.viewDesc)
     }
 }

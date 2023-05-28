@@ -1,7 +1,6 @@
 package com.example.cafe2
 
 import android.content.Context
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +29,7 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
 
 
         init{
-            nombre = view.findViewById(R.id.view_nombre)
+            nombre = view.findViewById(R.id.view_status)
             precio = view.findViewById(R.id.view_precio)
             desc = view.findViewById(R.id.viewDesc)
         }

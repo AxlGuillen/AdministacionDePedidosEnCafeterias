@@ -3,7 +3,7 @@ package com.example.cafe2
 import android.os.Parcel
 import android.os.Parcelable
 
-data class model_pedido_ind(val Producto:String?= null, val Detalles:String?=null, val Precio:String?= null, val Cantidad:String?= null) :
+data class model_pedido_ind(val email:String?= null, val estado:String?=null , val numero:String?=null, val status:String?=null) :
     Parcelable {
 
     constructor(parcel: Parcel) : this(
@@ -15,10 +15,10 @@ data class model_pedido_ind(val Producto:String?= null, val Detalles:String?=nul
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(Producto)
-        parcel.writeString(Detalles)
-        parcel.writeString(Precio)
-        parcel.writeString(Cantidad)
+        parcel.writeString(email)
+        parcel.writeString(estado)
+        parcel.writeString(numero)
+        parcel.writeString(status)
     }
 
     override fun describeContents(): Int {

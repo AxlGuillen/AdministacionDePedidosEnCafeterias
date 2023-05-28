@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF3D0"
+    tools:context=".MotivoDeCancelacion">
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="259dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="64dp"
+        android:text="PEDIDO CANCELADO"
+        android:textColor="#816456"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.631"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="416dp"
+        android:layout_height="324dp"
+        android:background="#816456"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="413dp"
+        android:layout_height="359dp"
+        android:background="@drawable/fondo_texto"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.545">
+
+        <EditText
+            android:id="@+id/motivo"
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:layout_marginTop="76dp"
+            android:ems="10"
+            android:hint="Introduce el motivo de cancelacion"
+            android:inputType="text"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/enviar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="80dp"
+            android:backgroundTint="#9C704F"
+            android:text="Enviar"
+            app:icon="@drawable/publicar" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

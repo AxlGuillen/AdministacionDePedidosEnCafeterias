@@ -17,8 +17,9 @@ class adapter_pedidos_activos_cliente (private  val userList: ArrayList<model_pe
 
     override fun onBindViewHolder(holder: adapter_pedidos_activos_cliente.MyViewHolder, position: Int) {
         val user : model_pedidos_activos_cliente = userList[position]
-        holder.Producto.text = user.Producto
-        holder.Fecha.text = user.Fecha
+        holder.idPedido.text = user.numero
+        holder.status.text = user.status
+        holder.correo.text = user.email
 
         //2 Se hace el evento de picarle al boton
         holder.itemView.setOnClickListener {
@@ -32,8 +33,9 @@ class adapter_pedidos_activos_cliente (private  val userList: ArrayList<model_pe
     }
 
     public class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val Producto: TextView = itemView.findViewById(R.id.nombre_Productos)
-        val Fecha: TextView = itemView.findViewById(R.id.view_fecha)
+        val idPedido: TextView = itemView.findViewById(R.id.idProducto)
+        val status: TextView = itemView.findViewById(R.id.view_status)
+        val correo: TextView = itemView.findViewById(R.id.view_correo)
     }
 
 }

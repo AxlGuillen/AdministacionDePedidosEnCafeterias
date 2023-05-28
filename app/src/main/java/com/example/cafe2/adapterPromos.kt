@@ -1,6 +1,5 @@
 package com.example.cafe2
 
-import android.content.Context
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
@@ -48,7 +47,7 @@ class adapterPromos(private  val userList: ArrayList<menuModel>): RecyclerView.A
     }
 
     public class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val Nombre: TextView = itemView.findViewById(R.id.view_nombre)
+        val Nombre: TextView = itemView.findViewById(R.id.view_status)
         val Precio: TextView = itemView.findViewById(R.id.view_precio)
         val Descripcion: TextView = itemView.findViewById(R.id.viewDesc)
         val img: ImageView = itemView.findViewById(R.id.imgComida)

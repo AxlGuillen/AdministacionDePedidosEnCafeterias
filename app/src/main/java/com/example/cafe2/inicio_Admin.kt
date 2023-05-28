@@ -42,7 +42,7 @@ class inicio_Admin : AppCompatActivity() {
 
         //VENTAS
         btnVentas.setOnClickListener {
-            val intent = Intent(this, menu_historial::class.java).apply {
+            val intent = Intent(this, pedidos_activos_cliente::class.java).apply {
                 putExtra("email",email)
             }
             startActivity(intent)
@@ -58,7 +58,7 @@ class inicio_Admin : AppCompatActivity() {
 
         //MENU
         btnMenu.setOnClickListener {
-            val menuIntent = Intent(this, inicio_Admin::class.java).apply {
+            val menuIntent = Intent(this, menu_admin::class.java).apply {
                 putExtra("email",email)
             }
             startActivity(menuIntent)

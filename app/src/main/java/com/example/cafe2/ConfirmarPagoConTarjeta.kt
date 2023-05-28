@@ -27,6 +27,7 @@ class ConfirmarPagoConTarjeta : AppCompatActivity() {
 
     private lateinit var  userArrayList:ArrayList<model_Carrito>
     private lateinit var  db : FirebaseFirestore
+    var numero = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +42,9 @@ class ConfirmarPagoConTarjeta : AppCompatActivity() {
         }
 
         button5.setOnClickListener {
-            validar()
 
+            validar()
+            primary()
         }
     }
 
@@ -138,6 +140,26 @@ class ConfirmarPagoConTarjeta : AppCompatActivity() {
             true
         }
     }
+
+
+    private  fun primary(){
+
+        db.collection("Pedidos")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    Log.d("Pruebaaaaaaaaaaa", "${document.id} => ${document.data}")
+                    numero = document.id
+                }
+                numero = (numero.toInt()+1).toString()
+                Log.d("PRUEBAAAAAAAAAAAAAAAA", "ESTE ES EL NUMERO $numero ")
+                escribirBorrar()
+            }
+            .addOnFailureListener { exception ->
+                Log.d("Pruebaaaaaaaaaaa", "Error getting documents: ", exception)
+            }
+    }
+
     private fun escribirBorrar(){
 
         intent.extras
@@ -146,11 +168,11 @@ class ConfirmarPagoConTarjeta : AppCompatActivity() {
         val fecha:String? = bundle?.getString("fecha")
         val hora:String? = bundle?.getString("hora")
 
+
         val citiesRef = db.collection("Pedidos")
         val query = citiesRef.limitToLast(1)
         var numero = query
         Log.d("PRUEBAAAAAAAAAAAAAAAA", "ESTE ES EL NUMERO $numero ")
-
 
 
 
@@ -162,18 +184,27 @@ class ConfirmarPagoConTarjeta : AppCompatActivity() {
                 val Precio = game.Precio
 
 
-
-
                 //GENERA EL PEDIDO
-                db.collection("Pedidos/${numero.toString()}/Productos").document(NombreProducto.toString()).set(
+                db.collection("Pedidos").document(numero.toString()).set(
+                    hashMapOf(  "email" to email,
+                                "estado" to "pendiente",
+                                "fecha" to fecha,
+                                "numero" to numero,
+                                "status" to "procesando"
+                    )
+                )
+
+                db.collection("Pedidos/${numero}/Productos").document(NombreProducto.toString()).set(
                     hashMapOf(  "email" to email,
                         "fecha" to fecha,
+                        "hora" to hora,
                         "estado" to "pendiente",
                         "Cantidad" to Cantidad,
                         "Comentarios" to Comentarios,
                         "Descripcion" to Descripcion,
                         "NombreProducto" to NombreProducto,
-                        "Precio" to Precio
+                        "Precio" to Precio,
+                        "idPedido" to numero
                     )
                 ).addOnCompleteListener{if (it.isSuccessful){
                     Toast.makeText(this,"Pedido realizado.", Toast.LENGTH_LONG).show()
@@ -222,5 +253,98 @@ class ConfirmarPagoConTarjeta : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    private fun validar(){
+        val result = arrayOf(validarTarjetaCredito(),validarNombre(),validarMes(),validarAño(),validarDigitos())
+
+        if(false in result){
+            return
+        }
+        escribirBorrar()
+        Toast.makeText(this,"Exitoso",Toast.LENGTH_SHORT).show()
+    }
+
+    private fun validarAño(): Boolean {
+        val año = editTextNumber4?.text.toString()
+        val tarjetaRegex = Pattern.compile(
+            "[0-9]{4}$"//VALIDA QUE SEA DE 3 DIGITOS
+        )
+        return if(año.isEmpty()){
+            editTextNumber4.error = "Llene el campo por favor"
+            false
+        } else if(!tarjetaRegex.matcher(año).matches()){
+            editTextNumber4.error = "Tiene que ser 4 digitos"
+            false
+        }else{
+            editTextNumber4.error = null
+            true
+        }
+    }
+
+    private fun validarMes(): Boolean {
+        val mes = editTextNumber3?.text.toString()
+        val tarjetaRegex = Pattern.compile(
+            "[0-9]{2}$"//VALIDA QUE SEA DE 3 DIGITOS
+        )
+        return if(mes.isEmpty()){
+            editTextNumber3.error = "Llene el campo por favor"
+            false
+        } else if(!tarjetaRegex.matcher(mes).matches()){
+            editTextNumber3.error = "Tiene que ser dos digitos"
+            false
+        }else{
+            editTextNumber3.error = null
+            true
+        }
+    }
+
+    private fun validarNombre(): Boolean {
+
+        return if(editTextText3.text.toString().isEmpty()){
+            editTextText3.error = "Llene el campo por favor"
+            false
+        } else{
+            editTextText3.error = null
+            true
+        }
+    }
+
+    private fun validarDigitos(): Boolean {
+        val digitos = editTextNumber5?.text.toString()
+        val tarjetaRegex = Pattern.compile(
+            "[0-9]{3}$"//VALIDA QUE SEA DE 3 DIGITOS
+        )
+        return if(digitos.isEmpty()){
+            editTextNumber5.error = "Llene el campo por favor"
+            false
+        } else if(!tarjetaRegex.matcher(digitos).matches()){
+            editTextNumber5.error = "Tienen que ser 3 digitos"
+            false
+        }else{
+            editTextNumber5.error = null
+            true
+        }
+    }
+
+
+    private fun validarTarjetaCredito() : Boolean{
+        val tarjetaC = editTextNumber?.text.toString()
+        val tarjetaRegex = Pattern.compile(
+            //"5[1-5][0-9]{14}$"+//5555555555554444 TARJETAS MASTERCARD
+                    //"^3[47][0-9]{13}\$"+//4222222222222 TARJETAS VISA
+                    "[0-9]{16}"//+
+                    //"(?=\\S+$)"
+        )
+        return if(tarjetaC.isEmpty()){
+            editTextNumber.error = "Llene el campo por favor"
+            false
+        } else if(!tarjetaRegex.matcher(tarjetaC).matches()){
+            editTextNumber.error = "No es una tarjeta valida"
+            false
+        }else{
+            editTextNumber.error = null
+            true
+        }
     }
 }
