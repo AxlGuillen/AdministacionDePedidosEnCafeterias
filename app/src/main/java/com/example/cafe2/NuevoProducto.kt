@@ -47,6 +47,8 @@ class NuevoProducto : AppCompatActivity() {
     }
 
     private fun AgregarProducto(){
+        val bundle = intent.extras
+        val email: String? = bundle?.getString("email")
         title = "Agregar Producto"
 
         //Declaramos la variable de nombre, precio, descripcion y falta imagen
@@ -65,6 +67,7 @@ class NuevoProducto : AppCompatActivity() {
             ).addOnCompleteListener{if (it.isSuccessful){
                 val OperacionExitosaIntent = Intent(this, OperacionExitosa::class.java).apply {
                     putExtra("Mensaje","Añadido exitosamente.")
+                    putExtra("email",email)
                 }
 
                 subirImagen()
