@@ -44,102 +44,18 @@ class ConfirmarPagoConTarjeta : AppCompatActivity() {
         button5.setOnClickListener {
 
             validar()
-            primary()
-        }
-    }
 
-    private fun validar(){
-        val result = arrayOf(validarTarjetaCredito(),validarNombre(),validarMes(),validarAño(),validarDigitos())
-
-        if(false in result){
-            return
-        }
-        escribirBorrar()
-        Toast.makeText(this,"Exitoso",Toast.LENGTH_SHORT).show()
-    }
-
-    private fun validarAño(): Boolean {
-        val año = editTextNumber4?.text.toString()
-        val tarjetaRegex = Pattern.compile(
-            "[0-9]{4}$"//VALIDA QUE SEA DE 3 DIGITOS
-        )
-        return if(año.isEmpty()){
-            editTextNumber3.error = "Llene el campo por favor"
-            false
-        } else if(!tarjetaRegex.matcher(año).matches()){
-            editTextNumber3.error = "Tiene que ser 4 digitos"
-            false
-        }else{
-            editTextNumber3.error = null
-            true
-        }
-    }
-
-    private fun validarMes(): Boolean {
-        val mes = editTextNumber3?.text.toString()
-        val tarjetaRegex = Pattern.compile(
-            "[0-9]{2}$"//VALIDA QUE SEA DE 3 DIGITOS
-        )
-        return if(mes.isEmpty()){
-            editTextNumber3.error = "Llene el campo por favor"
-            false
-        } else if(!tarjetaRegex.matcher(mes).matches()){
-            editTextNumber3.error = "Tiene que ser dos digitos"
-            false
-        }else{
-            editTextNumber3.error = null
-            true
-        }
-    }
-
-    private fun validarNombre(): Boolean {
-
-        return if(editTextText3.text.toString().isEmpty()){
-            editTextNumber.error = "Llene el campo por favor"
-            false
-        } else{
-            editTextNumber.error = null
-            true
-        }
-    }
-
-    private fun validarDigitos(): Boolean {
-        val digitos = editTextNumber5?.text.toString()
-        val tarjetaRegex = Pattern.compile(
-            "[0-9]{3}$"//VALIDA QUE SEA DE 3 DIGITOS
-        )
-        return if(digitos.isEmpty()){
-            editTextNumber.error = "Llene el campo por favor"
-            false
-        } else if(!tarjetaRegex.matcher(digitos).matches()){
-            editTextNumber.error = "Tienen que ser 3 digitos"
-            false
-        }else{
-            editTextNumber.error = null
-            true
         }
     }
 
 
-    private fun validarTarjetaCredito() : Boolean{
-    val tarjetaC = editTextNumber?.text.toString()
-        val tarjetaRegex = Pattern.compile(
-            "5[1-5][0-9]{14}$"+//5555555555554444 TARJETAS MASTERCARD
-                    "^3[47][0-9]{13}\$"+//4222222222222 TARJETAS VISA
-                    "[0-9]{16}"+
-                    "(?=\\S+$)"
-        )
-        return if(tarjetaC.isEmpty()){
-            editTextNumber.error = "Llene el campo por favor"
-            false
-        } else if(!tarjetaRegex.matcher(tarjetaC).matches()){
-            editTextNumber.error = "No es una tarjeta valida"
-            false
-        }else{
-            editTextNumber.error = null
-            true
-        }
-    }
+
+
+
+
+
+
+
 
 
     private  fun primary(){
@@ -167,13 +83,6 @@ class ConfirmarPagoConTarjeta : AppCompatActivity() {
         val email:String? = bundle?.getString("email")
         val fecha:String? = bundle?.getString("fecha")
         val hora:String? = bundle?.getString("hora")
-
-
-        val citiesRef = db.collection("Pedidos")
-        val query = citiesRef.limitToLast(1)
-        var numero = query
-        Log.d("PRUEBAAAAAAAAAAAAAAAA", "ESTE ES EL NUMERO $numero ")
-
 
 
             for (game in userArrayList) {
@@ -261,7 +170,7 @@ class ConfirmarPagoConTarjeta : AppCompatActivity() {
         if(false in result){
             return
         }
-        escribirBorrar()
+        primary()
         Toast.makeText(this,"Exitoso",Toast.LENGTH_SHORT).show()
     }
 
