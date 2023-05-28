@@ -29,6 +29,12 @@ import kotlinx.android.synthetic.main.activity_ver_producto.viewPrecio
 import kotlinx.android.synthetic.main.lista_noti_card.viewDesc
 import java.io.File
 import android.view.View;
+import androidx.core.util.PatternsCompat
+import kotlinx.android.synthetic.main.activity_registrar.edadRegistrarRegistrarCajero
+import kotlinx.android.synthetic.main.activity_registrar.emailRegistrarRegistrarCajero
+import kotlinx.android.synthetic.main.activity_registrar.nombreRegistrarRegistrarCajero
+import kotlinx.android.synthetic.main.activity_registrar.passRegistrarRegistrarCajero
+import kotlinx.android.synthetic.main.activity_registrar.telefonoRegistrarRegistrarCajero
 import kotlinx.android.synthetic.main.activity_ver_producto.textView16
 
 class VerProducto : AppCompatActivity() {
@@ -99,7 +105,7 @@ class VerProducto : AppCompatActivity() {
             val Comentarios = textComen.text.toString()
             val Cantidad = numberCantidad.text.toString()
 
-            if (producto != null){
+            if (producto != null && validarDatos()){
                 db.collection("Carrito/${email}/Productos").document(NombreProducto).set(
                     hashMapOf(  "NombreProducto" to NombreProducto,
                                 "Precio" to Precio,
@@ -120,7 +126,7 @@ class VerProducto : AppCompatActivity() {
                 }
             }
 
-            if (promocion != null){
+            if (promocion != null && validarDatos()){
                 db.collection("Carrito/${email}/Productos").document(NombreProducto).set(
                     hashMapOf(  "NombreProducto" to NombreProducto,
                         "Precio" to Precio,
@@ -141,4 +147,19 @@ class VerProducto : AppCompatActivity() {
             }
         }
     }
+    private fun validarDatos(): Boolean {
+        //&& passRegistrar.text.isNotEmpty()
+        var isValid = true
+
+        //se valida que la contraseña no este vacia
+        if(numberCantidad.text.isEmpty()){
+            isValid = false;
+            numberCantidad.error = "Por favor indica la cantidad"
+
+        } else numberCantidad.error = null
+
+        // este es el valor que indica si los datos fueron validados o no
+        return isValid
+    }
+
 }
