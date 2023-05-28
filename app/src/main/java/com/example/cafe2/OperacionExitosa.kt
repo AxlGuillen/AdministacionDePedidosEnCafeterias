@@ -24,20 +24,12 @@ class OperacionExitosa : AppCompatActivity() {
         val email: String? = bundle?.getString("email")
         textMensaje.text = mensaje
         obtenerRol()
-        Log.d("OBSERVAMEEEEEEEEEEEEEEEEEEEEEE", "PANTALLAAAAAAAAAA")
-        Log.d("OBSERVAMEEEEEEEEEEEEEEEEEEEEEE", "PANTALLAAAAAAAAAA")
-        Log.d("OBSERVAMEEEEEEEEEEEEEEEEEEEEEE", "PANTALLAAAAAAAAAA")
-        Log.d("OBSERVAMEEEEEEEEEEEEEEEEEEEEEE", "PANTALLAAAAAAAAAA")
-        Log.d("OBSERVAMEEEEEEEEEEEEEEEEEEEEEE", "PANTALLAAAAAAAAAA")
+
         btnSi.setOnClickListener {
             Log.d("Este es el Rol", "ESTE ES EL ROL: $Rol")
             if(Rol.equals("Administrador")){
                     val homeAdmIntent = Intent(this, inicio_Admin::class.java).apply {
                         putExtra("email",email)
-                        Log.d("OBSERVAMEEEEEEEEEEEEEEEEEEEEEE", "Botoooooooooooon admiiiiiiiiiiiiin")
-                        Log.d("OBSERVAMEEEEEEEEEEEEEEEEEEEEEE", "Botoooooooooooon admiiiiiiiiiiiiin")
-
-                        Log.d("OBSERVAMEEEEEEEEEEEEEEEEEEEEEE", "Botoooooooooooon admiiiiiiiiiiiiin")
 
                     }
                     startActivity(homeAdmIntent)

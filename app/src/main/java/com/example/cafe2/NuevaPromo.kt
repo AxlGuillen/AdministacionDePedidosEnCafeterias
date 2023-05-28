@@ -70,6 +70,8 @@ class NuevaPromo : AppCompatActivity() {
     }
 
     private fun AgregarPromocion(){
+        val bundle = intent.extras
+        val email: String? = bundle?.getString("email")
         title = "Agregar Promocion"
 
         //Declaramos la variable de nombre, precio, descripcion y falta imagen
@@ -88,6 +90,7 @@ class NuevaPromo : AppCompatActivity() {
             subirImagen();
             val OperacionExitosaIntent = Intent(this, OperacionExitosa::class.java).apply {
                 putExtra("Mensaje","Promocion añadida.")
+                putExtra("email",email)
 
             }
             startActivity(OperacionExitosaIntent)

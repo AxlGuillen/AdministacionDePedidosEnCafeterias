@@ -77,7 +77,9 @@ class promos_admin : AppCompatActivity() {
 
         //AGREGAR PROMO
         btnAgregarProducto.setOnClickListener {
-            val menuIntent = Intent(this, NuevaPromo::class.java)
+            val menuIntent = Intent(this, NuevaPromo::class.java).apply {
+                putExtra("email",email)
+            }
             startActivity(menuIntent)
         }
 
