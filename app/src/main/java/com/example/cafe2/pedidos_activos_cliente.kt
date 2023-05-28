@@ -58,7 +58,7 @@ class pedidos_activos_cliente : AppCompatActivity() {
             val intent = Intent(this,pedido_individual_curso::class.java)
             intent.putExtra("Pedido", it)
             intent.putExtra("email",email)
-
+            intent.putExtra("Rol",Rol)
             startActivity(intent)
             }
             if (porAceptar.equals("porAceptar")) {
