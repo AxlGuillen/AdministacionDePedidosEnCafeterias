@@ -6,7 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
-    card_view:background="@drawable/style_borde_edittext">
+    card_view:cardCornerRadius="20dp"
+    card_view:cardElevation="6dp"
+    card_view:contentPadding="4dp"
+    >
 
     <RelativeLayout
         android:background="@drawable/style_borde_edittext"
@@ -42,7 +45,6 @@
             android:id="@+id/view_precio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/view_nombre"
             android:layout_toEndOf="@+id/imgComida"
             android:layout_toRightOf="@+id/imgComida"
 

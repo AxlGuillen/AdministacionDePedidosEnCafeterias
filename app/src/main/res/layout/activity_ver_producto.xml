@@ -4,32 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF3D0"
     tools:context=".VerProducto">
 
     <TextView
         android:id="@+id/textTitulo5"
-        android:layout_width="113dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="32dp"
-        android:text="Añadir al carrito"
-        android:textSize="16sp"
+        android:layout_width="272dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="24dp"
+        android:text="AÑADIR AL CARRITO"
+        android:textColor="#816456"
+        android:textSize="28dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.332"
+        app:layout_constraintHorizontal_bias="0.884"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.557" />
 
     <Button
         android:id="@+id/btnRegresar7"
-        android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_width="68dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
-        android:backgroundTint="#FF5722"
+        android:backgroundTint="#9C704F"
         app:icon="?attr/homeAsUpIndicator"
         app:layout_constraintBottom_toBottomOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -118,7 +121,7 @@
         android:id="@+id/btnAdd"
         android:layout_width="132dp"
         android:layout_height="55dp"
-        android:backgroundTint="#FF5722"
+        android:backgroundTint="#9C704F"
         android:text="Añadir al carrito"
         android:textSize="12sp"
         app:icon="@drawable/carrito_compras"
@@ -158,9 +161,9 @@
 
     <TextView
         android:id="@+id/viewDescripcion"
-        android:background="@drawable/style_borde_edittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/style_borde_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.141"

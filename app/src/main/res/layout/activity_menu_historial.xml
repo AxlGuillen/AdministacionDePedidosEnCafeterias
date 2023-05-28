@@ -4,15 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF3D0"
     tools:context=".menu_historial">
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="84dp"
+        android:text="HISTORIAL"
+        android:textColor="#816456"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
     <Button
         android:id="@+id/btnRegresar6"
-        android:layout_width="66dp"
-        android:layout_height="48dp"
+        android:layout_width="70dp"
+        android:layout_height="52dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
-        android:backgroundTint="#737170"
+        android:backgroundTint="#9C704F"
         app:icon="?attr/homeAsUpIndicator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.075"
@@ -21,13 +36,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notiRecycler"
-        android:layout_width="409dp"
-        android:layout_height="610dp"
+        android:layout_width="374dp"
+        android:layout_height="620dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRegresar6"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.428" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
