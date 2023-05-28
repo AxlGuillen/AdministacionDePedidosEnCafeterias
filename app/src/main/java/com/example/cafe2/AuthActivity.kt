@@ -43,7 +43,9 @@ class AuthActivity : AppCompatActivity() {
     private fun setup(){
         title = "Autentificacion"
 
-        signUpButton.setOnClickListener{
+
+
+        signUpButton.setOnClickListener {
             showRegistrar()
         }
 
@@ -87,6 +89,7 @@ class AuthActivity : AppCompatActivity() {
                             }
                         }
                         else { showAlert() }
+
                     }
             }
         }
