@@ -17,6 +17,8 @@ import kotlinx.android.synthetic.main.activity_pedido_individual_curso.imageButt
 import kotlinx.android.synthetic.main.activity_pedido_individual_curso.imgbtnFlecha
 import kotlinx.android.synthetic.main.activity_pedido_individual_curso.view_id_pedido
 import kotlinx.android.synthetic.main.activity_pedido_individual_curso.view_status
+import android.view.View;
+import androidx.core.view.isVisible
 
 class pedido_individual_curso : AppCompatActivity() {
 
@@ -34,7 +36,14 @@ class pedido_individual_curso : AppCompatActivity() {
         val destinatario = pedido?.email.toString()
         val etiqueta = intent.extras?.getString("Etiqueta")
         val email = intent.extras?.getString("email")
+        val Rol = intent.extras?.getString("Rol")
 
+        if(Rol.equals("Cliente")){
+            Entregar.isVisible = false
+            Entregar.isFocusable = false
+            Cancelar.isVisible = false
+            Cancelar.isFocusable = false
+        }
         if (etiqueta.toString().equals("Aceptar/Cancelar")){
             Entregar.text = "Aceptar"
         }
