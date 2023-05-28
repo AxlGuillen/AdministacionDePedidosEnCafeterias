@@ -23,6 +23,7 @@ class AuthActivity : AppCompatActivity() {
 
     private val db = FirebaseFirestore.getInstance()
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var builder: AlertDialog.Builder
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +36,7 @@ class AuthActivity : AppCompatActivity() {
         btnRestablecerContraseña.setOnClickListener {
             sendPasswordReset(correo.text.toString())
         }
+        builder = AlertDialog.Builder(this)
 
         //setup
         setup()
@@ -70,6 +72,14 @@ class AuthActivity : AppCompatActivity() {
                                     }
                                     startActivity(homeIntent)
                                     finish()
+                                }
+                                if(Estado == false){
+                                builder.setTitle("Estas baneado")
+                                    .setCancelable(true)
+                                    .setMessage("Has inclumplido alguna de las normas de la aplicacion, para mas informacion consulte a la cafeteria")
+                                    .setPositiveButton("ok"){dialogInterface, It-> finish()}
+                                    .setNegativeButton("Cancelar"){dialogInterface,it->dialogInterface.cancel()}
+                                    .show()
                                 }
                                 //Mandamos a la pantalla principal de Administrador
                                 if(Rol.equals("Administrador")){
