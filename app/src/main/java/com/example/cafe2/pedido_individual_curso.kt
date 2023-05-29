@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_pedido_individual_curso.view_id_p
 import kotlinx.android.synthetic.main.activity_pedido_individual_curso.view_status
 import android.view.View;
 import androidx.core.view.isVisible
+import kotlinx.android.synthetic.main.activity_pedido_individual_curso.view_fecha
 
 class pedido_individual_curso : AppCompatActivity() {
 
@@ -27,6 +28,7 @@ class pedido_individual_curso : AppCompatActivity() {
     private lateinit var  adapter_pedido_individual: adapter_pedido_individual
     private lateinit var  db : FirebaseFirestore
     var Rol = ""
+    var Fecha = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,8 +52,17 @@ class pedido_individual_curso : AppCompatActivity() {
             Entregar.text = "Aceptar"
         }
 
+        db.collection("Pedidos").document(pedido?.numero.toString()).get().addOnSuccessListener {
+            Fecha = (it.get("fecha") as String?).toString()
+            Log.d("LEEEMEEEEEEEEEEEEEEEEEE", "PEDIDOOOOOOO: ${pedido?.numero.toString()}")
+            Log.d("LEEEMEEEEEEEEEEEEEEEEEE", "PEDIDOOOOOOO: ${pedido?.numero.toString()}")
+            Log.d("LEEEMEEEEEEEEEEEEEEEEEE", "PEDIDOOOOOOO: ${pedido?.numero.toString()}")
+            view_fecha.text= Fecha
+        }
         view_status.text = pedido?.email.toString()
         view_id_pedido.text = pedido?.numero.toString()
+
+
 
         recyclerView = findViewById(R.id.pedido_ind_recycler)
         recyclerView.layoutManager = LinearLayoutManager(this)
