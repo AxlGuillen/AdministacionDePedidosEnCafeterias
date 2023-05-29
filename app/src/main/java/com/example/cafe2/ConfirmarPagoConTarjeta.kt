@@ -222,13 +222,13 @@ class ConfirmarPagoConTarjeta : AppCompatActivity() {
     private fun validarDigitos(): Boolean {
         val digitos = editTextNumber5?.text.toString()
         val tarjetaRegex = Pattern.compile(
-            "[0-9]{3}$"//VALIDA QUE SEA DE 3 DIGITOS
+            "[0-9]{2}$"//VALIDA QUE SEA DE 3 DIGITOS
         )
         return if(digitos.isEmpty()){
             editTextNumber5.error = "Llene el campo por favor"
             false
         } else if(!tarjetaRegex.matcher(digitos).matches()){
-            editTextNumber5.error = "Tienen que ser 3 digitos"
+            editTextNumber5.error = "Tienen que ser 2 digitos"
             false
         }else{
             editTextNumber5.error = null
